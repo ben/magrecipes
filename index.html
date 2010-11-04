@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+<h1>Ingredients</h1>
+
+<ul>
+   {% for i in ingredients %}
+   <li>{{ i.name }}</li>
+   {% endfor %}
+</ul>
+<form action="/addingredient" method="post">
+   <div><input type="string" name="name"></div>
+   <div><input type="submit" value="Add Ingredient"></div>
+</form>
+
+<hr>
+<h1>Quantified Ingredients</h1>
+<ul>
+   {% for qi in quantifiedingredients %}
+   <li>{{ qi.ingredient.name }} &mdash; {{qi.quantity}}</li>
+   {% endfor %}
+</ul>
+<form action="/addquantifiedingredient" method="post">
+   <div>
+      <select name="ingredient">
+         {% for i in ingredients %}
+         <option value="{{ i.key }}">{{ i.name }}</option>
+         {% endfor %}
+      </select>
+   </div>
+   <div><input type="string" name="quantity"></div>
+   <div><input type="submit" value="Add Quantified Ingredient"></div>
+</form>
+
+<p><a href="{{ url }}">{{ url_linktext }}</a></p>
+{% endblock %}
