@@ -18,12 +18,14 @@
    <body>
       <div class="container">
          <header>
-            (Header)
+            <h1><a href="/">Magazine Recipes</a></h1>
+            <hr>
          </header>
          <section>
             {% block content %}
             {% endblock %}
          </section>
+         <p><a href="{{ url }}">{{ url_linktext }}</a></p>
    </body>
 </html>
       
