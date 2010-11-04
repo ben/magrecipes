@@ -27,13 +27,14 @@ class MainHandler(webapp.RequestHandler):
             url_linktext = "Login"
 
         ingredients = Ingredient.all()
-        quantifiedingredients = QuantifiedIngredient.all()
+        recipes = Recipe.all()
 
         template_values = {
             'url' : url,
             'url_linktext' : url_linktext,
             'ingredients' : ingredients,
-            'quantifiedingredients' : quantifiedingredients,
+            'ingredientrange' : range(3),
+            'recipes' : recipes,
             }
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         self.response.out.write(template.render(path, template_values))
@@ -47,21 +48,36 @@ class IngredientHandler(webapp.RequestHandler):
         i.put()
         self.redirect('/')
 
-class QuantifiedIngredientHandler(webapp.RequestHandler):
+class RecipeHandler(webapp.RequestHandler):
     @RequiresLoggedIn
     def post(self):
-        qi = QuantifiedIngredient()
-        qi.ingredient = Ingredient.get(self.request.get('ingredient'))
-        qi.quantity = self.request.get('quantity')
-        qi.put()
+        # Create a recipe
+        recipe = Recipe()
+        recipe.title = self.request.get('title')
+        recipe.instructions = self.request.get('instructions')
+        recipe.put()
+
+        # Create the ingredients and associate them
+        for i in xrange(1000):
+            ingredientkey = self.request.get('ingredient' + str(i))
+            if not ingredientkey: break
+            ing = Ingredient.get(ingredientkey)
+            if ing:
+                qi = QuantifiedIngredient()
+                qi.ingredient = ing
+                qi.quantity = self.request.get('amount' + str(i))
+                qi.note = self.request.get('note' + str(i))
+                qi.recipe = recipe
+                qi.put()
         self.redirect('/')
+                
 
 def main():
     application = webapp.WSGIApplication(
         [
             ('/', MainHandler),
             ('/addingredient', IngredientHandler),
-            ('/addquantifiedingredient', QuantifiedIngredientHandler),
+            ('/addrecipe', RecipeHandler),
             ],
                                          debug=True)
     util.run_wsgi_app(application)
