@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Magazine Recipes | {% block title %}{% endblock %}</title>
-      <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->    
-      <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/screen.css" />
-      <link rel="stylesheet" type="text/css" media="print" href="/stylesheets/print.css" />
-      <!--[if lt IE 8]>
-      <link rel="stylesheet" type="text/css" href="/stylesheets/ie.css" />
-      <![endif]-->
-      <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css" />
-      <!--<script type="text/javascript"
-              src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js">
-      </script>-->
-   </head>
-   <body>
-      <div class="container">
-         <header>
-            <h1><a href="/">Magazine Recipes</a></h1>
-            <hr>
-         </header>
-         <section>
-            {% block content %}
-            {% endblock %}
-         </section>
-         <p><a href="{{ url }}">{{ url_linktext }}</a></p>
-   </body>
+  <head>
+    <title>Magazine Recipes | {% block title %}{% endblock %}</title>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->    
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/screen.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/static/print.css" />
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" type="text/css" href="/static/ie.css" />
+        <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/static/custom.css" />
+    <!--<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js">
+        </script>-->
+    <script type="text/javascript" src="/static/site.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav><ul>
+          <li><a href="{{ url }}">{{ url_linktext }}</a></li>
+          <li>(Select Month)</li>
+          <li>By ingredient:</li>
+          <li>
+            <form action="/search_by_ingredient" method="post">
+              <input type="string" name="name" />
+              <input type="submit" style="display:none;" />
+            </form>
+          </li>
+        </ul></nav>
+        <h1><a href="/">Becky's Recipes</a></h1>
+        <hr />
+      </header>
+      <section>
+        {% block content %}
+        {% endblock %}
+      </section>
+    </div>
+  </body>
 </html>
-      
+
