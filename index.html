@@ -3,55 +3,22 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-<h1>Ingredients</h1>
-
-<ul>
-   {% for i in ingredients %}
-   <li>{{ i.name }}</li>
-   {% endfor %}
-</ul>
-<form action="/addingredient" method="post">
-   <div><input type="string" name="name"></div>
-   <div><input type="submit" value="Add Ingredient"></div>
-</form>
 
 <hr>
+<h1>Recipes for this month</h1>
 
-<h1>Create a recipe</h1>
-<form action="/addrecipe" method="post">
-   <h3>Title: <input type="string" name="title" size="35"></h3>
-   <h3>Ingredients</h3>
-   <table>
-      {% for i in ingredientrange %}
-      <tr>
-         <td><select name="ingredient{{i}}">
-               <option value="">-- Select an ingredient --</option>
-               {% for ing in ingredients %}
-               <option value="{{ ing.key }}">{{ ing.name }}</option>
-               {% endfor %}
-         </select></td>
-         <td>Amt: <input type="string" name="amount{{i}}" size="10"></td>
-         <td>Notes: <input type="string" name="note{{i}}" size="30"></td>
-      </tr>
-      {% endfor %}
-   </table>
-   <h3>Instructions</h3>
-   <textarea cols="80" name="instructions"></textarea>
-   <div><input type="submit" value="Create Recipe"></div>
-</form>
-
-
-<hr>
-<h1>Listing recipes</h1>
 {% for r in recipes %}
 <div>
-   <b>{{r.title}}</b> &mdash;
-   {% for qi in r.ingredients %}
-   {{qi.ingredient.name}} /
-   {{qi.quantity}}
-   ({{qi.note}})<br/>
+   <h2>{{r.title}}</h2>
+   <ul>
+     {% for qi in r.ingredients %}
+     <li>
+       {{qi.ingredient.name}} &mdash; {{qi.quantity}}
+       {% if qi.note %}({{qi.note}}){% endif %}
+     </li>
+     {% endfor %}
+   </ul>
    {{r.instructions}}
-   {% endfor %}
 </div>
 {% endfor %}
 
