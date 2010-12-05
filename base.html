@@ -19,19 +19,19 @@
   <body>
     <div class="container">
       <header>
-        <nav><ul>
-          <li><a href="{{ url }}">{{ url_linktext }}</a></li>
-          <li>(Select Month)</li>
-          <li>By ingredient:</li>
-          <li>
-            <form action="/search_by_ingredient" method="post">
-              <input type="string" name="name" />
-              <input type="submit" style="display:none;" />
-            </form>
-          </li>
-        </ul></nav>
+         <nav>
+            <ul>
+               <li>(Select Month)</li>
+               <li>By ingredient:</li>
+               <li>
+                  <form action="/search_by_ingredient" method="post">
+                     <input type="string" name="name" />
+                     <input type="submit" style="display:none;" />
+                  </form>
+               </li>
+            </ul>
+         </nav>
         <h1><a href="/">Becky's Recipes</a></h1>
-        <hr />
       </header>
       <section>
         {% block content %}
