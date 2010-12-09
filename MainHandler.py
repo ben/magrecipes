@@ -16,7 +16,6 @@ class MainHandler(webapp.RequestHandler):
 
         template_values = {
             'ingredients' : ingredients,
-            'ingredientrange' : range(3),
             'recipes' : recipes,
             }
         path = os.path.join(os.path.dirname(__file__), 'index.html')

@@ -11,7 +11,7 @@ from models import Ingredient, QuantifiedIngredient, Recipe
 ################################################################################
 class RecipeHandler(webapp.RequestHandler):
     def post(self):
-        if users.get_current_user():
+        if users.is_current_user_admin():
             # Create a recipe
             recipe = Recipe()
             recipe.title = self.request.get('title')
@@ -34,5 +34,8 @@ class RecipeHandler(webapp.RequestHandler):
                 
 
     def get(self):
+        if not users.get_current_user():
+            return self.redirect(users.create_login_url('/addrecipe'))
+
         path = os.path.join(os.path.dirname(__file__), 'addrecipe.html')
-        self.response.out.write(template.render(path, {}))
+        self.response.out.write(template.render(path, {'ingrange':range(3)}))
