@@ -6,6 +6,7 @@ from google.appengine.ext.webapp import template
 
 from models import Ingredient, Recipe
 
+import markdown
 
 
 ################################################################################
@@ -13,6 +14,9 @@ class MainHandler(webapp.RequestHandler):
     def get(self):
         ingredients = Ingredient.all()
         recipes = Recipe.all()
+
+        for r in recipes:
+            r.instructions = markdown.markdown(r.instructions)
 
         template_values = {
             'ingredients' : ingredients,
