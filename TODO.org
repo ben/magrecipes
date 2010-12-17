@@ -1,0 +1,11 @@
+* Must-have:
+  - Ingredients as auto-complete text fields.
+  - Months as bool vector
+  - Search by:
+    - month
+    - ingredient
+  - Controls for deleting/editing a recipe
+
+* Like-to-have:
+  - Partials
+  - Expando ingredient list (auto? + button?)

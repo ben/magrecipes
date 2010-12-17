@@ -1,4 +1,5 @@
 import os
+import logging
 
 from google.appengine.api import users
 from google.appengine.ext import webapp, db
@@ -14,21 +15,22 @@ class RecipeHandler(webapp.RequestHandler):
         if not users.is_current_user_admin():
             self.redirect('/')
 
-         # Create a recipe
-        recipe = Recipe()
-        recipe.title = self.request.get('title')
-        recipe.instructions = self.request.get('instructions')
-        recipe.put()
+        # Create a recipe
+        therecipe = Recipe()
+        therecipe.title = self.request.get('title')
+        therecipe.instructions = self.request.get('instructions')
+        therecipe.put()
 
-         # Create the ingredients and associate them
+        # Create the ingredients and associate them
         for i in xrange(1000):
             # Get the ingredient's name
             ingredient_name = self.request.get('ingredient' + str(i))
             if not ingredient_name: break
 
-             # Fetch the ingredient, or create a new one. This runs in a transaction
+            # Fetch the ingredient, or create a new one.
             ing_inst = Ingredient.all().filter('name =', ingredient_name).get()
             if ing_inst is None:
+                logging.debug("Creating ingredient '%s'" % ingredient_name)
                 ing_instance = Ingredient(name=ingredient_name)
                 ing_instance.put()
 
@@ -36,11 +38,11 @@ class RecipeHandler(webapp.RequestHandler):
             qi = QuantifiedIngredient(ingredient=ing_inst,
                                       quantity = self.request.get('amount'+str(i)),
                                       note = self.request.get('note'+str(i)),
-                                      recipe = recipe)
+                                      recipe = therecipe)
             qi.put()
 
         self.redirect('/')
-                
+        
 
     def get(self):
         if not users.get_current_user():
