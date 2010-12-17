@@ -1,5 +1,4 @@
 * Must-have:
-  - Ingredients as auto-complete text fields.
   - Months as bool vector
   - Search by:
     - month

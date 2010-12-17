@@ -45,4 +45,8 @@ class RecipeHandler(webapp.RequestHandler):
             return self.redirect(users.create_login_url('/addrecipe'))
 
         path = os.path.join(os.path.dirname(__file__), 'addrecipe.html')
-        self.response.out.write(template.render(path, {'ingrange':range(3)}))
+        template_values = {
+            'ingrange' : range(3),
+            'ingredients' : Ingredient.all(),
+            }
+        self.response.out.write(template.render(path, template_values))

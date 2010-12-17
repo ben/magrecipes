@@ -4,6 +4,21 @@
 
 {% block content %}
 
+<script type="text/javascript">
+	$(function() {
+		var ingredientnames = [
+{% for i in ingredients %}
+         "{{i.name}}", 
+{% endfor %}
+		];
+		$( ".ingredientnamefield" ).autocomplete({
+			source: ingredientnames,
+         delay: 0,
+		});
+      $("button, input:submit").button()
+	});
+</script>
+
 <form method="POST" action="/addrecipe">
 
    <h3>Title: <input name="title" /></h3>
@@ -25,7 +40,7 @@
       <tbody>
          {% for i in ingrange %}
          <tr>
-            <td><input name="ingredient{{i}}" /></td>
+            <td><input class="ingredientnamefield" name="ingredient{{i}}" /></td>
             <td><input name="amount{{i}}" /></td>
             <td><input name="note{{i}}" /></td>
          {% endfor %}
