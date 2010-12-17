@@ -28,14 +28,10 @@ class RecipeHandler(webapp.RequestHandler):
             if not ingredient_name: break
 
             # Fetch the ingredient, or create a new one.
-            ing_inst = Ingredient.all().filter('name =', ingredient_name).get()
-            if ing_inst is None:
-                logging.debug("Creating ingredient '%s'" % ingredient_name)
-                ing_instance = Ingredient(name=ingredient_name)
-                ing_instance.put()
+            ing = Ingredient.get_or_insert(ingredient_name, name=ingredient_name)
 
             # Create QuantifiedIngredients for all the Ingredients in this recipe
-            qi = QuantifiedIngredient(ingredient=ing_inst,
+            qi = QuantifiedIngredient(ingredient=ing,
                                       quantity = self.request.get('amount'+str(i)),
                                       note = self.request.get('note'+str(i)),
                                       recipe = therecipe)
