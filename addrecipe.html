@@ -5,17 +5,40 @@
 {% block content %}
 
 <script type="text/javascript">
-	$(function() {
 		var ingredientnames = [
 {% for i in ingredients %}
          "{{i.name}}", 
 {% endfor %}
 		];
+
+   var next_ingredient_index = 0;
+
+   function add_new_ingredient_row()
+   {
+      // Add the row
+      $('#ingredienttable > tbody:last').append(
+         '<tr class="ingrediententry"> \
+            <td><input class="ingredientnamefield" name="ingredient' + next_ingredient_index + '" /></td> \
+            <td><input name="amount' + next_ingredient_index + '" /></td> \
+            <td><input name="note' + next_ingredient_index + '" /></td>'
+      );
+      // Enable autocomplete
 		$( ".ingredientnamefield" ).autocomplete({
 			source: ingredientnames,
          delay: 0,
 		});
+      // Increment identifiers
+      next_ingredient_index++;      
+   }
+
+	$(function() {
       $("button, input:submit").button()
+
+      add_new_ingredient_row();
+
+      $("#morerows").click(function() {
+         add_new_ingredient_row();
+      });
 	});
 </script>
 
@@ -26,10 +49,10 @@
 
    <!-- Several ingredient fields -->
    <h3>Ingredients:</h3>
-   <table>
+   <table id="ingredienttable">
       <colgroup>
-         <col width="50"/>
-         <col width="30"/>
+         <col width="200"/>
+         <col width="40"/>
          <col/>
       </colgroup>
       <thead><tr>
@@ -38,14 +61,9 @@
          <td>Note</td>
       </tr></thead>
       <tbody>
-         {% for i in ingrange %}
-         <tr>
-            <td><input class="ingredientnamefield" name="ingredient{{i}}" /></td>
-            <td><input name="amount{{i}}" /></td>
-            <td><input name="note{{i}}" /></td>
-         {% endfor %}
       </tbody>
    </table>
+   <div id="morerows" href="#">(more)</div>
 
    <h3>Instructions:</h3>
    <textarea name="instructions"></textarea>

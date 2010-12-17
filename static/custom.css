@@ -69,3 +69,11 @@ div.recipe {
     margin: 1em;
     padding: 1em;
 }
+
+#ingredienttable {
+    font-size: +1;
+}
+
+tr.ingrediententry input {
+    width: 100%;
+}
