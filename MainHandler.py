@@ -1,4 +1,5 @@
 import os
+import logging
 
 from google.appengine.api import users
 from google.appengine.ext import webapp
@@ -12,11 +13,12 @@ import markdown
 ################################################################################
 class MainHandler(webapp.RequestHandler):
     def get(self):
-        ingredients = Ingredient.all()
-        recipes = Recipe.all()
+        ingredients = Ingredient.all().fetch(10)
+        recipes = Recipe.all().fetch(10)
 
+        # Convert markdown for display
         for r in recipes:
-            r.instructions = markdown.markdown(r.instructions)
+            r.instructions_html = markdown.markdown(r.instructions)
 
         template_values = {
             'ingredients' : ingredients,

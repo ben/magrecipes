@@ -63,3 +63,9 @@ header h1 {
     font-family: georgia, times, serif;
     font-variant: small-caps;
 }
+
+div.recipe {
+    border: 1px solid black;
+    margin: 1em;
+    padding: 1em;
+}
