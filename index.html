@@ -10,19 +10,8 @@
 <hr>
 <h1>Recipes for this month</h1>
 
-{% for r in recipes %}
-<div class="recipe">
-   <h2>{{r.title}}</h2>
-   <ul>
-     {% for qi in r.ingredients %}
-     <li>
-       {{qi.ingredient.name}} &mdash; {{qi.quantity}}
-       {% if qi.note %}({{qi.note}}){% endif %}
-     </li>
-     {% endfor %}
-   </ul>
-   {{r.instructions_html}}
-</div>
+{% for recipe in recipes %}
+{% include "_recipe.html" %}
 {% endfor %}
 
 {% endblock %}
