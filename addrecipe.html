@@ -4,44 +4,6 @@
 
 {% block content %}
 
-<script type="text/javascript">
-		var ingredientnames = [
-{% for i in ingredients %}
-         "{{i.name}}", 
-{% endfor %}
-		];
-
-   var next_ingredient_index = 0;
-
-   function add_new_ingredient_row()
-   {
-      // Add the row
-      $('#ingredienttable > tbody:last').append(
-         '<tr class="ingrediententry"> \
-            <td><input class="ingredientnamefield" name="ingredient' + next_ingredient_index + '" /></td> \
-            <td><input name="amount' + next_ingredient_index + '" /></td> \
-            <td><input name="note' + next_ingredient_index + '" /></td>'
-      );
-      // Enable autocomplete
-		$( ".ingredientnamefield" ).autocomplete({
-			source: ingredientnames,
-         delay: 0,
-		});
-      // Increment identifiers
-      next_ingredient_index++;      
-   }
-
-	$(function() {
-      $("button, input:submit").button()
-
-      add_new_ingredient_row();
-
-      $("#morerows").click(function() {
-         add_new_ingredient_row();
-      });
-	});
-</script>
-
 <form method="POST" action="/addrecipe">
 
    <h3>Title:</h3>
@@ -64,12 +26,36 @@
       </tbody>
    </table>
    
+   <div id="seasonbar">
+     <h3>Season:</h3>
+     <div id="seasons">
+       <input type="checkbox">Spring</input><br/>
+       <input type="checkbox">Summer</input><br/>
+       <input type="checkbox">Autumn</input><br/>
+       <input type="checkbox">Winter</input><br/>
+     </div>
+     <div>
+       <input type="checkbox" name="january">January</input><br/>
+       <input type="checkbox" name="february">February</input><br/>
+       <input type="checkbox" name="march">March</input><br/>
+       <input type="checkbox" name="april">April</input><br/>
+       <input type="checkbox" name="may">May</input><br/>
+       <input type="checkbox" name="june">June</input><br/>
+       <input type="checkbox" name="july">July</input><br/>
+       <input type="checkbox" name="august">August</input><br/>
+       <input type="checkbox" name="september">September</input><br/>
+       <input type="checkbox" name="october">October</input><br/>
+       <input type="checkbox" name="november">November</input><br/>
+       <input type="checkbox" name="december">December</input><br/>
+     </div>
+   </div>
+   
+   <div id="instructions">
+     <h3>Instructions:</h3>
+     <textarea name="instructions"></textarea>
+   </div>
 
-   <h3>Instructions:</h3>
-   <textarea name="instructions" width="80"></textarea>
-
-   <br/>
-   <input type="submit" />
+   <p><input type="submit" value="Create" /></p>
 </form>
 
 {% endblock %}

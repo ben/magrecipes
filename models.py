@@ -3,6 +3,7 @@ from google.appengine.ext import db
 class Recipe(db.Model):
     title = db.StringProperty()
     instructions = db.TextProperty()
+    categories = db.ListProperty(db.Category)
 
 class Ingredient(db.Model):
     name = db.StringProperty()

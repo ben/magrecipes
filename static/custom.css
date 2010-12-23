@@ -80,6 +80,27 @@ div.recipe {
     padding: 1em;
 }
 
-table, tr.ingrediententry input, textarea {
+table, tr.ingrediententry input {
     width: 100%;
+}
+
+#instructions textarea {
+    width: 90%;
+}
+
+div#seasonbar {
+    float:right;
+    width: 150px;
+}
+
+div#seasonbar div {
+    font-size: 75%;
+}
+
+#seasons {
+    float: right;
+}
+
+#instructions {
+    width: 550px;
 }
