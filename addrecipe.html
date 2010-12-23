@@ -4,6 +4,14 @@
 
 {% block content %}
 
+<script type="text/javascript">
+var ingredientnames = [
+  {% for i in ingredients %}
+  "{{i.name}}", 
+  {% endfor %}
+];
+</script>
+
 <form method="POST" action="/addrecipe">
 
    <h3>Title:</h3>

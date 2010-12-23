@@ -1,8 +1,4 @@
-var ingredientnames = [
-  {% for i in ingredients %}
-  "{{i.name}}", 
-  {% endfor %}
-];
+var ingredientnames = [];
 
 var next_ingredient_index = 0;
 
