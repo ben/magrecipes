@@ -41,7 +41,7 @@ class RecipeHandler(webapp.RequestHandler):
         
 
     def get(self):
-        if not users.get_current_user():
+        if not users.is_current_user_admin():
             return self.redirect(users.create_login_url('/addrecipe'))
 
         path = os.path.join(os.path.dirname(__file__), 'addrecipe.html')
