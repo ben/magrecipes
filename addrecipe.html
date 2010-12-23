@@ -44,11 +44,11 @@
 
 <form method="POST" action="/addrecipe">
 
-   <h3>Title:<br/><input name="title" size="40" /></h3>
-   <br/>
+   <h3>Title:</h3>
+   <input id="titleentry" name="title" size="40" />
 
    <!-- Several ingredient fields -->
-   <h3>Ingredients:</h3>
+   <h3>Ingredients:&nbsp;<a href="#" id="morerows">(more)</a></h3>
    <table id="ingredienttable">
       <colgroup>
          <col width="200"/>
@@ -63,10 +63,10 @@
       <tbody>
       </tbody>
    </table>
-   <div id="morerows" href="#">(more)</div>
+   
 
    <h3>Instructions:</h3>
-   <textarea name="instructions"></textarea>
+   <textarea name="instructions" width="80"></textarea>
 
    <br/>
    <input type="submit" />

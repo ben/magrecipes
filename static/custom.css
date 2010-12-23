@@ -29,8 +29,18 @@ thead tr td {
     font-weight: bold;
 }
 
-h3 input {
+#titleentry {
     font-size: 1.5em;
+    width: 100%;
+}
+
+h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.25em;
+}
+
+h3 #morerows {
+    font-size: x-small;
 }
 
 nav {
@@ -70,10 +80,6 @@ div.recipe {
     padding: 1em;
 }
 
-#ingredienttable {
-    font-size: +1;
-}
-
-tr.ingrediententry input {
+table, tr.ingrediententry input, textarea {
     width: 100%;
 }
