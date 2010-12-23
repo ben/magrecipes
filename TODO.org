@@ -1,10 +1,10 @@
 * Must-have:
-  - Months as bool vector
+  - Months
   - Search by:
     - month
     - ingredient
+    - Free text
   - Controls for deleting/editing a recipe
 
 * Like-to-have:
   - Partials
-  - Expando ingredient list (auto? + button?)
