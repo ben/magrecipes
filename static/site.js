@@ -29,6 +29,32 @@ $(function() {
     add_new_ingredient_row();
   });
 
-  
-
+  $('#spring').click (function() {
+    var selector = 'input[name=March], input[name=April], input[name=May]'
+    $(selector).attr('checked', true)
+    return false;
+  });
+  $('#summer').click (function() {
+    var selector = 'input[name=June], input[name=July], input[name=August]'
+    $(selector).attr('checked', true)
+    return false;
+  });
+  $('#autumn').click (function() {
+    var selector = 'input[name=September], input[name=October], input[name=November]'
+    $(selector).attr('checked', true)
+    return false;
+  });
+  $('#winter').click (function() {
+    var selector = 'input[name=December], input[name=January], input[name=February]'
+    $(selector).attr('checked', true)
+    return false;
+  });
+  $('#none').click (function() {
+    $('div.months input').attr('checked', false)
+    return false;
+  });
+  $('#all').click(function() {
+    $('div.months input').attr('checked', true)
+    return false;
+  })
 });
