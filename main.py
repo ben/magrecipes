@@ -15,6 +15,9 @@ from MainHandler import MainHandler
 from IngredientHandler import IngredientHandler
 from NewRecipeHandler import NewRecipeHandler
 
+# Custom template filters
+template.register_template_library('templatefilters')
+
 
 class DeleteAllHandler(webapp.RequestHandler):
     def get(self):

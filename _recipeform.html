@@ -35,18 +35,12 @@
       <input type="checkbox">Winter</input><br/>
    </div>
    <div>
-      <input type="checkbox" name="january">January</input><br/>
-      <input type="checkbox" name="february">February</input><br/>
-      <input type="checkbox" name="march">March</input><br/>
-      <input type="checkbox" name="april">April</input><br/>
-      <input type="checkbox" name="may">May</input><br/>
-      <input type="checkbox" name="june">June</input><br/>
-      <input type="checkbox" name="july">July</input><br/>
-      <input type="checkbox" name="august">August</input><br/>
-      <input type="checkbox" name="september">September</input><br/>
-      <input type="checkbox" name="october">October</input><br/>
-      <input type="checkbox" name="november">November</input><br/>
-      <input type="checkbox" name="december">December</input><br/>
+      {% for month in months %}
+      <input type="checkbox" name="{{ month }}"
+             >
+      {{ month }}
+      </input><br>
+      {% endfor %}
    </div>
 </div>
 

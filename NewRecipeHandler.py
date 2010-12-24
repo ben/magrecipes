@@ -7,6 +7,8 @@ from google.appengine.ext.webapp import template
 
 from models import Ingredient, QuantifiedIngredient, Recipe
 
+from helpers import allmonths
+
 
 
 ################################################################################
@@ -47,5 +49,7 @@ class NewRecipeHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'newrecipe.html')
         template_values = {
             'ingredients' : Ingredient.all(),
+            'recipe' : Recipe(),
+            'months' : allmonths(),
             }
         self.response.out.write(template.render(path, template_values))
