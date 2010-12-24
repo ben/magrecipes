@@ -10,7 +10,7 @@ from models import Ingredient, QuantifiedIngredient, Recipe
 
 
 ################################################################################
-class RecipeHandler(webapp.RequestHandler):
+class NewRecipeHandler(webapp.RequestHandler):
     def post(self):
         if not users.is_current_user_admin():
             self.redirect('/')
@@ -42,11 +42,10 @@ class RecipeHandler(webapp.RequestHandler):
 
     def get(self):
         if not users.is_current_user_admin():
-            return self.redirect(users.create_login_url('/addrecipe'))
+            return self.redirect(users.create_login_url('/newrecipe'))
 
-        path = os.path.join(os.path.dirname(__file__), 'addrecipe.html')
+        path = os.path.join(os.path.dirname(__file__), 'newrecipe.html')
         template_values = {
-            'ingrange' : range(3),
             'ingredients' : Ingredient.all(),
             }
         self.response.out.write(template.render(path, template_values))

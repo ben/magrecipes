@@ -13,7 +13,20 @@ from models import Ingredient, QuantifiedIngredient, Recipe
 
 from MainHandler import MainHandler
 from IngredientHandler import IngredientHandler
-from RecipeHandler import RecipeHandler
+from NewRecipeHandler import NewRecipeHandler
+
+
+class DeleteAllHandler(webapp.RequestHandler):
+    def get(self):
+        if not users.is_current_user_admin():
+            self.redirect('/')
+        recipes = Recipe.all();
+        for r in recipes:
+            for i in r.ingredients:
+                if i.ingredient: i.ingredient.delete()
+                i.delete()
+            r.delete()
+        self.redirect('/')
 
 
 ################################################################################
@@ -23,9 +36,10 @@ def main():
         [
             ('/', MainHandler),
             ('/addingredient', IngredientHandler),
-            ('/addrecipe', RecipeHandler),
+            ('/newrecipe', NewRecipeHandler),
+            #('/deleteall', DeleteAllHandler),
             ],
-                                         debug=True)
+        debug=True)
     util.run_wsgi_app(application)
 if __name__ == '__main__':
     main()
