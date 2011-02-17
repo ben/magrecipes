@@ -11,9 +11,11 @@ from google.appengine.ext.webapp.util import login_required
 
 from models import Ingredient, QuantifiedIngredient, Recipe
 
+# Handlers
 from MainHandler import MainHandler
 from IngredientHandler import IngredientHandler
 from NewRecipeHandler import NewRecipeHandler
+from SearchHandler import SearchHandler
 
 # Custom template filters
 template.register_template_library('templatefilters')
@@ -40,6 +42,7 @@ def main():
             ('/', MainHandler),
             ('/addingredient', IngredientHandler),
             ('/newrecipe', NewRecipeHandler),
+            ('/search', SearchHandler),
             #('/deleteall', DeleteAllHandler),
             ],
         debug=True)

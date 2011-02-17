@@ -1,10 +1,13 @@
 * Must-have:
   - Months
-  - Search by:
-    - month
-    - ingredient
-    - Free text
   - Controls for deleting/editing a recipe
+  - Search
+    - Results page displays ingredients if any match
+    - Search by:
+      - month
+      - ingredient
+      - Free text
+
 
 * Like-to-have:
   - Partials
