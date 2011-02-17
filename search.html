@@ -6,4 +6,18 @@
 
 Your query: '{{query}}'
 
+<h3>Ingredient matches:</h3>
+<ul>
+{% for i in ingredients %}
+<li>{{i}}</li>
+{% endfor %}
+</ul>
+
+<h3>Recipe matches:</h3>
+<ul>
+{% for r in recipes %}
+<li>{{r.title}}</li>
+{% endfor %}
+</ul>
+
 {% endblock %}
