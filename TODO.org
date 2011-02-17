@@ -11,6 +11,7 @@
     - Move (more) link to float right
     - Automatically create a new ingredient line when last one's name becomes non-blank
     - Index-card background for recipes
+      - [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][With CSS]]
     - Typography
 
 
