@@ -7,7 +7,12 @@
       - month
       - ingredient
       - Free text
+  - Visual
+    - Move (more) link to float right
+    - Automatically create a new ingredient line when last one's name becomes non-blank
+    - Index-card background for recipes
+    - Typography
 
 
 * Like-to-have:
-  - Partials
+
