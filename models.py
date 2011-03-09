@@ -3,7 +3,19 @@ from google.appengine.ext import db
 class Recipe(db.Model):
     title = db.StringProperty()
     instructions = db.TextProperty()
-    categories = db.ListProperty(db.Category)
+
+    january   = db.BooleanProperty()
+    february  = db.BooleanProperty()
+    march     = db.BooleanProperty()
+    april     = db.BooleanProperty()
+    may       = db.BooleanProperty()
+    june      = db.BooleanProperty()
+    july      = db.BooleanProperty()
+    august    = db.BooleanProperty()
+    september = db.BooleanProperty()
+    october   = db.BooleanProperty()
+    november  = db.BooleanProperty()
+    december  = db.BooleanProperty()
 
 class Ingredient(db.Model):
     name = db.StringProperty()

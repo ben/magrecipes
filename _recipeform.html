@@ -38,10 +38,7 @@
    </div>
    <div class="months">
       {% for month in months %}
-      <input type="checkbox" name="{{ month }}"
-             >
-      {{ month }}
-      </input><br>
+      <input type="checkbox" name="{{ month|lower }}">{{ month }}</input><br>
       {% endfor %}
    </div>
 </div>

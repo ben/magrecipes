@@ -13,14 +13,35 @@ from helpers import allmonths
 
 ################################################################################
 class NewRecipeHandler(webapp.RequestHandler):
+    def property_to_bool(self, name):
+        value = self.request.get(name)
+        if value == 'on': return True
+        return False
+
     def post(self):
         if not users.is_current_user_admin():
-            self.redirect('/')
+            return self.redirect('/')
 
         # Create a recipe
         therecipe = Recipe()
-        therecipe.title = self.request.get('title')
+
+        # Values from request
+        therecipe.title        = self.request.get('title')
         therecipe.instructions = self.request.get('instructions')
+        therecipe.january      = self.property_to_bool('january')
+        therecipe.february     = self.property_to_bool('february')
+        therecipe.march        = self.property_to_bool('march')
+        therecipe.april        = self.property_to_bool('april')
+        therecipe.may          = self.property_to_bool('may')
+        therecipe.june         = self.property_to_bool('june')
+        therecipe.july         = self.property_to_bool('july')
+        therecipe.august       = self.property_to_bool('august')
+        therecipe.september    = self.property_to_bool('september')
+        therecipe.october      = self.property_to_bool('october')
+        therecipe.november     = self.property_to_bool('november')
+        therecipe.december     = self.property_to_bool('december')
+
+        # Save it so it has a key with which to associate
         therecipe.put()
 
         # Create the ingredients and associate them
