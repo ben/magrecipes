@@ -25,12 +25,10 @@ class DeleteAllHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
             self.redirect('/')
-        recipes = Recipe.all();
-        for r in recipes:
-            for i in r.ingredients:
-                if i.ingredient: i.ingredient.delete()
-                i.delete()
-            r.delete()
+        recipes = Recipe.all()
+        for qi in QuantifiedIngredient.all(): qi.delete()
+        for i in Ingredient.all(): i.delete()
+        for r in recipes: r.delete()
         self.redirect('/')
 
 
@@ -45,7 +43,8 @@ def main():
             ('/search', SearchHandler),
             #('/deleteall', DeleteAllHandler),
             ],
-        debug=True)
+        debug=True,
+        )
     util.run_wsgi_app(application)
 if __name__ == '__main__':
     main()
