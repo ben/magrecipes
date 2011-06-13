@@ -18,7 +18,8 @@ from NewRecipeHandler import NewRecipeHandler
 from SearchHandler import SearchHandler
 
 # Custom template filters
-template.register_template_library('templatefilters')
+template.register_template_library('templatetags.recipe_summary')
+template.register_template_library('templatetags.template_helpers')
 
 
 class DeleteAllHandler(webapp.RequestHandler):
