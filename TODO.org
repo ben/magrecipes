@@ -1,18 +1,15 @@
 * Must-have:
-  - Months
-  - Controls for deleting/editing a recipe
+  - Delete a recipe
+  - Edit a recipe
+    - Use same structure for create
   - Search
-    - Results page displays ingredients if any match
-    - Search by:
-      - month
-      - ingredient
-      - Free text
+    - Results page displays:
+      - Matching ingredients
+      - Matching instructions
   - Visual
-    - Move (more) link to float right
     - Automatically create a new ingredient line when last one's name becomes non-blank
     - Index-card background for recipes
       - [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][With CSS]]
-    - Typography
 
 
 * Like-to-have:
