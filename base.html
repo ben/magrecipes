@@ -28,11 +28,24 @@
       <header>
          <nav>
             <ul>
-               <li>(Select Month)</li>
-               <li>Search:</li>
+               <li><select id="monthselect">
+                     <option>Recipes for...</option>
+                     <option>January</option>
+                     <option>February</option>
+                     <option>March</option>
+                     <option>April</option>
+                     <option>May</option>
+                     <option>June</option>
+                     <option>July</option>
+                     <option>August</option>
+                     <option>September</option>
+                     <option>October</option>
+                     <option>November</option>
+                     <option>December</option>
+               </select></li>
                <li>
                   <form action="/search" method="post">
-                     <input type="string" name="q" />
+                     <input type="string" placeholder="Search" name="q" />
                      <input type="submit" style="display:none;" />
                   </form>
                </li>

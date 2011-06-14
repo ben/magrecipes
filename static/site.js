@@ -23,6 +23,14 @@ function add_new_ingredient_row()
 $(function() {
   $("button, input:submit").button()
 
+  $("#monthselect")[0].selectedIndex = 0;
+  $("#monthselect").change(function() {
+    var idx = this.selectedIndex;
+    if (idx != 0) {
+      window.location = "/" + this.options[idx].text;
+    }
+  });
+
   add_new_ingredient_row();
 
   $("#morerows").click(function() {

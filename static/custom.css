@@ -72,12 +72,9 @@ nav ul {
 nav ul li {
     list-style-type: none;
     display: inline-block;
-    padding: 0.2em 0;
-}
-
-nav ul li {
     padding: 0 5px;
     font-weight: bold;
+    font-size: 125%;
 }
 
 nav ul li a:hover {
@@ -181,4 +178,5 @@ div#seasonbar h3 {
 div.recipe div.modify {
     font-size: small;
     float: right;
+    text-align: right;
 }
