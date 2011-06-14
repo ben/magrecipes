@@ -15,9 +15,11 @@ from models import Ingredient, QuantifiedIngredient, Recipe
 from MainHandler import MainHandler
 from NewRecipeHandler import NewRecipeHandler
 from SearchHandler import SearchHandler
+from ViewRecipeHandler import ViewRecipeHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
+template.register_template_library('templatetags.verbatim')
 template.register_template_library('templatetags.template_helpers')
 
 
@@ -40,6 +42,7 @@ def main():
             ('/', MainHandler),
             ('/newrecipe', NewRecipeHandler),
             ('/search', SearchHandler),
+            ('/recipe/(.*)', ViewRecipeHandler),
             #('/deleteall', DeleteAllHandler),
             ],
         debug=True,

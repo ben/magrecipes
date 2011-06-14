@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %} {{recipe.title}} {% endblock %}
+
+{% block content %}
+
+{% verbatim %}
+<script type="text/html" id="ingredientTemplate">
+<ul>
+   {{each ingredients}}
+   <li>
+      ${ ingredient.name } &ndash; ${ quantity }
+      {{ if note != '' }} (${ note }) {{ /if }}
+   {{/each}}
+</ul>
+</script>
+{% endverbatim %}
+
+<div class="recipe">
+   <div class="modify">
+      <a href="#">(Edit)</a>
+   </div>
+   <h2><span data-bind="text: title" /></h2>
+   <div data-bind="template: 'ingredientTemplate'"></div>
+   <!-- <ul> -->
+   <!--   {% for quantifiedingredient in recipe.ingredients %} -->
+   <!--   <li>{% include "_quantifiedingredient.html" %}</li> -->
+   <!--   {% endfor %} -->
+   <!-- </ul> -->
+   <span data-bind="html: instructions_html" />
+</div>
+
+{% endblock %}
+
+
+{% block viewmodel %}
+var viewModel = {{ json }};
+
+var converter = new Attacklab.showdown.converter();
+viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
+{% endblock %}

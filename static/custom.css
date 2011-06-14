@@ -109,3 +109,8 @@ div#seasonbar h3 {
 #instructions {
     width: 550px;
 }
+
+div.recipe div.modify {
+    font-size: small;
+    float: right;
+}

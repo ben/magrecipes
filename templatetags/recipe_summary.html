@@ -1,10 +1,6 @@
 <div class="recipe">
-   <h2>{{recipe.title}}</h2>
+   <a href="/recipe/{{recipe.key}}">
+      <h2>{{recipe.title}}</h2>
+   </a>
    <em>{{ ingredients }}</em>
-   <!-- <ul> -->
-   <!--   {% for quantifiedingredient in recipe.ingredients %} -->
-   <!--   <li>{% include "_quantifiedingredient.html" %}</li> -->
-   <!--   {% endfor %} -->
-   <!-- </ul> -->
-   <!-- {{recipe.instructions_html}} -->
 </div>
