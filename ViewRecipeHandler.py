@@ -19,7 +19,6 @@ class ViewRecipeHandler(webapp.RequestHandler):
         recipe_dict['ingredients'] = [to_dict(i) for i in recipe.ingredients]
 
         templatevalues = {
-            'recipe' : recipe,
             'json' : simplejson.dumps(recipe_dict),
             }
 

@@ -19,14 +19,10 @@
 <div class="recipe">
    <div class="modify">
       <a href="#">(Edit)</a>
+      <a href="#">(Delete)</a>
    </div>
    <h2><span data-bind="text: title" /></h2>
    <div data-bind="template: 'ingredientTemplate'"></div>
-   <!-- <ul> -->
-   <!--   {% for quantifiedingredient in recipe.ingredients %} -->
-   <!--   <li>{% include "_quantifiedingredient.html" %}</li> -->
-   <!--   {% endfor %} -->
-   <!-- </ul> -->
    <span data-bind="html: instructions_html" />
 </div>
 
