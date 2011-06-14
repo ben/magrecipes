@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Goudy";
+    src: url(/static/css/GoudyBookletter1911.otf);
+}
+
+@font-face {
+    font-family: "FanwoodText";
+    src: url(/static/css/Fanwood.otf);
+}
+
+@font-face {
+    font-family: "FanwoodTextItalic";
+    src: url(/static/css/FanwoodText-Italic.otf);
+}
+
 .container {
     width: 710px;
 }
@@ -70,16 +85,23 @@ nav ul li a:hover {
 }
 
 header h1 {
-    font-family: "IM Fell English SC", georgia, times, serif;
     font-variant: small-caps;
 }
 
 body {
-    font-family: georgia, serif;
+    font-family: FanwoodText, georgia, serif;
 }
 
-div.recipe h2 {
-    font-family: "IM Fell English", "Courier New", Courier, monospace;
+body em {
+    font-family: FanwoodTextItalic, georgia, serif;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h1,h2 {
+    font-family: Goudy, georgia, serif;
 }
 
 div.recipe {
