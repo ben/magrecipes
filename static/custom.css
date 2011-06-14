@@ -70,14 +70,60 @@ nav ul li a:hover {
 }
 
 header h1 {
-    font-family: georgia, times, serif;
+    font-family: "IM Fell English SC", georgia, times, serif;
     font-variant: small-caps;
 }
 
+body {
+    font-family: georgia, serif;
+}
+
+div.recipe h2 {
+    font-family: "IM Fell English", "Courier New", Courier, monospace;
+}
+
 div.recipe {
-    border: 1px solid black;
+    font-size: large;
+    position: relative;
     margin: 1em;
     padding: 1em;
+    padding:1em; 
+    background:#fff;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+    -moz-border-radius:4px; 
+         border-radius:4px;
+}
+
+div.recipe:before,
+div.recipe:after {
+    content:"";
+    position:absolute;
+    z-index:-2;
+    bottom:15px;
+    left:10px;
+    width:50%;
+    height:20%;
+    max-width:300px;
+    -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);   
+       -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+            box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+    -webkit-transform:rotate(-3deg);    
+       -moz-transform:rotate(-3deg);   
+        -ms-transform:rotate(-3deg);   
+         -o-transform:rotate(-3deg);
+            transform:rotate(-3deg);
+}
+
+div.recipe:after {
+    right:10px; 
+    left:auto;
+    -webkit-transform:rotate(3deg);   
+       -moz-transform:rotate(3deg);  
+        -ms-transform:rotate(3deg);  
+         -o-transform:rotate(3deg);
+            transform:rotate(3deg);
 }
 
 table, tr.ingrediententry input {
