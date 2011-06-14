@@ -13,7 +13,6 @@ from models import Ingredient, QuantifiedIngredient, Recipe
 
 # Handlers
 from MainHandler import MainHandler
-from IngredientHandler import IngredientHandler
 from NewRecipeHandler import NewRecipeHandler
 from SearchHandler import SearchHandler
 
@@ -39,7 +38,6 @@ def main():
     application = webapp.WSGIApplication(
         [
             ('/', MainHandler),
-            ('/addingredient', IngredientHandler),
             ('/newrecipe', NewRecipeHandler),
             ('/search', SearchHandler),
             #('/deleteall', DeleteAllHandler),
