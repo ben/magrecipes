@@ -180,3 +180,7 @@ div.recipe div.modify {
     float: right;
     text-align: right;
 }
+
+.deleteconfirm {
+    display: none;
+}

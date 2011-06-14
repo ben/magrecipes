@@ -19,7 +19,12 @@
 <div class="recipe">
    <div class="modify">
       <a href="#">(Edit)</a><br/>
-      <a href="#">(Delete)</a>
+      <a class="deleteinit" href="#">(Delete)</a><br/>
+      <form class="deleteconfirm" action="/delete" method="post">
+         <em>Are you sure?</em>
+         <input type="hidden" value="" name="key" id="deletekey" />
+         <a href="#" class="deleteconfirmyes">YES</a>
+      </form>
    </div>
    <h2><span data-bind="text: title" /></h2>
    <div data-bind="template: 'ingredientTemplate'"></div>

@@ -21,9 +21,11 @@ function add_new_ingredient_row()
 }
 
 $(function() {
+  // JQuery buttons
   $("button, input:submit").button()
 
-  $("#monthselect")[0].selectedIndex = 0;
+  // Month dropdown selection and reset logic
+  $("#monthselect").attr('selectedIndex', 0); // Reset to base state when using the back button
   $("#monthselect").change(function() {
     var idx = this.selectedIndex;
     if (idx != 0) {
@@ -31,6 +33,16 @@ $(function() {
     }
   });
 
+  // Delete-confirm logic
+  $("#deletekey").attr('value', viewModel.key);
+  $(".deleteinit").click(function() {
+    $(".deleteconfirm").show('fast');
+  })
+  $(".deleteconfirmyes").click(function() {
+    this.parentNode.submit()
+  })
+
+  // New-recipe form logic
   add_new_ingredient_row();
 
   $("#morerows").click(function() {

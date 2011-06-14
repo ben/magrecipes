@@ -34,6 +34,10 @@ class DeleteAllHandler(webapp.RequestHandler):
         for r in Recipe.all(): r.delete()
         self.redirect('/')
 
+class DeleteHandler(webapp.RequestHandler):
+    def post(self):
+        self.response.out.write("Deleting " + self.request.get('key'))
+
     
 ################################################################################
 def main():
@@ -43,6 +47,7 @@ def main():
         ('/newrecipe', NewRecipeHandler),
         ('/search', SearchHandler),
         ('/recipe/(.*)', ViewRecipeHandler),
+        ('/delete', DeleteHandler),
         #('/deleteall', DeleteAllHandler),
         ]
     mappings.append(("/(" + '|'.join(allmonths()) + ")", MonthHandler))
