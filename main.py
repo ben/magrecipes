@@ -18,6 +18,7 @@ from NewRecipeHandler import NewRecipeHandler
 from SearchHandler import SearchHandler
 from ViewRecipeHandler import ViewRecipeHandler
 from MonthHandler import MonthHandler
+from DeleteHandler import DeleteHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -34,11 +35,8 @@ class DeleteAllHandler(webapp.RequestHandler):
         for r in Recipe.all(): r.delete()
         self.redirect('/')
 
-class DeleteHandler(webapp.RequestHandler):
-    def post(self):
-        self.response.out.write("Deleting " + self.request.get('key'))
 
-    
+
 ################################################################################
 def main():
     logging.getLogger().setLevel(logging.DEBUG)

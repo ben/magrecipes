@@ -36,10 +36,12 @@ $(function() {
   // Delete-confirm logic
   $("#deletekey").attr('value', viewModel.key);
   $(".deleteinit").click(function() {
-    $(".deleteconfirm").show('fast');
+    $(".deleteconfirm").show();
+    return false;
   })
   $(".deleteconfirmyes").click(function() {
-    this.parentNode.submit()
+    this.parentNode.submit();
+    return false;
   })
 
   // New-recipe form logic

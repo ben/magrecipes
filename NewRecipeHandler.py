@@ -65,7 +65,7 @@ class NewRecipeHandler(webapp.RequestHandler):
 
     def get(self):
         if not users.is_current_user_admin():
-            return self.redirect(users.create_login_url('/newrecipe'))
+            return self.redirect(users.create_login_url(self.request.url))
 
         path = os.path.join(os.path.dirname(__file__), 'newrecipe.html')
         template_values = {
