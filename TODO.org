@@ -1,16 +1,17 @@
 * Must-have:
-  - Delete a recipe
-  - Edit a recipe
+  - [ ] Edit a recipe
     - Use same structure for create
-  - Search
-    - Results page displays:
-      - Matching ingredients
-      - Matching instructions
+  - [ ] Ingredient pages
+  - [ ] Search
+        - Autocomplete for ingredients, with "enter" option free-text?
+        - Results page displays:
+          - Matching ingredients
+          - Matching instructions
   - Visual
-    - Automatically create a new ingredient line when last one's name becomes non-blank
-    - Index-card background for recipes
-      - [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][With CSS]]
+    - [ ] Automatically create a new ingredient line when last one's name becomes non-blank
+    - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][With CSS]]
+  - [X] Delete a recipe
 
 
 * Like-to-have:
-
+  - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
