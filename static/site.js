@@ -30,8 +30,8 @@ $(function() {
     }
   });
 
+
   // Delete-confirm logic
-  $("#deletekey").attr('value', viewModel.key);
   $(".deleteinit").click(function() {
     $(".deleteconfirm").show();
     return false;

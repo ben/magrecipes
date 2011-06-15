@@ -20,7 +20,7 @@ class ViewRecipeHandler(webapp.RequestHandler):
         recipe_dict['key'] = str(recipe.key())
 
         templatevalues = {
-            'title' : recipe.title,
+            'recipe' : recipe,
             'json' : simplejson.dumps(recipe_dict),
             }
 

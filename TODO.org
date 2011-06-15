@@ -9,7 +9,7 @@
           - Matching instructions
   - Visual
     - [ ] Automatically create a new ingredient line when last one's name becomes non-blank
-    - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][With CSS]]
+    - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
   - [X] Delete a recipe
 
 
