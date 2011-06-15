@@ -69,7 +69,6 @@ class NewRecipeHandler(webapp.RequestHandler):
 
         path = os.path.join(os.path.dirname(__file__), 'newrecipe.html')
         template_values = {
-            'ingredients' : Ingredient.all(),
             'recipe' : Recipe(),
             'months' : allmonths(),
             }

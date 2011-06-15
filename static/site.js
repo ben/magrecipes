@@ -7,15 +7,12 @@ function add_new_ingredient_row()
   // Add the row
   $('#ingredienttable > tbody:last').append(
     '<tr class="ingrediententry"> \
-<td><input class="ingredientnamefield" name="ingredient' + next_ingredient_index + '" /></td> \
+<td><input class="ingredientautocomplete" name="ingredient' + next_ingredient_index + '" /></td> \
 <td><input name="amount' + next_ingredient_index + '" /></td> \
 <td><input name="note' + next_ingredient_index + '" /></td>'
   );
   // Enable autocomplete
-  $( ".ingredientnamefield" ).autocomplete({
-	 source: ingredientnames,
-    delay: 0,
-  });
+  refreshIngredientAutocomplete();
   // Increment identifiers
   next_ingredient_index++;      
 }
@@ -49,6 +46,7 @@ $(function() {
 
   $("#morerows").click(function() {
     add_new_ingredient_row();
+    return false;
   });
 
   $('#spring').click (function() {

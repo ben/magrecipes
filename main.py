@@ -23,7 +23,7 @@ from DeleteHandler import DeleteHandler
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
 template.register_template_library('templatetags.verbatim')
-template.register_template_library('templatetags.template_helpers')
+template.register_template_library('templatetags.ingredient_autocomplete')
 
 
 class DeleteAllHandler(webapp.RequestHandler):

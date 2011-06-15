@@ -22,6 +22,8 @@
     <script type="text/javascript" src="/static/js/showdown.js"></script>
     <script type="text/javascript" src="/static/site.js"></script>
 
+    {% ingredient_autocomplete %}
+
   </head>
   <body>
     <div class="container">
@@ -45,7 +47,7 @@
                </select></li>
                <li>
                   <form action="/search" method="post">
-                     <input type="string" placeholder="Search" name="q" />
+                     <input type="string" class="ingredientautocomplete" placeholder="Search" name="q" />
                      <input type="submit" style="display:none;" />
                   </form>
                </li>

@@ -1,0 +1,15 @@
+<script type="text/javascript">
+   var ingredientNames = [
+   {% for i in ingredients %}
+   "{{i.name}}", 
+   {% endfor %}
+   ];
+
+   refreshIngredientAutocomplete = function() {
+     $('.ingredientautocomplete').autocomplete({
+       source: ingredientNames,
+       delay: 0,
+     });
+   }
+   $(function() { refreshIngredientAutocomplete(); });
+</script>
