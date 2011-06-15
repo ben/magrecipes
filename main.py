@@ -19,6 +19,7 @@ from SearchHandler import SearchHandler
 from ViewRecipeHandler import ViewRecipeHandler
 from MonthHandler import MonthHandler
 from DeleteHandler import DeleteHandler
+from EditHandler import EditHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -46,6 +47,7 @@ def main():
         ('/search', SearchHandler),
         ('/recipe/(.*)', ViewRecipeHandler),
         ('/delete', DeleteHandler),
+        ('/edit/(.*)', EditHandler),
         #('/deleteall', DeleteAllHandler),
         ]
     mappings.append(("/(" + '|'.join(allmonths()) + ")", MonthHandler))

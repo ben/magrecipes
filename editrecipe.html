@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %} {{recipe.title}} (Edit) {% endblock %}
+
+{% block content %}
+
+{% verbatim %}
+<script type="text/html" id="ingredientTemplate">
+<ul>
+   {{each ingredients}}
+   <li>
+      ${ ingredient.name } &ndash; ${ quantity }
+      {{ if note != '' }} (${ note }) {{ /if }}
+   {{/each}}
+</ul>
+</script>
+{% endverbatim %}
+
+<form method="post" action="/edit" data-bind="submit: doSubmit">
+
+   <h3>Title:</h3>
+   <input id="titleentry" size="40" data-bind="value: title" />
+
+   <h3>Ingredients:</h3>
+   <div id="ingredienttable">
+      <p><em>TODO</em></p>
+   </div>
+
+   <div id="seasonbar">
+      <h3>Season:</h3>
+      <div id="seasons">
+         <a href="#" id="spring">Spring</a><br/>
+         <a href="#" id="summer">Summer</a><br/>
+         <a href="#" id="autumn">Autumn</a><br/>
+         <a href="#" id="winter">Winter</a><br/>
+         <a href="#" id="none">None</a><br/>
+         <a href="#" id="all">All</a><br/>
+      </div>
+      <div class="months">
+         {% for month in months %}
+         <input type="checkbox" name="{{ month|lower }}">{{ month }}</input><br>
+         {% endfor %}
+      </div>
+   </div>
+
+   <div id="instructions">
+      <h3>Instructions:</h3>
+      <textarea data-bind="text: instructions"></textarea>
+   </div>
+
+   <input type="hidden" name="key" value="{{recipe.key}}" />
+
+   <button type="submit">Save</button>
+   
+</form>
+
+{% endblock %}
+
+
+{% block viewmodel %}
+viewModel = {{json}};
+
+var converter = new Attacklab.showdown.converter();
+viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
+
+viewModel.doSubmit = function()
+{ alert(true);
+}
+{% endblock %}
