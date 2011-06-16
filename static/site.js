@@ -17,6 +17,12 @@ function add_new_ingredient_row()
   next_ingredient_index++;      
 }
 
+function selectInSet(set) {
+  for (i in set) {
+    $("#" + set[i]).attr('checked', true);
+  }
+}
+
 $(function() {
   // JQuery buttons
   $("button, input:submit").button()
@@ -49,24 +55,21 @@ $(function() {
     return false;
   });
 
+  // Months subset selection
   $('#spring').click (function() {
-    var selector = 'input[name=March], input[name=April], input[name=May]'
-    $(selector).attr('checked', true)
+    selectInSet(springMonths);
     return false;
   });
   $('#summer').click (function() {
-    var selector = 'input[name=June], input[name=July], input[name=August]'
-    $(selector).attr('checked', true)
+    selectInSet(summerMonths);
     return false;
   });
   $('#autumn').click (function() {
-    var selector = 'input[name=September], input[name=October], input[name=November]'
-    $(selector).attr('checked', true)
+    selectInSet(autumnMonths);
     return false;
   });
   $('#winter').click (function() {
-    var selector = 'input[name=December], input[name=January], input[name=February]'
-    $(selector).attr('checked', true)
+    selectInSet(winterMonths);
     return false;
   });
   $('#none').click (function() {

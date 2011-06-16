@@ -93,8 +93,12 @@ h1 {
     font-size: 4em;
 }
 
-h1,h2 {
+h1,h2,h3 {
     font-family: Goudy, georgia, serif;
+}
+
+label {
+    font-weight: normal;
 }
 
 div.recipe {
