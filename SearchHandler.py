@@ -21,7 +21,7 @@ class SearchHandler(webapp.RequestHandler):
             
             # Search ingredient names
             allingredients = Ingredient.all(keys_only=True)
-            ingredients = [i.name() for i in allingredients
+            ingredients = [i for i in allingredients
                            if regex.search(i.name())]
             
             # Search recipe bodies
