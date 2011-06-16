@@ -1,12 +1,15 @@
 * Must-have:
   - [ ] Edit a recipe
-    - Use same structure for create
-  - [ ] Ingredient pages
-  - [ ] Search
-        - Autocomplete for ingredients, with "enter" option free-text?
-        - Results page displays:
-          - Matching ingredients
-          - Matching instructions
+        - Use same structure for create
+  - [ ] Images
+        - Recipe can have N of them
+        - Display inline? Float right? Check how WMD does this
+  - [ ] Ingredient pages?
+  - [-] Search
+        - [X] Autocomplete for ingredients, with "enter" option free-text?
+        - [ ] Results page displays:
+              - Matching ingredients
+              - Matching instructions
   - Visual
     - [ ] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]

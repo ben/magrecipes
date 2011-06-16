@@ -86,11 +86,7 @@ header h1 {
 }
 
 body {
-    font-family: FanwoodText, georgia, serif;
-}
-
-body em {
-    font-family: FanwoodTextItalic, georgia, serif;
+    font-family: georgia, serif;
 }
 
 h1 {
