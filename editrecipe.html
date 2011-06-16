@@ -6,13 +6,27 @@
 
 {% verbatim %}
 <script type="text/html" id="ingredientTemplate">
-<ul>
-   {{each ingredients}}
-   <li>
-      ${ ingredient.name } &ndash; ${ quantity }
-      {{ if note != '' }} (${ note }) {{ /if }}
-   {{/each}}
-</ul>
+   <table id="ingredienttable">
+      <colgroup>
+         <col width="200"/>
+         <col width="40"/>
+         <col/>
+      </colgroup>
+      <thead><tr>
+            <td>Name</td>
+            <td>Amount</td>
+            <td>Note</td>
+      </tr></thead>
+      <tbody>
+         {{each ingredients}}
+         <tr class="ingrediententry">
+            <td><input class="ingredientautocomplete" data-bind="value: name" /></td>
+            <td><input data-bind="value: qty" /></td>
+            <td><input data-bind="value: note" /></td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
 </script>
 {% endverbatim %}
 
@@ -23,7 +37,7 @@
 
    <h3>Ingredients:</h3>
    <div id="ingredienttable">
-      <p><em>TODO</em></p>
+      <div data-bind="template: 'ingredientTemplate'"></div>
    </div>
 
    <div id="seasonbar">
@@ -45,12 +59,15 @@
 
    <div id="instructions">
       <h3>Instructions:</h3>
-      <textarea data-bind="text: instructions"></textarea>
+      <textarea data-bind="value: instructions, valueUpdate: 'afterkeydown'"></textarea>
    </div>
 
-   <input type="hidden" name="key" value="{{recipe.key}}" />
+   <input type="hidden" name="key" value="{{recipe.key}}"></input>
 
    <button type="submit">Save</button>
+
+   <h3>Preview:</h3>
+   <div data-bind="html: instructions_html"></div>
    
 </form>
 
@@ -58,12 +75,35 @@
 
 
 {% block viewmodel %}
-viewModel = {{json}};
+function ingredientViewModel(name, qty, note) {
+  this.name = name;
+  this.qty = qty;
+  this.note = note;
+}
+
+model = {{json}};
+model.ingredientArray = function() {
+  var retval = [];
+  for (var i=0; i<model.ingredients.length; i++)
+  {
+    ing = model.ingredients[i];
+    retval.push(new ingredientViewModel(ing.ingredient.name, ing.quantity, ing.note));
+  }
+  return retval;
+}
 
 var converter = new Attacklab.showdown.converter();
-viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
 
-viewModel.doSubmit = function()
-{ alert(true);
-}
+viewModel = {
+  title: ko.observable(model.title),
+  ingredients: ko.observableArray(model.ingredientArray()),
+  instructions: ko.observable(model.instructions),
+
+  doSubmit: function() {
+  }
+};
+viewModel.instructions_html = ko.dependentObservable(function() {
+  return converter.makeHtml(this.instructions());
+}, viewModel);
+
 {% endblock %}
