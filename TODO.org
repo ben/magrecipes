@@ -1,6 +1,7 @@
 * Must-have:
-  - [ ] Edit a recipe
-        - Use same structure for create
+  - [X] Edit a recipe
+  - [ ] Share form structure for create and edit
+  - [ ] Show months in recipe view
   - [ ] Images
         - Recipe can have N of them
         - Display inline? Float right? Check how WMD does this

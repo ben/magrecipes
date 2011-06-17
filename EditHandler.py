@@ -15,50 +15,50 @@ from helpers import allmonths, to_dict
 ################################################################################
 class EditHandler(webapp.RequestHandler):
 
-    def post(self):
+    def post(self, key):
         if not users.is_current_user_admin():
             return self.redirect('/')
 
-        # # Create a recipe
-        # therecipe = Recipe()
+        # Extract values from json
+        json = simplejson.loads(self.request.get('json'))
 
-        # # Values from request
-        # therecipe.title        = self.request.get('title')
-        # therecipe.instructions = self.request.get('instructions')
-        # therecipe.january      = self.property_to_bool('january')
-        # therecipe.february     = self.property_to_bool('february')
-        # therecipe.march        = self.property_to_bool('march')
-        # therecipe.april        = self.property_to_bool('april')
-        # therecipe.may          = self.property_to_bool('may')
-        # therecipe.june         = self.property_to_bool('june')
-        # therecipe.july         = self.property_to_bool('july')
-        # therecipe.august       = self.property_to_bool('august')
-        # therecipe.september    = self.property_to_bool('september')
-        # therecipe.october      = self.property_to_bool('october')
-        # therecipe.november     = self.property_to_bool('november')
-        # therecipe.december     = self.property_to_bool('december')
+        # Get the recipe
+        r = Recipe.get(json['key'])
+        if r == None:
+            return self.redirect('/')
 
-        # # Save it so it has a key with which to associate
-        # therecipe.put()
+        # Modify recipe values and write
+        r.title        = json['title']
+        r.instructions = json['instructions']
+        r.january      = bool(json['january'])
+        r.february     = bool(json['february'])
+        r.march        = bool(json['march'])
+        r.april        = bool(json['april'])
+        r.may          = bool(json['may'])
+        r.june         = bool(json['june'])
+        r.july         = bool(json['july'])
+        r.august       = bool(json['august'])
+        r.september    = bool(json['september'])
+        r.october      = bool(json['october'])
+        r.november     = bool(json['november'])
+        r.december     = bool(json['december'])
+        r.put()
 
-        # # Create the ingredients and associate them
-        # for i in xrange(1000):
-        #     # Get the ingredient's name
-        #     ingredient_name = self.request.get('ingredient' + str(i))
-        #     if not ingredient_name: break
+        # Replace ingredients with new ones
+        for qi in r.ingredients:
+            qi.delete()
+        for ivm in simplejson.loads(json['ingredients']):
+            self.response.out.write(str(ivm) + "<br/>")
+            ing = Ingredient.get_or_insert(ivm['name'],
+                                           name=ivm['name'])
+            qi = QuantifiedIngredient(ingredient=ing,
+                                      quantity=ivm['quantity'],
+                                      note=ivm['note'],
+                                      recipe=r)
+            qi.put()
 
-        #     # Fetch the ingredient, or create a new one.
-        #     ing = Ingredient.get_or_insert(ingredient_name, name=ingredient_name)
+        self.redirect("/recipe/" + str(r.key()))
 
-        #     # Create QuantifiedIngredients for all the Ingredients in this recipe
-        #     qi = QuantifiedIngredient(ingredient=ing,
-        #                               quantity = self.request.get('amount'+str(i)),
-        #                               note = self.request.get('note'+str(i)),
-        #                               recipe = therecipe)
-        #     qi.put()
-
-        self.redirect('/')
-        
 
     def get(self, key):
         if not users.is_current_user_admin():

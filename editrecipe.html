@@ -21,7 +21,7 @@
          {{each ingredients}}
          <tr class="ingrediententry">
             <td><input class="ingredientautocomplete" data-bind="value: name" /></td>
-            <td><input data-bind="value: qty" /></td>
+            <td><input data-bind="value: quantity" /></td>
             <td><input data-bind="value: note" /></td>
          </tr>
          {{/each}}
@@ -105,7 +105,7 @@
 </script>
 {% endverbatim %}
 
-<form method="post" action="/edit" data-bind="submit: doSubmit">
+<form method="post" action="/edit/{{recipe.key}}" data-bind="submit: doSubmit">
 
    <h3>Title:</h3>
    <input id="titleentry" size="40" data-bind="value: title" />
@@ -133,7 +133,7 @@
       <textarea data-bind="value: instructions, valueUpdate: 'afterkeydown'"></textarea>
    </div>
 
-   <input type="hidden" name="key" value="{{recipe.key}}"></input>
+   <input type="hidden" name="json" id="json" />
 
    <button type="submit">Save</button>
 
@@ -148,7 +148,7 @@
 {% block viewmodel %}
 function ingredientViewModel(name, qty, note) {
   this.name = name;
-  this.qty = qty;
+  this.quantity = qty;
   this.note = note;
 }
 
@@ -185,6 +185,26 @@ viewModel = {
   December: ko.observable(false),
 
   doSubmit: function() {
+    model.title = this.title();
+    model.ingredients = JSON.stringify(this.ingredients());
+    model.instructions = this.instructions();
+
+    model.january = viewModel.January();
+    model.february = viewModel.February();
+    model.march = viewModel.March();
+    model.april = viewModel.April();
+    model.may = viewModel.May();
+    model.june = viewModel.June();
+    model.july = viewModel.July();
+    model.august = viewModel.August();
+    model.september = viewModel.September();
+    model.october = viewModel.October();
+    model.november = viewModel.November();
+    model.december = viewModel.December();
+
+    // Submit the form with proper data
+    $('#json').attr('value', JSON.stringify(model))
+    return true;
   }
 };
 viewModel.instructions_html = ko.dependentObservable(function() {
