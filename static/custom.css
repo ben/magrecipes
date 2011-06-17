@@ -97,6 +97,16 @@ h1,h2,h3 {
     font-family: Goudy, georgia, serif;
 }
 
+div.recipe h2 {
+    margin-bottom: 0;
+}
+
+div.recipe .seasonnote {
+    margin-bottom: 1em;
+    font-size: smaller;
+    font-style: italic;
+}
+
 label {
     font-weight: normal;
 }

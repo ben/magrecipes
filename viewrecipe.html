@@ -27,6 +27,7 @@
       </form>
    </div>
    <h2><span data-bind="text: title" /></h2>
+   <div class="seasonnote" data-bind="text: joinedMonths"></div>
    <div data-bind="template: 'ingredientTemplate'"></div>
    <span data-bind="html: instructions_html" />
 </div>
@@ -39,4 +40,21 @@ viewModel = {{ json }};
 
 var converter = new Attacklab.showdown.converter();
 viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
+
+viewModel.enabledMonths = []
+if (viewModel.january) { viewModel.enabledMonths.push("January"); }
+if (viewModel.february) { viewModel.enabledMonths.push("February"); }
+if (viewModel.march) { viewModel.enabledMonths.push("March"); }
+if (viewModel.april) { viewModel.enabledMonths.push("April"); }
+if (viewModel.may) { viewModel.enabledMonths.push("May"); }
+if (viewModel.june) { viewModel.enabledMonths.push("June"); }
+if (viewModel.july) { viewModel.enabledMonths.push("July"); }
+if (viewModel.august) { viewModel.enabledMonths.push("August"); }
+if (viewModel.september) { viewModel.enabledMonths.push("September"); }
+if (viewModel.october) { viewModel.enabledMonths.push("October"); }
+if (viewModel.november) { viewModel.enabledMonths.push("November"); }
+if (viewModel.december) { viewModel.enabledMonths.push("December"); }
+
+if ($.inArray(viewModel.enabledMonths.length, [0,12]) != -1) viewModel.joinedMonths = "Year-round";
+else viewModel.joinedMonths = viewModel.enabledMonths.join(', ');
 {% endblock %}
