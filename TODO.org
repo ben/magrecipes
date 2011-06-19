@@ -1,19 +1,23 @@
 * Must-have:
-  - [X] Edit a recipe
-  - [ ] Share form structure for create and edit
-  - [ ] Show months in recipe view
+  - [ ] Sticky note
+    - [ ] Star in search, month, or ingredient views if recipe has a note
+    - [ ] Display on view page
   - [ ] Images
         - Recipe can have N of them
-        - Display inline? Float right? Check how WMD does this
-  - [ ] Ingredient pages?
-  - [-] Search
+        - Pre-process markdown, translate "!(1)" to "!(http://url/to/image)"
+        - Drag-and-drop uploading
+  - [ ] Ingredient pages
+  - Visual
+    - [X] Automatically create a new ingredient line when last one's name becomes non-blank
+    - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] Search
         - [X] Autocomplete for ingredients, with "enter" option free-text?
-        - [ ] Results page displays:
+        - [X] Results page displays:
               - Matching ingredients
               - Matching instructions
-  - Visual
-    - [ ] Automatically create a new ingredient line when last one's name becomes non-blank
-    - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] Show months in recipe view
+  - [X] Share form structure for create and edit
+  - [X] Edit a recipe
   - [X] Delete a recipe
 
 
