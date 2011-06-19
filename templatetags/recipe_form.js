@@ -11,7 +11,7 @@ function ingredientViewModel(name, qty, note) {
   }
 }
 
-model = {{json}};
+model = {{json|safe}};
 model.ingredientArray = function() {
   var retval = [];
   for (var i=0; i<model.ingredients.length; i++)

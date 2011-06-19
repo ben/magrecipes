@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 
 import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+
+from google.appengine.dist import use_library
+use_library('django', '1.2')
+
+import os
 import logging
 
 from google.appengine.api import users
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
+from google.appengine.ext.webapp import template, util
 from google.appengine.ext.webapp import util
-from google.appengine.ext.webapp.util import login_required
 
 from models import Ingredient, QuantifiedIngredient, Recipe
 from helpers import allmonths

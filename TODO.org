@@ -6,6 +6,7 @@
         - Recipe can have N of them
         - Pre-process markdown, translate "!(1)" to "!(http://url/to/image)"
         - Drag-and-drop uploading
+        - Storage like [[http://stackoverflow.com/questions/1616890/storing-images-on-app-engine-using-django/1688498#1688498][this]]
   - [ ] Ingredient pages
   - Visual
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
