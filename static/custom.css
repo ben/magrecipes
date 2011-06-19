@@ -101,7 +101,7 @@ div.recipe h2 {
     margin-bottom: 0;
 }
 
-div.recipe .seasonnote {
+.seasonnote, .yield {
     margin-bottom: 1em;
     font-size: smaller;
     font-style: italic;

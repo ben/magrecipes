@@ -3,11 +3,12 @@
 {% block title %} Add Recipe {% endblock %}
 
 {% block content %}
-
-<h2>New Recipe</h2>
-<form method="POST" action="/newrecipe">
-{% include "_recipeform.html" %}
-<p><input type="submit" value="Create" /></p>
+<form method="post" action="/newrecipe" data-bind="submit: doSubmit">
+   {% recipe_form json %}
 </form>
+{% endblock %}
 
+
+{% block viewmodel %}
+    {% recipe_viewmodel json %}
 {% endblock %}

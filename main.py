@@ -23,6 +23,7 @@ from EditHandler import EditHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
+template.register_template_library('templatetags.recipe_form')
 template.register_template_library('templatetags.verbatim')
 template.register_template_library('templatetags.ingredient_autocomplete')
 

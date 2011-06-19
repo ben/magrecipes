@@ -27,35 +27,8 @@ class EditHandler(webapp.RequestHandler):
         if r == None:
             return self.redirect('/')
 
-        # Modify recipe values and write
-        r.title        = json['title']
-        r.instructions = json['instructions']
-        r.january      = bool(json['january'])
-        r.february     = bool(json['february'])
-        r.march        = bool(json['march'])
-        r.april        = bool(json['april'])
-        r.may          = bool(json['may'])
-        r.june         = bool(json['june'])
-        r.july         = bool(json['july'])
-        r.august       = bool(json['august'])
-        r.september    = bool(json['september'])
-        r.october      = bool(json['october'])
-        r.november     = bool(json['november'])
-        r.december     = bool(json['december'])
-        r.put()
-
-        # Replace ingredients with new ones
-        for qi in r.ingredients:
-            qi.delete()
-        for ivm in simplejson.loads(json['ingredients']):
-            self.response.out.write(str(ivm) + "<br/>")
-            ing = Ingredient.get_or_insert(ivm['name'],
-                                           name=ivm['name'])
-            qi = QuantifiedIngredient(ingredient=ing,
-                                      quantity=ivm['quantity'],
-                                      note=ivm['note'],
-                                      recipe=r)
-            qi.put()
+        # Set the new values
+        r.set_from_dict(json)
 
         self.redirect("/recipe/" + str(r.key()))
 
@@ -77,6 +50,5 @@ class EditHandler(webapp.RequestHandler):
         template_values = {
             'recipe' : recipe,
             'json' : simplejson.dumps(recipe_dict),
-            'months' : allmonths(),
             }
         self.response.out.write(template.render(path, template_values))
