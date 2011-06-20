@@ -18,7 +18,7 @@ from models import Ingredient, QuantifiedIngredient, Recipe
 from helpers import allmonths
 
 # Handlers
-from MainHandler import MainHandler
+from IndexHandler import IndexHandler
 from NewRecipeHandler import NewRecipeHandler
 from SearchHandler import SearchHandler
 from ViewRecipeHandler import ViewRecipeHandler
@@ -48,7 +48,7 @@ class DeleteAllHandler(webapp.RequestHandler):
 def main():
     logging.getLogger().setLevel(logging.DEBUG)
     mappings = [
-        ('/', MainHandler),
+        ('/', IndexHandler),
         ('/newrecipe', NewRecipeHandler),
         ('/search', SearchHandler),
         ('/recipe/(.*)', ViewRecipeHandler),

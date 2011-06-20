@@ -19,7 +19,7 @@ def convert_to_dict(r):
     return d
 
 ################################################################################
-class MainHandler(webapp.RequestHandler):
+class IndexHandler(webapp.RequestHandler):
     def get(self):
         recipes = Recipe.all().fetch(10)
         recipe_dict = {'recipes': [convert_to_dict(r) for r in recipes]}
