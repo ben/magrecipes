@@ -155,34 +155,26 @@ div.recipe:after {
             transform:rotate(3deg);
 }
 
+div.recipe img {
+    border: 1px solid gray;
+    padding: 2px;
+}
+
 table, tr.ingrediententry input {
     width: 100%;
+    margin: 0;
+}
+
+tr {
+    margin: 0;
 }
 
 #instructions textarea {
-    width: 90%;
+    width: 100%;
 }
 
-div#seasonbar {
-    float:right;
-    width: 150px;
-    margin-top: 1.5em;
-}
-
-div#seasonbar div {
-    font-size: 75%;
-}
-
-div#seasonbar h3 {
-    margin-top: 0;
-}
-
-#seasons {
-    float: right;
-}
-
-#instructions {
-    width: 550px;
+#monthbuttonset {
+    font-size: small;
 }
 
 div.recipe div.modify {
@@ -193,4 +185,19 @@ div.recipe div.modify {
 
 .deleteconfirm {
     display: none;
+}
+
+#imageupload {
+    position: fixed;
+    right: 1%;
+    width: 225px;
+    top: 10%;
+    height: 80%;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+#imageupload h3 {
+    text-align: center;
+    margin-top: 0.25em;
 }

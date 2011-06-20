@@ -38,7 +38,6 @@ var allMonths = [
 ];
 function selectInSet(set, value) {
   for (i in set) viewModel[set[i]](value);
-  return false;
 }
 
 

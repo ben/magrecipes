@@ -5,10 +5,10 @@
   - [ ] Images
         - Recipe can have N of them
         - Pre-process markdown, translate "!(1)" to "!(http://url/to/image)"
-        - Drag-and-drop uploading
         - Storage like [[http://stackoverflow.com/questions/1616890/storing-images-on-app-engine-using-django/1688498#1688498][this]]
   - [ ] Ingredient pages
   - Visual
+    - [ ] Markdown help floating dialog
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
   - [X] Search
@@ -24,3 +24,5 @@
 
 * Like-to-have:
   - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
+  - [ ] Drag-and-drop uploading for images
+

@@ -37,7 +37,7 @@
 
 
 {% block viewmodel %}
-viewModel = {{ json }};
+viewModel = {{ json|safe }};
 
 var converter = new Attacklab.showdown.converter();
 viewModel.instructions_html = converter.makeHtml(viewModel.instructions)

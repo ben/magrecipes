@@ -12,19 +12,17 @@
 
 {% verbatim %}
 <script type="text/html" id="recipeTemplate">
-   {{ each recipes }}
    <div class="recipe">
       <a href="/recipe/${ key }">
          <h2>${ title }</h2>
       </a>
    </div>
-   {{ /each }}
 </script>
 {% endverbatim %}
 
-<div data-bind="template: 'recipeTemplate'"></div>
+<div data-bind="template: {name: 'recipeTemplate', foreach: recipes}"></div>
 {% endblock %}
 
 {% block viewmodel %}
-var viewModel = {{ json }};
+var viewModel = {{ json|safe }};
 {% endblock %}

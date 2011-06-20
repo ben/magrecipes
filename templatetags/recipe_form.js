@@ -113,24 +113,32 @@ viewModel.ingredients.push(new ingredientViewModel('','',''));
 var lastIngredientSubscription = viewModel.ingredients()[viewModel.ingredients().length-1].name.subscribe(lastIngredientNameChanged);
 
 
+function SelectInSetAndRefreshMonthButtons(set, value) {
+  selectInSet(set, value);
+  $('#monthbuttonset').buttonset('refresh');
+  return false;
+}
+
 $(function() {
   // Months subset selection
   $('#spring').click (function() {
-    return selectInSet(springMonths, true);
+    return SelectInSetAndRefreshMonthButtons(springMonths, true);
   });
   $('#summer').click (function() {
-    return selectInSet(summerMonths, true);
+    return SelectInSetAndRefreshMonthButtons(summerMonths, true);
   });
   $('#autumn').click (function() {
-    return selectInSet(autumnMonths, true);
+    return SelectInSetAndRefreshMonthButtons(autumnMonths, true);
   });
   $('#winter').click (function() {
-    return selectInSet(winterMonths, true);
+    return SelectInSetAndRefreshMonthButtons(winterMonths, true);
   });
   $('#none').click (function() {
-    return selectInSet(allMonths, false);
+    return SelectInSetAndRefreshMonthButtons(allMonths, false);
   });
   $('#all').click(function() {
-    return selectInSet(allMonths, true);
+    return SelectInSetAndRefreshMonthButtons(allMonths, true);
   })
+
+  $('#monthbuttonset').buttonset();
 })
