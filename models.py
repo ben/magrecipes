@@ -22,6 +22,7 @@ class Recipe(db.Model):
 
     def to_dict(self):
         if self.is_saved(): return {
+            'key' : str(self.key()),
             'january' : self.january,
             'february' : self.february,
             'march' : self.march,
@@ -37,10 +38,13 @@ class Recipe(db.Model):
             'title' : self.title,
             'instructions' : self.instructions,
             'ingredients' : [i.to_dict() for i in self.ingredients],
-            'images' : [to_dict(i) for i in self.images],
+            'images' : [i.to_dict() for i in self.images],
             'yeeld' : self.yeeld,
             }
+
+        # Unsaved recipe; default values
         return  {
+            'key' : '',
             'january' : False,
             'february' : False,
             'march' : False,
@@ -56,7 +60,8 @@ class Recipe(db.Model):
             'title' : '',
             'instructions' : '',
             'ingredients' : [],
-            'images' : [],
+            'images' : [i.to_dict() for i in Image.all().run()
+                        if i.recipe == None],
             'yeeld' : '',
             }
 
@@ -108,7 +113,8 @@ class QuantifiedIngredient(db.Model):
             }
 
 class Image(db.Model):
-    orig   = db.BlobProperty()
-    mid    = db.BlobProperty()
-    thumb  = db.BlobProperty()
+    data   = db.BlobProperty()
     recipe = db.ReferenceProperty(Recipe, collection_name="images")
+
+    def to_dict(self):
+        return {'key' : str(self.key())}

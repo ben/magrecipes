@@ -4,7 +4,7 @@
 
 {% block content %}
 <form method="post" action="/edit/{{recipe.key}}" data-bind="submit: doSubmit">
-  {% recipe_form json %}
+  {% recipe_form json image_upload_url %}
 </form>
 {% endblock %}
 

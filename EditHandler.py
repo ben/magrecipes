@@ -25,12 +25,11 @@ class EditHandler(webapp.RequestHandler):
             return
 
         recipe_dict = recipe.to_dict()
-        recipe_dict['key'] = str(recipe.key())
 
         path = os.path.join(os.path.dirname(__file__), 'editrecipe.html')
         template_values = {
-            'recipe' : recipe,
             'json' : simplejson.dumps(recipe_dict),
+            'image_upload_url' : '/recipe/' + recipe_dict['key'] + '/images',
             }
         self.response.out.write(template.render(path, template_values))
 

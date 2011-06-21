@@ -25,6 +25,7 @@ from ViewRecipeHandler import ViewRecipeHandler
 from MonthHandler import MonthHandler
 from DeleteHandler import DeleteHandler
 from EditHandler import EditHandler
+from ImageHandler import NewImageHandler, ImageHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -51,14 +52,14 @@ def main():
     mappings = [
         # Create
         ('/newrecipe', NewRecipeHandler),
-        #('/image', NewImageHandler),
-        #('/recipe/(.*)/image', RecipeImageUploadHandler),
+        ('/image', NewImageHandler),
+        #('/recipe/(.*)/image', NewRecipeImageHandler),
 
         # Read
         ('/', IndexHandler),
         ('/search', SearchHandler),
         ('/recipe/(.*)', ViewRecipeHandler),
-        #('/image/(.*)/(.*)', ImageHandler),
+        ('/image/(.*)/(.*)', ImageHandler),
 
         # Update
         ('/edit/(.*)', EditHandler),

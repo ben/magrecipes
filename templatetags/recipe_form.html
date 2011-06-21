@@ -9,7 +9,9 @@
 
 <script type="text/html" id="imageTemplate">
    <div class="imagethumb">
-      (image)
+      <a href="#" data-markdown="![](/image/${key}/575">
+         <img src="/image/${key}/200" />
+      </a>
    </div>
 </script>
 
@@ -111,11 +113,13 @@
 
 </form>
 
-<form id="imageform" method="post" enctype="multipart/form-data" action="/image">
+<form id="imageform" action="{{image_upload_url}}" method="post" enctype="multipart/form-data">
    <div id="imageupload">
-      <h3>Images</h3>
-      <input type="file" id="photofile" />
-      <button id="fileupload">Upload image</button>
+      <div>
+         <h3>Images</h3>
+         <input type="file" name="photofile" />
+         <input type="submit" id="fileupload" value="Upload image" />
+      </div>
 
-      <div id="recipeimages" data-bind="template: {foreach: images, template: 'imageTemplate'}"></div>
+      <div id="recipeimages" data-bind="template: { name: 'imageTemplate', foreach: images}" />
    </div>

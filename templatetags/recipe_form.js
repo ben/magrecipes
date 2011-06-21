@@ -54,6 +54,7 @@ viewModel = {
         model.ingredients.push(d)
     }
     model.instructions = viewModel.instructions();
+    model.images = viewModel.images();
     model.yeeld = viewModel.yeeld();
 
     model.january = viewModel.January();
@@ -146,11 +147,12 @@ $(function() {
 
   // File uploading
   $('#imageform').ajaxForm({
-    beforeSubmit: function() {
-      $('#recipeimages').append('div').text('Uploading...');
-    },
+    dataType: 'text/javascript',
+    // beforeSubmit: function() {
+    //   $('#recipeimages').after().text('Uploading...');
+    // },
     success: function(data) {
-      viewModel.images().push(data);
+      viewModel.images.push(JSON.parse(data));
     },
   });
 });

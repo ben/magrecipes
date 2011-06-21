@@ -2,10 +2,11 @@ import os
 import logging
 
 from google.appengine.api import users
-from google.appengine.ext import webapp, db
+from google.appengine.ext import webapp, db, blobstore
+from google.appengine.ext.db import Key
 from google.appengine.ext.webapp import template
 
-from models import Ingredient, QuantifiedIngredient, Recipe
+from models import Ingredient, QuantifiedIngredient, Recipe, Image
 
 from django.utils import simplejson
 
@@ -38,11 +39,11 @@ class NewRecipeHandler(webapp.RequestHandler):
         if not users.is_current_user_admin():
             return self.redirect(users.create_login_url(self.request.url))
 
-        recipe_dict = Recipe().to_dict()
+        r = Recipe().to_dict()
 
         path = os.path.join(os.path.dirname(__file__), 'newrecipe.html')
         template_values = {
-            'recipe' : Recipe(),
-            'json' : simplejson.dumps(recipe_dict),
+            'json' : simplejson.dumps(r),
+            'image_upload_url' : '/image',
             }
         self.response.out.write(template.render(path, template_values))
