@@ -84,6 +84,12 @@ class Recipe(db.Model):
         self.december     = bool(d['december'])
         self.put()
 
+        # Update images to point here
+        for i in d['images']:
+            img = Image.get(i['key'])
+            img.recipe = self
+            img.put()
+
         # Replace ingredients with new ones
         for qi in self.ingredients:
             qi.delete()
