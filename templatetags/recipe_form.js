@@ -155,4 +155,10 @@ $(function() {
       viewModel.images.push(JSON.parse(data));
     },
   });
+
+  // Click image link => insert markdown tag
+  $('.markdown-insert-link').click(function() {
+    $('#instructionstext').insertAtCaret(this.attributes["data-markdown"].value);
+    return false;
+  });
 });

@@ -25,7 +25,7 @@ from ViewRecipeHandler import ViewRecipeHandler
 from MonthHandler import MonthHandler
 from DeleteHandler import DeleteHandler
 from EditHandler import EditHandler
-from ImageHandler import NewImageHandler, ImageHandler
+from ImageHandler import NewImageHandler, ImageHandler, RecipeImageHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -53,7 +53,7 @@ def main():
         # Create
         ('/newrecipe', NewRecipeHandler),
         ('/image', NewImageHandler),
-        #('/recipe/(.*)/image', NewRecipeImageHandler),
+        ('/recipe/(.*)/images', RecipeImageHandler),
 
         # Read
         ('/', IndexHandler),

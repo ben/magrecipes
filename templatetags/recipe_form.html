@@ -9,7 +9,7 @@
 
 <script type="text/html" id="imageTemplate">
    <div class="imagethumb">
-      <a href="#" data-markdown="![](/image/${key}/575">
+      <a href="#" class="markdown-insert-link" data-markdown="![](/image/${key}/575)">
          <img src="/image/${key}/200" />
       </a>
    </div>
@@ -101,7 +101,7 @@
 
 <div id="instructions">
    <h3>Instructions:</h3>
-   <textarea data-bind="value: instructions, valueUpdate: 'afterkeydown'"></textarea>
+   <textarea id="instructionstext" data-bind="value: instructions, valueUpdate: 'afterkeydown'"></textarea>
 </div>
 
 <input type="hidden" name="json" id="json" />
