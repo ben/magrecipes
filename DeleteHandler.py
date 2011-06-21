@@ -13,10 +13,16 @@ from helpers import to_dict
 
 class DeleteHandler(webapp.RequestHandler):
     def post(self):
-        if users.is_current_user_admin():
-            recipe = Recipe.get(self.request.get('key'))
-            for qi in recipe.ingredients: qi.delete()
-            recipe.delete()
+        if not users.is_current_user_admin():
+            return self.redirect(users.create_login_url(self.request.url))
+
+        key = self.request.get('key')
+        logging.debug("Deleting recipe " + key)
+        recipe = Recipe.get(key)
+        for qi in recipe.ingredients:
+            logging.debug("Deleting QI " + str(qi.key()))
+            qi.delete()
+        recipe.delete()
         self.redirect('/')
 
     

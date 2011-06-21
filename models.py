@@ -36,7 +36,8 @@ class Recipe(db.Model):
             'december' : self.december,
             'title' : self.title,
             'instructions' : self.instructions,
-            'ingredients' : [to_dict(i) for i in self.ingredients],
+            'ingredients' : [i.to_dict() for i in self.ingredients],
+            'images' : [to_dict(i) for i in self.images],
             'yeeld' : self.yeeld,
             }
         return  {
@@ -55,6 +56,7 @@ class Recipe(db.Model):
             'title' : '',
             'instructions' : '',
             'ingredients' : [],
+            'images' : [],
             'yeeld' : '',
             }
 
@@ -98,3 +100,15 @@ class QuantifiedIngredient(db.Model):
     note = db.StringProperty()
     recipe = db.ReferenceProperty(Recipe, collection_name='ingredients')
 
+    def to_dict(self):
+        return {
+            'name' : self.ingredient.name,
+            'quantity' : self.quantity,
+            'note' : self.note,
+            }
+
+class Image(db.Model):
+    orig   = db.BlobProperty()
+    mid    = db.BlobProperty()
+    thumb  = db.BlobProperty()
+    recipe = db.ReferenceProperty(Recipe, collection_name="images")

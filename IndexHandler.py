@@ -23,7 +23,9 @@ class IndexHandler(webapp.RequestHandler):
     def get(self):
         recipes = Recipe.all().fetch(10)
         recipe_dict = {'recipes': [convert_to_dict(r) for r in recipes]}
-        
+        for v in recipe_dict['recipes']:
+            if v['title'] == '':
+                v['title'] = '(no title)'
 
         template_values = {
             'json' : simplejson.dumps(recipe_dict),

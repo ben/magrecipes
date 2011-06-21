@@ -7,6 +7,12 @@
    </tr>
 </script>
 
+<script type="text/html" id="imageTemplate">
+   <div class="imagethumb">
+      (image)
+   </div>
+</script>
+
 <script type="text/html" id="allIngredientsTemplate">
    <table id="ingredienttable">
       <colgroup>
@@ -105,16 +111,11 @@
 
 </form>
 
-<form action="/newimage" method="post">
-<div id="imageupload">
-   <h3>Images</h3>
-   <input type="file" />
-   <button id="fileupload">Upload image</button>
+<form id="imageform" method="post" enctype="multipart/form-data" action="/image">
+   <div id="imageupload">
+      <h3>Images</h3>
+      <input type="file" id="photofile" />
+      <button id="fileupload">Upload image</button>
 
-   <script type="text/javascript">
-      $(function() {
-        $('#fileupload').click(function() { return false; });
-      });
-   </script>
-</div>
-
+      <div id="recipeimages" data-bind="template: {foreach: images, template: 'imageTemplate'}"></div>
+   </div>

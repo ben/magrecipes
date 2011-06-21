@@ -17,7 +17,7 @@ model.ingredientArray = function() {
   for (var i=0; i<model.ingredients.length; i++)
   {
     ing = model.ingredients[i];
-    retval.push(new ingredientViewModel(ing.ingredient.name, ing.quantity, ing.note));
+    retval.push(new ingredientViewModel(ing.name, ing.quantity, ing.note));
   }
   return retval;
 }
@@ -28,6 +28,7 @@ var converter = new Attacklab.showdown.converter();
 viewModel = {
   title: ko.observable(""),
   ingredients: ko.observableArray([]),
+  images: ko.observableArray([]),
   instructions: ko.observable(""),
   yeeld: ko.observable(""),
 
@@ -80,6 +81,7 @@ viewModel.instructions_html = ko.dependentObservable(function() {
 // Fill in viewmodel with model data
 viewModel.title(model.title);
 viewModel.ingredients(model.ingredientArray());
+viewModel.images(model.images);
 viewModel.instructions(model.instructions);
 viewModel.yeeld(model.yeeld);
 viewModel.January(model.january);
@@ -141,4 +143,14 @@ $(function() {
   })
 
   $('#monthbuttonset').buttonset();
-})
+
+  // File uploading
+  $('#imageform').ajaxForm({
+    beforeSubmit: function() {
+      $('#recipeimages').append('div').text('Uploading...');
+    },
+    success: function(data) {
+      viewModel.images().push(data);
+    },
+  });
+});

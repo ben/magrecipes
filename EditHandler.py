@@ -2,7 +2,7 @@ import os
 import logging
 
 from google.appengine.api import users
-from google.appengine.ext import webapp, db
+from google.appengine.ext import webapp, db, blobstore
 from google.appengine.ext.webapp import template
 
 from models import Ingredient, QuantifiedIngredient, Recipe
@@ -14,6 +14,26 @@ from helpers import allmonths, to_dict
 
 ################################################################################
 class EditHandler(webapp.RequestHandler):
+
+    def get(self, key):
+        if not users.is_current_user_admin():
+            return self.redirect(users.create_login_url(self.request.url))
+
+        recipe = Recipe.get(key)
+        if (recipe == None):
+            self.redirect('/')
+            return
+
+        recipe_dict = recipe.to_dict()
+        recipe_dict['key'] = str(recipe.key())
+
+        path = os.path.join(os.path.dirname(__file__), 'editrecipe.html')
+        template_values = {
+            'recipe' : recipe,
+            'json' : simplejson.dumps(recipe_dict),
+            }
+        self.response.out.write(template.render(path, template_values))
+
 
     def post(self, key):
         if not users.is_current_user_admin():
@@ -33,22 +53,3 @@ class EditHandler(webapp.RequestHandler):
         self.redirect("/recipe/" + str(r.key()))
 
 
-    def get(self, key):
-        if not users.is_current_user_admin():
-            return self.redirect(users.create_login_url(self.request.url))
-
-        recipe = Recipe.get(key)
-        if (recipe == None):
-            self.redirect('/')
-            return
-
-        recipe_dict = to_dict(recipe)
-        recipe_dict['ingredients'] = [to_dict(i) for i in recipe.ingredients]
-        recipe_dict['key'] = str(recipe.key())
-
-        path = os.path.join(os.path.dirname(__file__), 'editrecipe.html')
-        template_values = {
-            'recipe' : recipe,
-            'json' : simplejson.dumps(recipe_dict),
-            }
-        self.response.out.write(template.render(path, template_values))

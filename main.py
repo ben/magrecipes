@@ -14,7 +14,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template, util
 from google.appengine.ext.webapp import util
 
-from models import Ingredient, QuantifiedIngredient, Recipe
+from models import Ingredient, QuantifiedIngredient, Recipe, Image
 from helpers import allmonths
 
 # Handlers
@@ -40,6 +40,7 @@ class DeleteAllHandler(webapp.RequestHandler):
         for qi in QuantifiedIngredient.all(): qi.delete()
         for i in Ingredient.all(): i.delete()
         for r in Recipe.all(): r.delete()
+        for img in Image.all(): img.delete()
         self.redirect('/')
 
 
@@ -48,13 +49,24 @@ class DeleteAllHandler(webapp.RequestHandler):
 def main():
     logging.getLogger().setLevel(logging.DEBUG)
     mappings = [
-        ('/', IndexHandler),
+        # Create
         ('/newrecipe', NewRecipeHandler),
+        #('/image', NewImageHandler),
+        #('/recipe/(.*)/image', RecipeImageUploadHandler),
+
+        # Read
+        ('/', IndexHandler),
         ('/search', SearchHandler),
         ('/recipe/(.*)', ViewRecipeHandler),
-        ('/delete', DeleteHandler),
+        #('/image/(.*)/(.*)', ImageHandler),
+
+        # Update
         ('/edit/(.*)', EditHandler),
-        #('/deleteall', DeleteAllHandler),
+
+        # Delete
+        ('/delete', DeleteHandler),
+        #('/image/([^/]*)', ImageDeleteHandler),
+        ####('/deleteall', DeleteAllHandler),
         ]
     mappings.append(("/(" + '|'.join(allmonths()) + ")", MonthHandler))
     application = webapp.WSGIApplication(
