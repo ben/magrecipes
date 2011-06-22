@@ -188,19 +188,41 @@ div.recipe div.modify {
 }
 
 #imageupload {
-    position: fixed;
     right: 1%;
+    overflow-x: hidden;
+}
+
+#imageupload h3, #markdownhelp h3 {
+    text-align: center;
+    margin-top: 0.25em;
+}
+
+#markdownhelp {
+    left: 1%;
+}
+
+#imageupload, #markdownhelp {
+    position: fixed;
     width: 225px;
-    top: 10%;
+    bottom: 10%;
     max-height: 80%;
     border: 1px solid gray;
     padding: 5px;
     overflow-y: auto;
-    overflow-x: hidden;
     clip: auto;
 }
 
-#imageupload h3 {
-    text-align: center;
-    margin-top: 0.25em;
+#markdownhelp pre {
+    margin: 0;
+    font-size: 9pt;
+}
+
+#markdownhelp h4 {
+    margin: 0.75em 0 0 0;
+}
+
+#markdownhelp .more {
+    text-align: right;
+    font-size: smaller;
+    margin: 0;
 }
