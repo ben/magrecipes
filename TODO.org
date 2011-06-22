@@ -1,19 +1,21 @@
 * Must-have:
+  - [ ] Bind click handler to insertAtCaret when uploading new images
   - [ ] Sticky note
     - [ ] Star in search, month, or ingredient views if recipe has a note
     - [ ] Display on view page
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
-  - [ ] Images
-        - Recipe can have N of them
-        - Pre-process markdown, translate "!(1)" to "!(http://url/to/image)"
-        - Storage like [[http://stackoverflow.com/questions/1616890/storing-images-on-app-engine-using-django/1688498#1688498][this]]
   - [ ] Ingredient pages
   - Visual
     - [ ] Markdown help floating dialog
+    - [ ] Hide modification links if not admin user
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] recipe.source
+  - [X] Images
+        - Recipe can have N of them
+        - Storage like [[http://stackoverflow.com/questions/1616890/storing-images-on-app-engine-using-django/1688498#1688498][this]]
   - [X] Search
         - [X] Autocomplete for ingredients, with "enter" option free-text?
         - [X] Results page displays:
@@ -29,4 +31,8 @@
   - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
   - [ ] Drag-and-drop uploading for images
   - [ ] Warning when navigating away from new or edit?
+  - [ ] Indexes:
+        - recipe by month
+        - recipe by ingredient
+        - image by recipe
 

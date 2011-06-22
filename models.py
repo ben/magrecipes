@@ -6,6 +6,7 @@ class Recipe(db.Model):
     title = db.StringProperty()
     instructions = db.TextProperty()
     yeeld = db.StringProperty()
+    source = db.StringProperty()
 
     january   = db.BooleanProperty()
     february  = db.BooleanProperty()
@@ -40,6 +41,7 @@ class Recipe(db.Model):
             'ingredients' : [i.to_dict() for i in self.ingredients],
             'images' : [i.to_dict() for i in self.images],
             'yeeld' : self.yeeld,
+            'source' : self.source,
             }
 
         # Unsaved recipe; default values
@@ -63,6 +65,7 @@ class Recipe(db.Model):
             'images' : [i.to_dict() for i in Image.all().run()
                         if i.recipe == None],
             'yeeld' : '',
+            'source' : '',
             }
 
     def set_from_dict(self, d):
@@ -70,6 +73,7 @@ class Recipe(db.Model):
         self.title        = d['title']
         self.instructions = d['instructions']
         self.yeeld        = d['yeeld']
+        self.source       = d['source']
         self.january      = bool(d['january'])
         self.february     = bool(d['february'])
         self.march        = bool(d['march'])

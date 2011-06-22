@@ -31,6 +31,7 @@ viewModel = {
   images: ko.observableArray([]),
   instructions: ko.observable(""),
   yeeld: ko.observable(""),
+  source: ko.observable(""),
 
   January: ko.observable(false),
   February: ko.observable(false),
@@ -56,6 +57,7 @@ viewModel = {
     model.instructions = viewModel.instructions();
     model.images = viewModel.images();
     model.yeeld = viewModel.yeeld();
+    model.source = viewModel.source();
 
     model.january = viewModel.January();
     model.february = viewModel.February();
@@ -85,6 +87,7 @@ viewModel.ingredients(model.ingredientArray());
 viewModel.images(model.images);
 viewModel.instructions(model.instructions);
 viewModel.yeeld(model.yeeld);
+viewModel.source(model.source);
 viewModel.January(model.january);
 viewModel.February(model.february);
 viewModel.March(model.march);
