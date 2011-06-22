@@ -9,7 +9,9 @@
 
 <script type="text/html" id="imageTemplate">
    <div class="imagethumb">
-      <a href="#" class="markdown-insert-link" data-markdown="![](/image/${key}/575)">
+      <a href="#"
+         onClick="$('#instructionstext').insertAtCaret('![](/image/${key}/575)');return false;"
+         class="markdown-insert-link">
          <img src="/image/${key}/200" />
       </a>
    </div>
