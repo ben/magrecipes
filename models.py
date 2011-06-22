@@ -128,3 +128,8 @@ class Image(db.Model):
 
     def to_dict(self):
         return {'key' : str(self.key())}
+
+class ResizedImage(db.Model):
+    size = db.IntegerProperty()
+    image = db.ReferenceProperty(Image, collection_name="sized_images")
+    data = db.BlobProperty()
