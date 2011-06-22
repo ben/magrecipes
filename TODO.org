@@ -1,5 +1,4 @@
 * Must-have:
-  - [ ] Bind click handler to insertAtCaret when uploading new images
   - [ ] Sticky note
     - [ ] Star in search, month, or ingredient views if recipe has a note
     - [ ] Display on view page
@@ -12,6 +11,7 @@
     - [ ] Hide modification links if not admin user
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] Bind click handler to insertAtCaret when uploading new images
   - [X] recipe.source
   - [X] Images
         - Recipe can have N of them
