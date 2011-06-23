@@ -17,13 +17,13 @@
 
 
 <script type="text/html" id="stickyTemplate">
-   <div class="sticky drop-shadow lifted">${ text }</div>
+   <div class="sticky drop-shadow">${ text }</div>
 </script>
 {% endverbatim %}
 
 <div id="sticky-container">
    <div data-bind="template: {name: 'stickyTemplate', foreach: stickies}"></div>
-   <div id="new-sticky-form" class="sticky drop-shadow lifted">
+   <div id="new-sticky-form" class="sticky drop-shadow">
       <form method="post" action="/recipe/{{recipe.key}}/stickies">
          <h4>Add a note:</h4>
          <textarea name="text"></textarea>
