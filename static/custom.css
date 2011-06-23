@@ -118,46 +118,15 @@ div.recipe {
     padding: 1em;
     padding:1em; 
     background:#fff;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-    -moz-border-radius:4px; 
-         border-radius:4px;
 }
 
-div.recipe:before,
-div.recipe:after {
-    content:"";
-    position:absolute;
-    z-index:-2;
-    bottom:15px;
-    left:10px;
-    width:50%;
-    height:20%;
-    max-width:300px;
-    -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);   
-       -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
-            box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
-    -webkit-transform:rotate(-3deg);    
-       -moz-transform:rotate(-3deg);   
-        -ms-transform:rotate(-3deg);   
-         -o-transform:rotate(-3deg);
-            transform:rotate(-3deg);
-}
-
-div.recipe:after {
-    right:10px; 
-    left:auto;
-    -webkit-transform:rotate(3deg);   
-       -moz-transform:rotate(3deg);  
-        -ms-transform:rotate(3deg);  
-         -o-transform:rotate(3deg);
-            transform:rotate(3deg);
-}
 
 div.recipe img {
     border: 1px solid gray;
     padding: 2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table, tr.ingrediententry input {
@@ -167,6 +136,10 @@ table, tr.ingrediententry input {
 
 tr {
     margin: 0;
+}
+
+textarea {
+    resize: vertical;
 }
 
 #instructions textarea {
@@ -217,7 +190,7 @@ div.recipe div.modify {
     font-size: 9pt;
 }
 
-#markdownhelp h4 {
+h4 {
     margin: 0.75em 0 0 0;
 }
 
@@ -225,4 +198,25 @@ div.recipe div.modify {
     text-align: right;
     font-size: smaller;
     margin: 0;
+}
+
+
+#sticky-container {
+    position: absolute;
+    right: 5%;
+    width: 220px;
+}
+
+.sticky {
+    width: 100%;
+    margin: 1em 0;
+    background: rgb(255,255,100);
+    min-height: 4em;
+    padding: 10px;
+}
+
+.sticky textarea {
+    width: 95%;
+    min-height: 4em;
+    height: 0;
 }
