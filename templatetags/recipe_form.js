@@ -151,9 +151,6 @@ $(function() {
   // File uploading
   $('#imageform').ajaxForm({
     dataType: 'text/javascript',
-    // beforeSubmit: function() {
-    //   $('#recipeimages').after().text('Uploading...');
-    // },
     success: function(data) {
       viewModel.images.push(JSON.parse(data));
     },

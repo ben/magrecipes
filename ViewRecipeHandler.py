@@ -15,9 +15,7 @@ class ViewRecipeHandler(webapp.RequestHandler):
             # TODO: error page?
             return
 
-        recipe_dict = to_dict(recipe)
-        recipe_dict['ingredients'] = [to_dict(i) for i in recipe.ingredients]
-        recipe_dict['key'] = str(recipe.key())
+        recipe_dict = recipe.to_dict()
 
         templatevalues = {
             'recipe' : recipe,

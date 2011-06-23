@@ -9,14 +9,31 @@
 <ul>
    {{each ingredients}}
    <li>
-      ${ ingredient.name } &ndash; ${ quantity }
+      ${ name } &ndash; ${ quantity }
       {{ if note != '' }} (${ note }) {{ /if }}
    {{/each}}
 </ul>
 </script>
+
+
+<script type="text/html" id="stickyTemplate">
+   <div class="sticky drop-shadow lifted">${ text }</div>
+</script>
 {% endverbatim %}
 
-<div class="recipe">
+<div id="sticky-container">
+   <div data-bind="template: {name: 'stickyTemplate', foreach: stickies}"></div>
+   <div id="new-sticky-form" class="sticky drop-shadow lifted">
+      <form method="post" action="/recipe/{{recipe.key}}/stickies">
+         <h4>Add a note:</h4>
+         <textarea name="text"></textarea>
+         <input type="submit"/>
+      </form>
+   </div>
+</div>
+
+
+<div class="recipe drop-shadow curved curved-vt-2">
    <div class="modify">
       <a href="/edit/{{recipe.key}}">(Edit)</a><br/>
       <a class="deleteinit" href="#">(Delete)</a><br/>
@@ -43,6 +60,9 @@ viewModel = {{ json|safe }};
 var converter = new Attacklab.showdown.converter();
 viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
 
+var stickies = viewModel.stickies
+viewModel.stickies = ko.observableArray(stickies)
+
 viewModel.enabledMonths = []
 if (viewModel.january) { viewModel.enabledMonths.push("January"); }
 if (viewModel.february) { viewModel.enabledMonths.push("February"); }
@@ -57,6 +77,14 @@ if (viewModel.october) { viewModel.enabledMonths.push("October"); }
 if (viewModel.november) { viewModel.enabledMonths.push("November"); }
 if (viewModel.december) { viewModel.enabledMonths.push("December"); }
 
-if ($.inArray(viewModel.enabledMonths.length, [0,12]) != -1) viewModel.joinedMonths = "Year-round";
+if (viewModel.enabledMonths.length == 12) viewModel.joinedMonths = "Year-round";
+else if (viewModel.enabledMonths.length == 0) viewModel.joinedMonths = "No season";
 else viewModel.joinedMonths = viewModel.enabledMonths.join(', ');
+
+$('#imageform').ajaxForm({
+dataType: 'text/javascript',
+success: function(data) {
+viewModel.stickies.push(JSON.parse(data));
+},
+});
 {% endblock %}

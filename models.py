@@ -40,6 +40,7 @@ class Recipe(db.Model):
             'instructions' : self.instructions,
             'ingredients' : [i.to_dict() for i in self.ingredients],
             'images' : [i.to_dict() for i in self.images],
+            'stickies' : [s.to_dict() for s in self.stickies],
             'yeeld' : self.yeeld,
             'source' : self.source,
             }
@@ -64,6 +65,7 @@ class Recipe(db.Model):
             'ingredients' : [],
             'images' : [i.to_dict() for i in Image.all().run()
                         if i.recipe == None],
+            'stickies' : [],
             'yeeld' : '',
             'source' : '',
             }
@@ -133,3 +135,10 @@ class ResizedImage(db.Model):
     size = db.IntegerProperty()
     image = db.ReferenceProperty(Image, collection_name="sized_images")
     data = db.BlobProperty()
+
+class Sticky(db.Model):
+    recipe = db.ReferenceProperty(Recipe, collection_name="stickies")
+    text = db.TextProperty()
+
+    def to_dict(self):
+        return {'text' : self.text}

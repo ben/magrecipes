@@ -1,12 +1,16 @@
 * Must-have:
-  - [ ] Sticky note
+  - [-] Sticky note
     - [ ] Star in search, month, or ingredient views if recipe has a note
-    - [ ] Display on view page
+    - [X] Display on view page
+  - [ ] Mobile view
+        - No fonts
+        - No CUD
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
   - [ ] Ingredient pages
-  - [X] Visual
+  - [-] Visual
+    - [ ] Markdown for stickies
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
@@ -31,6 +35,7 @@
   - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
   - [ ] Drag-and-drop uploading for images
   - [ ] Warning when navigating away from new or edit?
+  - [ ] No save without a season?
   - [ ] Indexes:
         - recipe by month
         - recipe by ingredient
