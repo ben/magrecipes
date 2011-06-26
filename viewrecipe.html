@@ -17,19 +17,21 @@
 
 
 <script type="text/html" id="stickyTemplate">
-   <div class="sticky drop-shadow">${ text }</div>
+   <div><div class="sticky drop-shadow raised">${ text }</div></div>
 </script>
 {% endverbatim %}
 
 <div id="sticky-container">
    <div data-bind="template: {name: 'stickyTemplate', foreach: stickies}"></div>
-   <div id="new-sticky-form" class="sticky drop-shadow">
+   {% if is_admin %}
+   <div><div id="new-sticky-form" class="sticky raised ">
       <form method="post" action="/recipe/{{recipe.key}}/stickies">
          <h4>Add a note:</h4>
          <textarea name="text"></textarea>
          <input type="submit"/>
       </form>
-   </div>
+   </div></div>
+   {% endif %}
 </div>
 
 

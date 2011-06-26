@@ -1,5 +1,6 @@
 import os
 
+from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from django.utils import simplejson
@@ -20,6 +21,7 @@ class ViewRecipeHandler(webapp.RequestHandler):
         templatevalues = {
             'recipe' : recipe,
             'json' : simplejson.dumps(recipe_dict),
+            'is_admin' : users.is_current_user_admin(),
             }
 
         path = os.path.join(os.path.dirname(__file__), 'viewrecipe.html')

@@ -2,6 +2,7 @@
   - [-] Sticky note
     - [ ] Star in search, month, or ingredient views if recipe has a note
     - [X] Display on view page
+    - [ ] Insert on submit with AJAX
   - [ ] Mobile view
         - No fonts
         - No CUD
