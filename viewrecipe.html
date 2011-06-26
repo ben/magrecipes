@@ -25,7 +25,7 @@
    <div data-bind="template: {name: 'stickyTemplate', foreach: stickies}"></div>
    {% if is_admin %}
    <div><div id="new-sticky-form" class="sticky raised ">
-      <form method="post" action="/recipe/{{recipe.key}}/stickies">
+      <form id="stickyform" method="post" action="/recipe/{{recipe.key}}/stickies">
          <h4>Add a note:</h4>
          <textarea name="text"></textarea>
          <input type="submit"/>
@@ -83,7 +83,7 @@ if (viewModel.enabledMonths.length == 12) viewModel.joinedMonths = "Year-round";
 else if (viewModel.enabledMonths.length == 0) viewModel.joinedMonths = "No season";
 else viewModel.joinedMonths = viewModel.enabledMonths.join(', ');
 
-$('#imageform').ajaxForm({
+$('#stickyform').ajaxForm({
 dataType: 'text/javascript',
 success: function(data) {
 viewModel.stickies.push(JSON.parse(data));

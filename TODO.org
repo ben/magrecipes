@@ -1,17 +1,18 @@
 * Must-have:
   - [-] Sticky note
     - [ ] Star in search, month, or ingredient views if recipe has a note
+    - [ ] Markdown for stickies?
     - [X] Display on view page
-    - [ ] Insert on submit with AJAX
+    - [X] Insert on submit with AJAX
+  - [ ] Allow links for 'source' (Markdown?)
   - [ ] Mobile view
-        - No fonts
+        - No fonts, shadows
         - No CUD
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
   - [ ] Ingredient pages
-  - [-] Visual
-    - [ ] Markdown for stickies
+  - [X] Visual
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
@@ -29,7 +30,6 @@
   - [X] Share form structure for create and edit
   - [X] Edit a recipe
   - [X] Delete a recipe
-  - Hide modification links if not admin user (how will you login?)
 
 
 * Like-to-have:
