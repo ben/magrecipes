@@ -11,3 +11,8 @@ def recipe_form(json, image_upload_url):
 @register.inclusion_tag(os.path.join(os.path.dirname(__file__), 'recipe_form.js'))
 def recipe_viewmodel(json):
     return { 'json' : json }
+
+
+@register.inclusion_tag(os.path.join(os.path.dirname(__file__), 'recipe_titlecard.html'))
+def recipe_titlecard(recipe):
+    return { 'recipe' : recipe, 'stickies' : [s for s in recipe.stickies] }

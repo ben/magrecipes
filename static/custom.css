@@ -220,3 +220,25 @@ h4 {
     min-height: 4em;
     height: 0;
 }
+
+
+.titlecard-sticky {
+    float: right;
+    font-size: smaller;
+}
+
+.stickymult a, .stickymult a:hover {
+    text-decoration: none;
+}
+
+.stickyrect {
+    background: rgb(255,255,100);
+    display: inline-block;
+    vertical-align: center;
+    margin-left: 1px;
+    margin-right: 2px;
+    margin-bottom: -3px;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+}

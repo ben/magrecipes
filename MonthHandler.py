@@ -10,6 +10,15 @@ from helpers import to_dict
 
 class MonthHandler(webapp.RequestHandler):
     def get(self, month):
-        self.response.out.write(month)
+        recipes = [r for r in Recipe.gql('WHERE %s = TRUE' % month.lower())]
+
+        templatevalues = {
+            'month' : month.capitalize(),
+            'recipes' : recipes,
+            'json' : simplejson.dumps([r.to_dict() for r in recipes]),
+            }
+
+        path = os.path.join(os.path.dirname(__file__), 'month.html')
+        self.response.out.write(template.render(path, templatevalues))
 
 

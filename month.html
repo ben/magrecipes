@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} {{month}} {% endblock %}
+
+{% block content %}
+
+<h3>Recipes for {{month}}:</h3>
+
+{% for r in recipes %}
+{% recipe_titlecard r %}
+{% endfor %}
+
+{% endblock %}
+
+

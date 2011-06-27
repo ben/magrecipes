@@ -10,17 +10,10 @@
 <hr>
 <h1>Recipes for this month</h1>
 
-{% verbatim %}
-<script type="text/html" id="recipeTemplate">
-   <div class="recipe drop-shadow lifted">
-      <a href="/recipe/${ key }">
-         <h2>${ title }</h2>
-      </a>
-   </div>
-</script>
-{% endverbatim %}
+{% for r in recipes %}
+{% recipe_titlecard r %}
+{% endfor %}
 
-<div data-bind="template: {name: 'recipeTemplate', foreach: recipes}"></div>
 {% endblock %}
 
 {% block viewmodel %}
