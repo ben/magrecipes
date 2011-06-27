@@ -12,10 +12,13 @@
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
   - [ ] Ingredient pages
-  - [X] Visual
+  - [-] Visual
+    - [ ] Visual season display on view page
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] Month pages
+  - [X] Correct query for index page
   - [X] Bind click handler to insertAtCaret when uploading new images
   - [X] recipe.source
   - [X] Images

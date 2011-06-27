@@ -1,5 +1,6 @@
 import os
 import logging
+from datetime import date
 
 from google.appengine.api import users
 from google.appengine.ext import webapp
@@ -16,15 +17,14 @@ import markdown
 ################################################################################
 class IndexHandler(webapp.RequestHandler):
     def get(self):
-        recipes = [r for r in Recipe.all().fetch(10)]
-        recipe_dict = {'recipes': [r.to_dict() for r in recipes]}
-        for v in recipe_dict['recipes']:
-            if v['title'] == '':
-                v['title'] = '(no title)'
+        thismonth = date.today().strftime("%B")
+
+        query = Recipe.gql('WHERE %s = TRUE' % thismonth.lower())
+        recipes = [r for r in query.fetch(10)]
 
         template_values = {
             'recipes' : recipes,
-            'json' : simplejson.dumps(recipe_dict),
+            'month' : thismonth,
             }
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         self.response.out.write(template.render(path, template_values))

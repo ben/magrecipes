@@ -1,13 +1,13 @@
 <div class="recipe drop-shadow lifted">
-   <a href="/recipe/{{recipe.key}}">
-      {% if stickies|length > 0 %}
-      <div class="titlecard-sticky">
-         {% if stickies|length > 1 %}
-         <span class="stickymult">{{stickies|length}} &times;</span>
-         {% endif %}
-         <span class="stickyrect"></span>
-      </div>
+   {% if stickies|length > 0 %}
+   <div class="titlecard-sticky">
+      {% if stickies|length > 1 %}
+      <span class="stickymult">{{stickies|length}} &times;</span>
       {% endif %}
+      <span class="stickyrect"></span>
+   </div>
+   {% endif %}
+   <a href="/recipe/{{recipe.key}}">
       <h2 >{{ recipe.title }}</h2>
    </a>
 </div>

@@ -224,11 +224,8 @@ h4 {
 
 .titlecard-sticky {
     float: right;
+    margin-top: 0.75em;2
     font-size: smaller;
-}
-
-.stickymult a, .stickymult a:hover {
-    text-decoration: none;
 }
 
 .stickyrect {
