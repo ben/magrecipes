@@ -17,7 +17,7 @@
 
 
 <script type="text/html" id="stickyTemplate">
-   <div><div class="sticky drop-shadow raised">${ text }</div></div>
+   <div class="sticky drop-shadow raised" data-bind="html: html"></div>
 </script>
 {% endverbatim %}
 
@@ -46,7 +46,7 @@
       </form>
    </div>
    <h2><span data-bind="text: title" /></h2>
-   <div class="yield">Source: <span data-bind="text: source" /></div>
+   <div class="yield" data-bind="html: source_html"></div>
    <div class="seasonnote" data-bind="text: joinedMonths"></div>
    <div class="yield">Yield: <span data-bind="text: yeeld" /></div>
    <div data-bind="template: 'ingredientTemplate'"></div>
@@ -57,13 +57,23 @@
 
 
 {% block viewmodel %}
+var converter = new Attacklab.showdown.converter();
+
+function stickyViewModel(text) {
+this.text = text;
+this.html = converter.makeHtml(text);
+}
+
 viewModel = {{ json|safe }};
 
-var converter = new Attacklab.showdown.converter();
 viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
+viewModel.source_html = converter.makeHtml("Source: " + viewModel.source)
 
-var stickies = viewModel.stickies
-viewModel.stickies = ko.observableArray(stickies)
+var stickies = viewModel.stickies;
+viewModel.stickies = ko.observableArray();
+for (var i=0; i<stickies.length; i++) {
+  viewModel.stickies.push(new stickyViewModel(stickies[i].text));
+}
 
 viewModel.enabledMonths = []
 if (viewModel.january) { viewModel.enabledMonths.push("January"); }
@@ -86,7 +96,7 @@ else viewModel.joinedMonths = viewModel.enabledMonths.join(', ');
 $('#stickyform').ajaxForm({
 dataType: 'text/javascript',
 success: function(data) {
-viewModel.stickies.push(JSON.parse(data));
+viewModel.stickies.push(new stickyViewModel(JSON.parse(data).text));
 },
 });
 {% endblock %}

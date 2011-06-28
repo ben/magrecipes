@@ -1,10 +1,4 @@
 * Must-have:
-  - [-] Sticky note
-    - [ ] Star in search, month, or ingredient views if recipe has a note
-    - [ ] Markdown for stickies?
-    - [X] Display on view page
-    - [X] Insert on submit with AJAX
-  - [ ] Allow links for 'source' (Markdown?)
   - [ ] Mobile view
         - No fonts, shadows
         - No CUD
@@ -17,6 +11,12 @@
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] Allow links for 'source' (Markdown?)
+  - [X] Sticky note
+    - [X] Markdown for stickies?
+    - [X] Star in search, month, or ingredient views if recipe has a note
+    - [X] Display on view page
+    - [X] Insert on submit with AJAX
   - [X] Month pages
   - [X] Correct query for index page
   - [X] Bind click handler to insertAtCaret when uploading new images

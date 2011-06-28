@@ -239,3 +239,7 @@ h4 {
     height: 1em;
     border: 1px solid gray;
 }
+
+div.recipe .yield p {
+    margin: 0;
+}
