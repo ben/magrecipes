@@ -12,6 +12,8 @@
 ** Feeling lucky?
    - One random recipe
    - View should have another "Lucky" button
+** 'About' footer
+   - 'WTF is this?' static page
 
 * Must-have:
   - [ ] Mobile view
