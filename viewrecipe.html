@@ -4,141 +4,14 @@
 
 {% block content %}
 
-{% verbatim %}
-<script type="text/html" id="ingredientTemplate">
-<ul>
-   {{each ingredients}}
-   <li>
-      ${ name } &ndash; ${ quantity }
-      {{ if note != '' }} (${ note }) {{ /if }}
-   {{/each}}
-</ul>
-</script>
-
-
-<script type="text/html" id="stickyTemplate">
-   <div class="sticky drop-shadow raised">
-      {% endverbatim %} {% if is_admin %} {% verbatim %}
-      <div class="modify">
-         <a class="deleteinit" href="#">(X)</a><br/>
-         <form class="deleteconfirm" action="/deletesticky" method="post">
-            <em>Really?</em>
-            <input type="hidden" value="${key}" name="key" />
-            <a href="#" class="deleteconfirmyes">YES</a>
-         </form>
-      </div>
-      {% endverbatim %} {% endif %} {% verbatim %}
-      <div data-bind="html: html"></div>
-   </div>
-</script>
-{% endverbatim %}
-
-<div id="sticky-container">
-   <div data-bind="template: {name: 'stickyTemplate', foreach: stickies}"></div>
-   {% if is_admin %}
-   <div><div id="new-sticky-form" class="sticky raised ">
-      <form id="stickyform" method="post" action="/recipe/{{recipe.key}}/stickies">
-         <h4>Add a note:</h4>
-         <textarea name="text"></textarea>
-         <input type="submit"/>
-      </form>
-   </div></div>
-   {% endif %}
-</div>
-
 
 <section>
-   <div class="recipe drop-shadow curved curved-vt-2">
-      <div class="modify">
-         <a href="/edit/{{recipe.key}}">(Edit)</a><br/>
-         <a class="deleteinit" href="#">(Delete)</a><br/>
-         <form class="deleteconfirm" action="/delete" method="post">
-            <em>Are you sure?</em>
-            <input type="hidden" value="{{recipe.key}}" name="key" id="deletekey" />
-            <a href="#" class="deleteconfirmyes">YES</a>
-         </form>
-      </div>
-      <h2><span data-bind="text: title" /></h2>
-      <div class="yield" data-bind="html: source_html"></div>
-      <div class="seasonnote" data-bind="text: joinedMonths"></div>
-      <div class="yield">Yield: <span data-bind="text: yeeld" /></div>
-      <div data-bind="template: 'ingredientTemplate'"></div>
-      <span data-bind="html: instructions_html" />
-   </div>
+   {% recipe_fullview recipe is_admin %}
 </section>
 
 {% endblock %}
 
 
 {% block viewmodel %}
-var converter = new Attacklab.showdown.converter();
-
-function stickyViewModel(obj) {
-this.text = obj.text;
-this.html = converter.makeHtml(obj.text);
-this.key = obj.key;
-}
-
-viewModel = {{ json|safe }};
-
-viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
-viewModel.source_html = converter.makeHtml("Source: " + viewModel.source)
-
-var stickies = viewModel.stickies;
-viewModel.stickies = ko.observableArray();
-for (var i=0; i<stickies.length; i++) {
-  viewModel.stickies.push(new stickyViewModel(stickies[i]));
-}
-
-viewModel.enabledMonths = []
-if (viewModel.january) { viewModel.enabledMonths.push("January"); }
-if (viewModel.february) { viewModel.enabledMonths.push("February"); }
-if (viewModel.march) { viewModel.enabledMonths.push("March"); }
-if (viewModel.april) { viewModel.enabledMonths.push("April"); }
-if (viewModel.may) { viewModel.enabledMonths.push("May"); }
-if (viewModel.june) { viewModel.enabledMonths.push("June"); }
-if (viewModel.july) { viewModel.enabledMonths.push("July"); }
-if (viewModel.august) { viewModel.enabledMonths.push("August"); }
-if (viewModel.september) { viewModel.enabledMonths.push("September"); }
-if (viewModel.october) { viewModel.enabledMonths.push("October"); }
-if (viewModel.november) { viewModel.enabledMonths.push("November"); }
-if (viewModel.december) { viewModel.enabledMonths.push("December"); }
-
-if (viewModel.enabledMonths.length == 12) viewModel.joinedMonths = "Year-round";
-else if (viewModel.enabledMonths.length == 0) viewModel.joinedMonths = "No season";
-else viewModel.joinedMonths = viewModel.enabledMonths.join(', ');
-
-function bindStickyDeletes()
-{
-  $('.sticky .deleteconfirmyes').unbind('click').click(function() {
-    var theKey = $(this).siblings('input').attr('value');
-    $.post('/deletesticky',
-      {key: theKey,},
-      function(data) {
-        for (var i in viewModel.stickies()) {
-          if (viewModel.stickies()[i].key == theKey) {
-            viewModel.stickies.splice(i, 1);
-            return;
-          }
-        }
-      });
-    return false;
-  })
-}
-
-$(function() {
-$('#stickyform').ajaxForm({
-dataType: 'text/javascript',
-success: function(data) {
-viewModel.stickies.push(new stickyViewModel(JSON.parse(data)));
-$('#stickyform textarea').attr('value', '');
-bindDeleteConfirmations();
-bindStickyDeletes();
-},
-});
-
-bindStickyDeletes(); 
-
-});
-
+{% recipe_fullview_viewmodel json %}
 {% endblock %}

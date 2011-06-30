@@ -1,18 +1,32 @@
 import os, logging
 from google.appengine.ext import webapp
+from os.path import join, dirname
 
 register = webapp.template.create_template_register()
 
-@register.inclusion_tag(os.path.join(os.path.dirname(__file__), 'recipe_form.html'))
+@register.inclusion_tag(join(dirname(__file__), 'recipe_form.html'))
 def recipe_form(json, image_upload_url):
     return { 'json' : json, 'image_upload_url' : image_upload_url }
 
 
-@register.inclusion_tag(os.path.join(os.path.dirname(__file__), 'recipe_form.js'))
+@register.inclusion_tag(join(dirname(__file__), 'recipe_form.js'))
 def recipe_viewmodel(json):
     return { 'json' : json }
 
 
-@register.inclusion_tag(os.path.join(os.path.dirname(__file__), 'recipe_titlecard.html'))
+@register.inclusion_tag(join(dirname(__file__), 'recipe_titlecard.html'))
 def recipe_titlecard(recipe):
     return { 'recipe' : recipe, 'stickies' : [s for s in recipe.stickies] }
+
+
+@register.inclusion_tag(join(dirname(__file__), 'recipe_fullview.html'))
+def recipe_fullview(recipe, is_admin):
+    return { 'recipe' : recipe,
+             'stickies' : [s for s in recipe.stickies],
+             'is_admin' : is_admin,
+             }
+
+
+@register.inclusion_tag(join(dirname(__file__), 'recipe_fullview.js'))
+def recipe_fullview_viewmodel(json):
+    return { 'json' : json }

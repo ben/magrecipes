@@ -22,7 +22,7 @@
   - [ ] UD for stickies
   - [ ] Text pre-processing
         - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
-        - [ ] "425F" => "425 °F"
+        - [ ] "425F" => "425° F"
         - [ ] Common accented words, such as "sautee" => "Sauté"
         - Regex-based list?
         - Which fields? Ingredients too? Anything markdownable?
