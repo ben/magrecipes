@@ -1,7 +1,36 @@
+* New landing page
+** What's in season
+   - Link for each month
+   - Link for each season (Mar OR apr OR may, etc)
+** Browse by...
+   - Links:
+     - Tag
+     - Ingredient
+     - Notes
+     - Title
+   - Hover gives more information
+** Feeling lucky?
+   - One random recipe
+   - View should have another "Lucky" button
+
 * Must-have:
   - [ ] Mobile view
         - No fonts, shadows
         - No CUD
+  - [ ] UD for stickies
+  - [ ] Text pre-processing
+        - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
+        - [ ] "425F" => "425 °F"
+        - [ ] Common accented words, such as "sautee" => "Sauté"
+        - Regex-based list?
+        - Which fields? Ingredients too? Anything markdownable?
+  - [ ] Recipes as ingredients
+        - Flagged ingredient, link as note?
+        - Shouldn't show up in the "Ingredients" index.
+  - [ ] Background image, very faint, texture ([[http://www.designshard.com/freebies/ultimate-source-for-tiled-background-patterns/][ideas]])
+  - [ ] Tags with autocomplete
+        - [ ] Create/update recipe
+        - [ ] Search
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
@@ -44,4 +73,9 @@
         - recipe by month
         - recipe by ingredient
         - image by recipe
+  - [ ] Menus
+        - Collection of recipes
+        - Title, Blurb
+        - Index from landing page
+        - Show links in recipe view if a recipe is part of a menu
 
