@@ -87,6 +87,8 @@ header h1 {
 
 body {
     font-family: georgia, serif;
+    background-image: url('/static/wallpaper.jpg');
+    background-repeat: repeat;
 }
 
 h1 {
