@@ -4,15 +4,17 @@
 
 {% block content %}
 
-<hr>
-<h3><a href="/newrecipe">New Recipe</a></h3>
+<section id="admincontrols">
+   <a href="/newrecipe">New Recipe</a>
+</section>
 
-<hr>
-<h1>Recipes for {{month}}: </h1>
+<section id="recipelist">
+   <h1>Recipes for {{month}}: </h1>
 
-{% for r in recipes %}
-{% recipe_titlecard r %}
-{% endfor %}
+   {% for r in recipes %}
+   {% recipe_titlecard r %}
+   {% endfor %}
+</section>
 
 {% endblock %}
 

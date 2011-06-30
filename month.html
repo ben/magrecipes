@@ -4,11 +4,13 @@
 
 {% block content %}
 
-<h3>Recipes for {{month}}:</h3>
+<section>
+   <h3>Recipes for {{month}}:</h3>
 
-{% for r in recipes %}
-{% recipe_titlecard r %}
-{% endfor %}
+   {% for r in recipes %}
+   {% recipe_titlecard r %}
+   {% endfor %}
+</section>
 
 {% endblock %}
 

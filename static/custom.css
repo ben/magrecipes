@@ -15,14 +15,14 @@
 
 .container {
     width: 710px;
+    background: white;
+    border: 1px solid gray;
+    border-top: 0;
+    padding-bottom: 2em;
 }
 
 header {
-    padding-top: 20px;
-}
-
-header img {
-    padding: 1em;
+    padding: 2em 1em 0 1em;
 }
 
 header a, a:hover, a:visited {
@@ -30,10 +30,16 @@ header a, a:hover, a:visited {
     text-decoration: none;
 }
 
+#admincontrols {
+    background: #eee;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
 section {
     margin-top: 1em;
     font-size: 120%;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 section h1 {
@@ -116,7 +122,7 @@ label {
 div.recipe {
     font-size: large;
     position: relative;
-    margin: 1em;
+    margin: 1em 0;
     padding: 1em;
     padding:1em; 
     background:#fff;
@@ -145,7 +151,7 @@ textarea {
 }
 
 #instructions textarea {
-    width: 100%;
+    width: 98%;
 }
 
 #monthbuttonset {
@@ -188,6 +194,7 @@ textarea {
     padding: 5px;
     overflow-y: auto;
     clip: auto;
+    background-color: white;
 }
 
 #markdownhelp pre {
@@ -215,13 +222,13 @@ h4 {
 .sticky {
     width: 100%;
     margin: 1em 0;
-    background: rgb(255,255,100);
+    background: #ff8;
     min-height: 4em;
     padding: 10px;
 }
 
 .sticky textarea {
-    width: 95%;
+    width: 94%;
     min-height: 4em;
     height: 0;
 }
