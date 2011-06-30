@@ -17,7 +17,19 @@
 
 
 <script type="text/html" id="stickyTemplate">
-   <div class="sticky drop-shadow raised" data-bind="html: html"></div>
+   <div class="sticky drop-shadow raised">
+      {% endverbatim %} {% if is_admin %} {% verbatim %}
+      <div class="modify">
+         <a class="deleteinit" href="#">(X)</a><br/>
+         <form class="deleteconfirm" action="/deletesticky" method="post">
+            <em>Really?</em>
+            <input type="hidden" value="${key}" name="key" />
+            <a href="#" class="deleteconfirmyes">YES</a>
+         </form>
+      </div>
+      {% endverbatim %} {% endif %} {% verbatim %}
+      <div data-bind="html: html"></div>
+   </div>
 </script>
 {% endverbatim %}
 
@@ -59,9 +71,10 @@
 {% block viewmodel %}
 var converter = new Attacklab.showdown.converter();
 
-function stickyViewModel(text) {
-this.text = text;
-this.html = converter.makeHtml(text);
+function stickyViewModel(obj) {
+this.text = obj.text;
+this.html = converter.makeHtml(obj.text);
+this.key = obj.key;
 }
 
 viewModel = {{ json|safe }};
@@ -72,7 +85,7 @@ viewModel.source_html = converter.makeHtml("Source: " + viewModel.source)
 var stickies = viewModel.stickies;
 viewModel.stickies = ko.observableArray();
 for (var i=0; i<stickies.length; i++) {
-  viewModel.stickies.push(new stickyViewModel(stickies[i].text));
+  viewModel.stickies.push(new stickyViewModel(stickies[i]));
 }
 
 viewModel.enabledMonths = []
@@ -93,10 +106,37 @@ if (viewModel.enabledMonths.length == 12) viewModel.joinedMonths = "Year-round";
 else if (viewModel.enabledMonths.length == 0) viewModel.joinedMonths = "No season";
 else viewModel.joinedMonths = viewModel.enabledMonths.join(', ');
 
+function bindStickyDeletes()
+{
+  $('.sticky .deleteconfirmyes').unbind('click').click(function() {
+    var theKey = $(this).siblings('input').attr('value');
+    $.post('/deletesticky',
+      {key: theKey,},
+      function(data) {
+        for (var i in viewModel.stickies()) {
+          if (viewModel.stickies()[i].key == theKey) {
+            viewModel.stickies.splice(i, 1);
+            return;
+          }
+        }
+      });
+    return false;
+  })
+}
+
+$(function() {
 $('#stickyform').ajaxForm({
 dataType: 'text/javascript',
 success: function(data) {
-viewModel.stickies.push(new stickyViewModel(JSON.parse(data).text));
+viewModel.stickies.push(new stickyViewModel(JSON.parse(data)));
+$('#stickyform textarea').attr('value', '');
+bindDeleteConfirmations();
+bindStickyDeletes();
 },
 });
+
+bindStickyDeletes(); 
+
+});
+
 {% endblock %}

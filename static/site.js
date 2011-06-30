@@ -40,6 +40,16 @@ function selectInSet(set, value) {
   for (i in set) viewModel[set[i]](value);
 }
 
+function bindDeleteConfirmations() {
+  $(".deleteinit").unbind('click').click(function() {
+    $(this).siblings(".deleteconfirm").toggle();
+    return false;
+  });
+  $(".deleteconfirmyes").unbind('click').click(function() {
+    this.parentNode.submit();
+    return false;
+  });
+}
 
 $(function() {
   // JQuery buttons
@@ -54,15 +64,7 @@ $(function() {
     }
   });
 
-  // Delete-confirm logic
-  $(".deleteinit").click(function() {
-    $(".deleteconfirm").show();
-    return false;
-  })
-  $(".deleteconfirmyes").click(function() {
-    this.parentNode.submit();
-    return false;
-  })
+  bindDeleteConfirmations();
 });
 
 // Shamelessly stolen from http://skfox.com/jqExamples/insertAtCaret.html

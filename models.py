@@ -141,4 +141,7 @@ class Sticky(db.Model):
     text = db.TextProperty()
 
     def to_dict(self):
-        return {'text' : self.text}
+        return {
+            'text' : self.text,
+            'key' : str(self.key()),
+            }

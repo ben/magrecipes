@@ -23,7 +23,7 @@ from NewRecipeHandler import NewRecipeHandler
 from SearchHandler import SearchHandler
 from ViewRecipeHandler import ViewRecipeHandler
 from MonthHandler import MonthHandler
-from DeleteHandler import DeleteHandler
+from DeleteHandler import DeleteRecipeHandler, DeleteStickyHandler
 from EditHandler import EditHandler
 from ImageHandler import NewImageHandler, ImageHandler, RecipeImageHandler
 from StickyHandler import StickyHandler
@@ -67,7 +67,8 @@ def main():
         ('/edit/(.*)', EditHandler),
 
         # Delete
-        ('/delete', DeleteHandler),
+        ('/delete', DeleteRecipeHandler),
+        ('/deletesticky', DeleteStickyHandler),
         #('/image/([^/]*)', ImageDeleteHandler),
         ####('/deleteall', DeleteAllHandler),
         ]

@@ -152,14 +152,17 @@ textarea {
     font-size: small;
 }
 
-div.recipe div.modify {
+.modify {
     font-size: small;
     float: right;
     text-align: right;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .deleteconfirm {
     display: none;
+    color: red;
 }
 
 #imageupload {
