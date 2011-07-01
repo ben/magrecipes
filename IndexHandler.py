@@ -25,6 +25,7 @@ class IndexHandler(webapp.RequestHandler):
         template_values = {
             'recipes' : recipes,
             'month' : thismonth,
+            'is_admin' : users.is_current_user_admin(),
             }
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         self.response.out.write(template.render(path, template_values))
