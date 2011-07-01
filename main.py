@@ -15,7 +15,7 @@ from google.appengine.ext.webapp import template, util
 from google.appengine.ext.webapp import util
 
 from models import Ingredient, QuantifiedIngredient, Recipe, Image
-from helpers import allmonths
+from helpers import allmonths, seasons
 
 # Handlers
 from IndexHandler import IndexHandler
@@ -72,7 +72,13 @@ def main():
         #('/image/([^/]*)', ImageDeleteHandler),
         ####('/deleteall', DeleteAllHandler),
         ]
-    mappings.append(("/(" + '|'.join(allmonths()) + ")", MonthHandler))
+
+    # Month/season lists
+    mappings.append(("/(" +
+                     '|'.join(allmonths() + seasons().keys()) +
+                     ")", MonthHandler))
+    
+
     application = webapp.WSGIApplication(
         mappings,
         debug=True,

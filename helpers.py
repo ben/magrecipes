@@ -17,6 +17,13 @@ def allmonths():
             'December',
             ]
 
+def seasons():
+    return {'Winter' : ['December', 'January', 'February'],
+            'Spring' : ['March', 'April', 'May'],
+            'Summer' : ['June', 'July', 'August'],
+            'Fall'   : ['September', 'October', 'November'],
+            }
+
 SIMPLE_TYPES = (int, long, float, bool, dict, basestring, list)
 
 def to_dict(model):

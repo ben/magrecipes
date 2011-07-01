@@ -23,13 +23,12 @@
   - [ ] Text pre-processing
         - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
         - [ ] "425F" => "425° F"
-        - [ ] Common accented words, such as "sautee" => "Sauté"
+        - [ ] Common accented words, such as "sautee" => "sauté"
         - Regex-based list?
-        - Which fields? Ingredients too? Anything markdownable?
+        - Which fields? Ingredients too? Anything markdownable? Everything?
   - [ ] Recipes as ingredients
         - Flagged ingredient, link as note?
         - Shouldn't show up in the "Ingredients" index.
-  - [ ] Background image, very faint, texture ([[http://www.designshard.com/freebies/ultimate-source-for-tiled-background-patterns/][ideas]])
   - [ ] Tags with autocomplete
         - [ ] Create/update recipe
         - [ ] Search
@@ -37,11 +36,12 @@
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
   - [ ] Ingredient pages
-  - [-] Visual
-    - [ ] Visual season display on view page
+  - [ ] Visual season display on view page
+  - [X] Visual
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] Background image, very faint, texture ([[http://www.designshard.com/freebies/ultimate-source-for-tiled-background-patterns/][ideas]])
   - [X] Allow links for 'source' (Markdown?)
   - [X] Sticky note
     - [X] Markdown for stickies?
