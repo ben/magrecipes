@@ -1,13 +1,14 @@
 * New landing page
 ** What's in season
    - Link for each month
-   - Link for each season (Mar OR apr OR may, etc)
+   - Link for each season
+     (use icons?)
 ** Browse by...
    - Links:
+     - Title
      - Tag
      - Ingredient
      - Notes
-     - Title
    - Hover gives more information
 ** Feeling lucky?
    - One random recipe

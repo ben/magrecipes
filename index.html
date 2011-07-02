@@ -13,39 +13,65 @@
 <section>
    <h1>What's in season?</h1>
 
-   <div id="monthlinks">
-      <a href="/January">Jan</a>
-      <a href="/February">Feb</a>
-      <a href="/March">Mar</a>
-      <a href="/April">Apr</a>
-      <a href="/May">May
-      <a href="/June">Jun</a>
-      <a href="/July">Jul</a>
-      <a href="/August">Aug</a>
-      <a href="/September">Sep</a>
-      <a href="/October">Oct</a>
-      <a href="/November">Nov</a>
-      <a href="/December">Dec</a>
-   </div>
-   <div id="seasonlinks">
-      <a href="/Winter">W</a>
-      <a href="/Spring">Spring</a>
-      <a href="/Summer">Summer</a>
-      <a href="/Fall">Fall</a>
-      <a href="/Winter">Winter</a>
-   </div>
+   <section id="calendar">
+      <div id="monthlinks">
+         <div><a href="/January">Jan</a></div>
+         <div><a href="/February">Feb</a></div>
+         <div><a href="/March">Mar</a></div>
+         <div><a href="/April">Apr</a></div>
+         <div><a href="/May">May</a></div>
+         <div><a href="/June">Jun</a></div>
+         <div><a class="current" href="/July">Jul</a></div>
+         <div><a href="/August">Aug</a></div>
+         <div><a href="/September">Sep</a></div>
+         <div><a href="/October">Oct</a></div>
+         <div><a href="/November">Nov</a></div>
+         <div><a href="/December">Dec</a></div>
+      </div>
+      <div id="seasonlinks">
+         <div class="one-col"><a href="/Winter">Winter</a></div>
+         <div class="three-col"><a href="/Spring">Spring</a></div>
+         <div class="three-col"><a class="current" href="/Summer">Summer</a></div>
+         <div class="three-col"><a href="/Fall">Fall</a></div>
+         <div class="two-col"><a href="/Winter">Winter</a></div>
+      </div>
+   </section>
 
    <h1>Browse by...</h1>
 
+   <section id="browsecategories">
+      <div class="flyout title" style="opacity:0">
+         See all the recipes, indexed by title.
+      </div>
+      <div><a data-flyout="title" class="category" href="/recipes">Title</a></div>
+      <div><a data-flyout="tag" class="category" href="/tags">Tag</a></div>
+      <div class="flyout tag" style="opacity:0">
+         Find recipes by category.
+      </div>
+      <br/>
+      <div class="flyout ingredient" style="opacity:0">
+         Got leeks? Find recipes that include them.
+      </div>
+      <div><a data-flyout="ingredient" class="category" href="/ingredients">Ingredient</a></div>
+      <div><a data-flyout="note" class="category" href="/stickies">Notes</a></div>
+      <div class="flyout note" style="opacity:0">
+         See which recipes have notes from the author.
+      </div>
+   </section>
+
 </section>
 
-<section id="recipelist">
-   <h1>Recipes for {{month}}: </h1>
+<script type='text/javascript'>
+   function getFlyout(elem) {
+   return $('#browsecategories .' + $(elem).attr('data-flyout'))
+   }
 
-   {% for r in recipes %}
-   {% recipe_titlecard r %}
-   {% endfor %}
-</section>
+   $(function() {
+   $('.category').hover(
+   function (e) {getFlyout(e.target).stop().fadeTo(500, 1);},
+   function (e) {getFlyout(e.target).stop().fadeTo(500, 0);});
+   });
+</script>
 
 {% endblock %}
 
