@@ -20,7 +20,12 @@
   - [ ] Mobile view
         - No fonts, shadows
         - No CUD
-  - [ ] UD for stickies
+  - [ ] Admin views
+        - Untagged (once tags are added)
+        - Without notes
+        - No seasonal info
+  - [ ] Search by multiple criteria?
+  - [ ] Ingredient autocomplete only works on first ingredient line
   - [ ] Text pre-processing
         - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
         - [ ] "425F" => "425° F"
@@ -42,6 +47,7 @@
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
     - [X] Index-card background for recipes [[http://nicolasgallagher.com/css-drop-shadows-without-images/demo/][with CSS]]
+  - [X] UD for stickies
   - [X] Background image, very faint, texture ([[http://www.designshard.com/freebies/ultimate-source-for-tiled-background-patterns/][ideas]])
   - [X] Allow links for 'source' (Markdown?)
   - [X] Sticky note

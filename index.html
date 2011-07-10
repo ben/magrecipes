@@ -40,36 +40,49 @@
    <h1>Browse by...</h1>
 
    <section id="browsecategories">
-      <div class="flyout title" style="opacity:0">
+      <div class="flyout" id="flyout-title">
          See all the recipes, indexed by title.
       </div>
-      <div><a data-flyout="title" class="category" href="/recipes">Title</a></div>
-      <div><a data-flyout="tag" class="category" href="/tags">Tag</a></div>
-      <div class="flyout tag" style="opacity:0">
+      <div class="category tl"><a data-flyout="flyout-title" href="/recipes">Title</a></div>
+      <div class="category tr"><a data-flyout="flyout-tag" href="/tags">Tag</a></div>
+      <div class="flyout" id="flyout-tag">
          Find recipes by category.
       </div>
       <br/>
-      <div class="flyout ingredient" style="opacity:0">
+      <div class="flyout" id="flyout-ingredient">
          Got leeks? Find recipes that include them.
       </div>
-      <div><a data-flyout="ingredient" class="category" href="/ingredients">Ingredient</a></div>
-      <div><a data-flyout="note" class="category" href="/stickies">Notes</a></div>
-      <div class="flyout note" style="opacity:0">
+      <div class="category bl"><a data-flyout="flyout-ingredient" href="/ingredients">Ingredient</a></div>
+      <div class="category br"><a data-flyout="flyout-note" href="/stickies">Notes</a></div>
+      <div class="flyout" id="flyout-note">
          See which recipes have notes from the author.
       </div>
    </section>
 
+   <h1>Feeling lucky?</h1>
+   <section id="lucky">
+      <div><a href="/random">Random Recipe</a></div>
+   </section>
+      
+
 </section>
 
 <script type='text/javascript'>
-   function getFlyout(elem) {
-   return $('#browsecategories .' + $(elem).attr('data-flyout'))
+
+   function doHoverAction(elem, opacity, color) {
+   var flyout = $('#' + $(elem).attr('data-flyout'))
+   flyout.stop().fadeTo(500, opacity);
+   $(elem).parent().css('background', color)
    }
 
    $(function() {
-   $('.category').hover(
-   function (e) {getFlyout(e.target).stop().fadeTo(500, 1);},
-   function (e) {getFlyout(e.target).stop().fadeTo(500, 0);});
+   $('.category a').hover(
+   function (e) {doHoverAction(e.target, 1, '#55e')},
+   function (e) {doHoverAction(e.target, 0, '#eee');});
+
+   $('#lucky a').hover(
+   function(e) {$(e.target).parent().css('background', '#55e');},
+   function(e) {$(e.target).parent().css('background', '#eee');});
    });
 </script>
 

@@ -40,6 +40,7 @@ section {
     margin-top: 1em;
     font-size: 120%;
     padding: 0 20px;
+    clear: both;
 }
 
 section h1 {
@@ -295,7 +296,7 @@ div.recipe .yield p {
 }
 
 #calendar div a.current:hover {
-    background: #99f;
+    background: #55e;
 }
 
 #seasonlinks {
@@ -317,34 +318,93 @@ div.recipe .yield p {
 
 #browsecategories {
     margin: 0 auto;
+    margin-bottom: 6em;
 }
 
 #browsecategories div {
-    height: 75px;
     width: 150px;
-    border: 1px solid gray;
-    margin: -1px 0 0 -1px;
     float: left;
 }
 
-#browsecategories div a {
+#browsecategories .category {
+    border: 1px solid gray;
+    background: #eee;
+    margin: -1px 0 0 -1px;
+}
+
+#browsecategories .tl { border-top-left-radius: 15px; }
+#browsecategories .tr { border-top-right-radius: 15px; }
+#browsecategories .bl { border-bottom-left-radius: 15px; }
+#browsecategories .br { border-bottom-right-radius: 15px; }
+
+#browsecategories a {
     display: block;
     width: 100%;
     height: 100%;
     text-align: center;
     text-decoration: none;
     line-height: 75px;
-    background: #efefef;
     color: #888;
 }
 
+#browsecategories br {
+    clear: both;
+}
 
-#browsecategories div a:hover {
-    background: #99f;
+#browsecategories a:hover {
     color: white;
 }
 
 #browsecategories .flyout {
     opacity: 0;
+    background: transparent;
+    font-size: small;
 }
 
+#flyout-title {
+    text-align: right;
+    padding-right: 1em;
+    padding-top: 1.5em;
+}
+
+#flyout-ingredient {
+    text-align: right;
+    padding-right: 1em;
+    padding-top: 0.5em;
+}
+
+#flyout-tag {
+    padding-left: 1em;
+    padding-top: 1.5em;
+}
+
+#flyout-note {
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+
+
+#lucky div {
+    width: 250px;
+    height: 40px;
+    background: #eee;
+    margin: auto;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+#lucky a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #888;
+}
+
+#lucky a:hover {
+    color: white;
+}
