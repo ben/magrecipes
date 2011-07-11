@@ -35,6 +35,11 @@
          <header>
             <nav>
                <ul>
+                  {% if_admin %}
+                  <li><a href="">Logout</a></li>
+                  {% else %}
+                  <li><a href="">Login</a></li>
+                  {% endif %}
                   <li>
                      <form action="/search" method="post">
                         <input type="string" class="ingredientautocomplete" placeholder="Search" name="q" />
@@ -45,6 +50,13 @@
             </nav>
             <h1><a href="/">Becky's Cookbook</a></h1>
          </header>
+
+         {% if_admin %}
+         <section id="admincontrols">
+            <a href="/newrecipe">New Recipe</a>
+         </section>
+         {% endif %}
+
 
          {% block content %}
          {% endblock %}
