@@ -267,36 +267,37 @@ div.recipe .yield p {
 }
 
 #calendar div div {
-    width: 50px;
-    height: 30px;
-    line-height: 30px;
+    color: #888;
+    background: #eee;
     border: 1px solid gray;
-    margin: 0 0 0 -1px;
     float: left;
 }
 
-#calendar div a {
+#calendar div div a {
     display: block;
     width: 100%;
     height: 100%;
     text-align: center;
     text-decoration: none;
-    background: #eee;
     color: #888;
 }
 
-#calendar div a:hover {
-    background: #EFEFEF;
-    color: #444;
+#calendar .current {
+    background: #ccc;
 }
 
-#calendar div a.current {
-    background: #66f;
-    color: white;
+.hovering {
+    background: #55e !important;
+}
+.hovering a {
+    color: white !important;
 }
 
-#calendar div a.current:hover {
-    background: #55e;
+#monthlinks div {
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 0 -1px;
 }
 
 #seasonlinks {
@@ -305,6 +306,13 @@ div.recipe .yield p {
 
 #seasonlinks div {
     border-top: none !important;
+    height: 45px;
+    width: 50px;
+    margin: 0 0 0 -1px;
+}
+
+#seasonlinks img {
+    margin: 7px;
 }
 
 #seasonlinks .two-col {
@@ -316,6 +324,7 @@ div.recipe .yield p {
 }
 
 
+/* -------------------------------------------------------------------------------- */
 #browsecategories {
     margin: 0 auto;
     margin-bottom: 6em;
@@ -332,10 +341,10 @@ div.recipe .yield p {
     margin: -1px 0 0 -1px;
 }
 
-#browsecategories .tl { border-top-left-radius: 15px; }
-#browsecategories .tr { border-top-right-radius: 15px; }
-#browsecategories .bl { border-bottom-left-radius: 15px; }
-#browsecategories .br { border-bottom-right-radius: 15px; }
+.tl { border-top-left-radius: 15px; }
+.tr { border-top-right-radius: 15px; }
+.bl { border-bottom-left-radius: 15px; }
+.br { border-bottom-right-radius: 15px; }
 
 #browsecategories a {
     display: block;
@@ -386,12 +395,12 @@ div.recipe .yield p {
 
 
 #lucky div {
-    width: 250px;
-    height: 40px;
+    width: 300px;
+    height: 45px;
+    line-height: 45px;
     background: #eee;
     margin: auto;
     text-align: center;
-    line-height: 40px;
     border-radius: 15px;
     border: 1px solid gray;
 }

@@ -15,25 +15,27 @@
 
    <section id="calendar">
       <div id="monthlinks">
-         <div><a href="/January">Jan</a></div>
-         <div><a href="/February">Feb</a></div>
-         <div><a href="/March">Mar</a></div>
-         <div><a href="/April">Apr</a></div>
-         <div><a href="/May">May</a></div>
-         <div><a href="/June">Jun</a></div>
-         <div><a class="current" href="/July">Jul</a></div>
-         <div><a href="/August">Aug</a></div>
-         <div><a href="/September">Sep</a></div>
-         <div><a href="/October">Oct</a></div>
-         <div><a href="/November">Nov</a></div>
-         <div><a href="/December">Dec</a></div>
+         {% for m in months %}
+         <div id="{{m.shortlower}}"
+         class="{{m.cls}}"><a href="/{{m.full}}">{{m.short}}</a></div>
+         {% endfor %}
       </div>
       <div id="seasonlinks">
-         <div class="one-col"><a href="/Winter">Winter</a></div>
-         <div class="three-col"><a href="/Spring">Spring</a></div>
-         <div class="three-col"><a class="current" href="/Summer">Summer</a></div>
-         <div class="three-col"><a href="/Fall">Fall</a></div>
-         <div class="two-col"><a href="/Winter">Winter</a></div>
+         <div class="bl winter one-col">
+            <a data-months="#jan,#nov,#dec,.winter" href="/Winter"><img src="/static/css/winter.png"/></a>
+         </div>
+         <div class="spring three-col">
+            <a data-months="#feb,#mar,#apr" href="/Spring"><img src="/static/css/spring.png"/></a>
+         </div>
+         <div class="summer three-col current">
+            <a data-months="#may,#jun,#jul" href="/Summer"><img src="/static/css/summer.png"/></a>
+         </div>
+         <div class="fall three-col">
+            <a data-months="#aug,#sep,#oct" href="/Fall"><img src="/static/css/fall.png"/></a>
+         </div>
+         <div class="br winter two-col">
+            <a data-months="#nov,#dec,#jan,.winter" href="/Winter"><img src="/static/css/winter.png"/></a>
+         </div>
       </div>
    </section>
 
@@ -72,7 +74,8 @@
    function doHoverAction(elem, opacity, color) {
    var flyout = $('#' + $(elem).attr('data-flyout'))
    flyout.stop().fadeTo(500, opacity);
-   $(elem).parent().css('background', color)
+   if (opacity === 1) $(elem).parent().addClass('hovering');
+   else $(elem).parent().removeClass('hovering');
    }
 
    $(function() {
@@ -81,9 +84,25 @@
    function (e) {doHoverAction(e.target, 0, '#eee');});
 
    $('#lucky a').hover(
-   function(e) {$(e.target).parent().css('background', '#55e');},
-   function(e) {$(e.target).parent().css('background', '#eee');});
+     function(e) {$(e.target).parent().addClass('hovering');},
+     function(e) {$(e.target).parent().removeClass('hovering');});
+
+   function seasonHoverIn(elem) {
+     $(elem).parent('div').addClass('hovering');
+     $($(elem).attr('data-months')).addClass('hovering');
+   }
+   function seasonHoverOut(elem) {
+     $(elem).parent('div').removeClass('hovering');
+     $($(elem).attr('data-months')).removeClass('hovering');
+   }
+
+   $('#seasonlinks a, #seasonlinks img').hover(
+     function(e) {seasonHoverIn(e.target);},
+     function(e) {seasonHoverOut(e.target);});
    });
+   $('#monthlinks div a').hover(
+     function(e) { $(e.target).parent('div').addClass('hovering'); },
+     function(e) { $(e.target).parent('div').removeClass('hovering'); });
 </script>
 
 {% endblock %}
