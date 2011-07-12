@@ -1,30 +1,18 @@
-* New landing page
-** What's in season
-   - Link for each month
-   - Link for each season
-     (use icons?)
-** Browse by...
-   - Links:
-     - Title
-     - Tag
-     - Ingredient
-     - Notes
-   - Hover gives more information
-** Feeling lucky?
-   - One random recipe
-   - View should have another "Lucky" button
-** 'About' footer
-   - 'WTF is this?' static page
-
 * Must-have:
   - [ ] Mobile view
         - No fonts, shadows
         - No CUD
   - [ ] Admin views
-        - Untagged (once tags are added)
-        - Without notes
-        - No seasonal info
+        - Missing tags (once tags are added)
+        - Missing notes
+        - Missing months
   - [ ] Search by multiple criteria?
+  - [ ] Query views
+    - [ ] By title
+    - [ ] By tag
+    - [ ] By ingredient
+    - [ ] Notes/no notes
+    - [ ] Random recipe with lucky button
   - [ ] Ingredient autocomplete only works on first ingredient line
   - [ ] Text pre-processing
         - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
@@ -42,7 +30,7 @@
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
   - [ ] Ingredient pages
-  - [ ] Visual season display on view page
+  - [X] Visual season display on view page
   - [X] Visual
     - [X] Markdown help 
     - [X] Automatically create a new ingredient line when last one's name becomes non-blank
@@ -87,4 +75,23 @@
         - Title, Blurb
         - Index from landing page
         - Show links in recipe view if a recipe is part of a menu
+
+
+* New landing page
+** What's in season
+   - Link for each month
+   - Link for each season
+     (use icons?)
+** Browse by...
+   - Links:
+     - Title
+     - Tag
+     - Ingredient
+     - Notes
+   - Hover gives more information
+** Feeling lucky?
+   - One random recipe
+   - View should have another "Lucky" button
+** 'About' footer
+   - 'WTF is this?' static page
 

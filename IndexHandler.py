@@ -20,7 +20,7 @@ def newMonthStruct(month):
     thismonth = date.today().strftime("%B")
     m = expando()
     m.full = month
-    m.short = month[:3]
+    m.short = month[:1]
     m.shortlower = month[:3].lower()
     m.cls = ""
     if thismonth == month: m.cls ="current"

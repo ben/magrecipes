@@ -10,8 +10,9 @@
    <section id="calendar">
       <div id="monthlinks">
          {% for m in months %}
-         <div id="{{m.shortlower}}"
-         class="{{m.cls}}"><a href="/{{m.full}}">{{m.short}}</a></div>
+         <div id="{{m.shortlower}}" class="{{m.cls}}">
+            <a title="{{m.full}}" href="/{{m.full}}">{{m.short}}</a>
+         </div>
          {% endfor %}
       </div>
       <div id="seasonlinks">
