@@ -80,12 +80,21 @@ nav ul li {
     list-style-type: none;
     display: inline-block;
     padding: 0 5px;
-    font-weight: bold;
     font-size: 125%;
 }
 
+nav ul li a {
+    display: block;
+    width: 6em;
+    background: #eee;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
 nav ul li a:hover {
-    text-decoration: underline;
+    background: #55e;
+    color: white;
 }
 
 header h1 {

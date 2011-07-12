@@ -15,21 +15,13 @@
          {% endfor %}
       </div>
       <div id="seasonlinks">
-         <div class="bl winter two-col">
-            <a data-months="#jan,#feb,#dec,.winter" href="/Winter"><img src="/static/css/winter.png"/></a>
+         {% for s in seasons %}
+         <div class="{{s.cls}}">
+            <a data-months="{{s.months|lower}}" href="/{{s.name}}">
+               <img src="/static/css/{{s.name|lower}}.png"/>
+            </a>
          </div>
-         <div class="spring three-col">
-            <a data-months="#mar,#apr,#may" href="/Spring"><img src="/static/css/spring.png"/></a>
-         </div>
-         <div class="summer three-col current">
-            <a data-months="#jun,#jul,#aug" href="/Summer"><img src="/static/css/summer.png"/></a>
-         </div>
-         <div class="fall three-col">
-            <a data-months="#sep,#oct,#nov" href="/Fall"><img src="/static/css/fall.png"/></a>
-         </div>
-         <div class="br winter one-col">
-            <a data-months="#dec,#jan,#feb,.winter" href="/Winter"><img src="/static/css/winter.png"/></a>
-         </div>
+         {% endfor %}
       </div>
    </section>
 

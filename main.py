@@ -33,6 +33,7 @@ template.register_template_library('templatetags.recipe_summary')
 template.register_template_library('templatetags.recipe_form')
 template.register_template_library('templatetags.verbatim')
 template.register_template_library('templatetags.ingredient_autocomplete')
+template.register_template_library('templatetags.template_helpers')
 
 
 class DeleteAllHandler(webapp.RequestHandler):
