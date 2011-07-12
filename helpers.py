@@ -1,3 +1,4 @@
+from google.appengine.api import users
 from google.appengine.ext import db
 import datetime
 import time
@@ -47,3 +48,13 @@ def to_dict(model):
             raise ValueError('cannot encode ' + repr(prop))
 
     return output
+
+
+def loginout_url(request):
+    url = users.create_login_url(request.url)
+    text = "Login"
+    if users.is_current_user_admin():
+        url = users.create_logout_url(request.url)
+        text = "Logout"
+    return {'loginout_url' : url,
+            'loginout_txt' : text}

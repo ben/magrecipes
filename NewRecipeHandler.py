@@ -5,6 +5,7 @@ from google.appengine.api import users
 from google.appengine.ext import webapp, db, blobstore
 from google.appengine.ext.db import Key
 from google.appengine.ext.webapp import template
+from django.template.context import RequestContext
 
 from models import Ingredient, QuantifiedIngredient, Recipe, Image
 
@@ -42,8 +43,8 @@ class NewRecipeHandler(webapp.RequestHandler):
         r = Recipe().to_dict()
 
         path = os.path.join(os.path.dirname(__file__), 'newrecipe.html')
-        template_values = {
+        template_values = RequestContext(self.request, {
             'json' : simplejson.dumps(r),
             'image_upload_url' : '/image',
-            }
+            })
         self.response.out.write(template.render(path, template_values))

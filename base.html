@@ -35,11 +35,6 @@
          <header>
             <nav>
                <ul>
-                  {% if_admin %}
-                  <li><a href="">Logout</a></li>
-                  {% else %}
-                  <li><a href="">Login</a></li>
-                  {% endif %}
                   <li>
                      <form action="/search" method="post">
                         <input type="string" class="ingredientautocomplete" placeholder="Search" name="q" />
@@ -61,6 +56,12 @@
          {% block content %}
          {% endblock %}
 
+         <footer>
+            <nav>
+               <a href="{{loginout_url}}">{{loginout_txt}}</a>
+            </nav>
+            <a href="/about">WTF is this?</a>
+         </footer>
       </div>
 
       <script type='text/javascript'> 
@@ -71,6 +72,7 @@
     ko.applyBindings(viewModel); // This makes Knockout get to work
 /*]]>*/
       </script>
+
 
    </body>
 

@@ -65,36 +65,23 @@ h3 #morerows {
     font-size: x-small;
 }
 
-nav {
+header nav {
     float: right;
     padding: 0.5em 0;
     white-space: nowrap;
 }
 
-nav ul {
+header nav ul {
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+header nav ul li {
     list-style-type: none;
     display: inline-block;
     padding: 0 5px;
     font-size: 125%;
-}
-
-nav ul li a {
-    display: block;
-    width: 6em;
-    background: #eee;
-    text-align: center;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    background: #55e;
-    color: white;
+    margin-top: 0.5em;
 }
 
 header h1 {
@@ -426,3 +413,31 @@ div.recipe .yield p {
 #lucky a:hover {
     color: white;
 }
+
+footer {
+    margin: 5em 2em;
+    margin-bottom: 0;
+    border-top: 1px solid gray;
+    padding-top: 0.5em;
+}
+
+footer nav {
+    float: right;
+}
+
+footer nav a {
+    text-decoration: none;
+    color: #888;
+    display: block;
+    width: 6em;
+    background: #eee;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+footer nav a:hover {
+    background: #55e;
+    color: white;
+}
+

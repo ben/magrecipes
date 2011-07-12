@@ -5,6 +5,7 @@ import re
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
+from django.template.context import RequestContext
 
 from models import Ingredient, Recipe
 
@@ -29,10 +30,10 @@ class SearchHandler(webapp.RequestHandler):
             recipes = [r for r in allrecipes
                        if (regex.search(r.title) or regex.search(r.instructions))]
         
-        template_values = {
+        template_values = RequestContext(self.request, {
             'ingredients' : ingredients,
             'recipes' : recipes,
             'query' : query,
-            }
+            })
         path = os.path.join(os.path.dirname(__file__), 'search.html')
         self.response.out.write(template.render(path, template_values))

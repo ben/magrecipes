@@ -4,6 +4,7 @@ import logging
 from google.appengine.api import users
 from google.appengine.ext import webapp, db, blobstore
 from google.appengine.ext.webapp import template
+from django.template.context import RequestContext
 
 from models import Ingredient, QuantifiedIngredient, Recipe
 from django.utils import simplejson
@@ -27,10 +28,10 @@ class EditHandler(webapp.RequestHandler):
         recipe_dict = recipe.to_dict()
 
         path = os.path.join(os.path.dirname(__file__), 'editrecipe.html')
-        template_values = {
+        template_values = RequestContext(self.request, {
             'json' : simplejson.dumps(recipe_dict),
             'image_upload_url' : '/recipe/' + recipe_dict['key'] + '/images',
-            }
+            })
         self.response.out.write(template.render(path, template_values))
 
 
