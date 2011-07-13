@@ -7,13 +7,8 @@ from django.template.context import RequestContext
 from django.utils import simplejson
 
 from models import Recipe
-from helpers import to_dict, seasons
+from helpers import to_dict, seasons, uniq
 
-
-def uniq(seq):
-    seen = set()
-    seen_add = seen.add
-    return [ x for x in seq if x not in seen and not seen_add(x)]
 
 def queryForMonth(month):
     return GqlQuery('SELECT __key__ from Recipe WHERE %s = TRUE' % month.lower())

@@ -58,3 +58,9 @@ def loginout_url(request):
         text = "Logout"
     return {'loginout_url' : url,
             'loginout_txt' : text}
+
+def uniq(seq, key=lambda x: x):
+    seen = set()
+    seen_add = seen.add
+    return [ x for x in seq if key(x) not in seen and not seen_add(key(x))]
+

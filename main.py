@@ -65,6 +65,10 @@ def main():
         ('/recipe/(.*)', ViewRecipeHandler),
         ('/image/(.*)/(.*)', ImageHandler),
         ('/recipes', RecipesByTitleHandler),
+        ('/ingredients', IngredientsByNameHandler),
+        #('/tags', TagsByNameHandler),
+        #('/stickies', RecipesByStickyHandler),
+        ('/ingredient/(.*)', RecipesByIngredientHandler),
 
         # Update
         ('/edit/(.*)', EditHandler),

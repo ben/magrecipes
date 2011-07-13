@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %} Recipes by Title {% endblock %}
+{% block title %} Recipes by Ingredient {% endblock %}
 
 {% block content %}
 
 <section>
-   <h1>Recipes by Title</h1>
+   <h1>Recipes with {{ingredient.name}}</h1>
 
    <section id="index">
       {% for letter in keys %}
@@ -13,7 +13,7 @@
       {% endfor %}
    </section>
 
-   {% for k,value in keys %}
+   {% for k in keys %}
    <section id="toc">
       <h3><a name="{{k}}">{{k|upper}}</a></h3>
       <section>

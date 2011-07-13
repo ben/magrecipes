@@ -25,3 +25,9 @@ class IfAdminNode(Node):
         if (users.is_current_user_admin()):
             return self.nodelist_true.render(context)
         return self.nodelist_false.render(context)
+
+
+################################################################################
+@register.filter('dict_get')
+def dict_get(d, k):
+    return d[k]
