@@ -67,7 +67,7 @@ def main():
         ('/recipes', RecipesByTitleHandler),
         ('/ingredients', IngredientsByNameHandler),
         #('/tags', TagsByNameHandler),
-        #('/stickies', RecipesByStickyHandler),
+        ('/stickies', RecipesByStickyHandler),
         ('/ingredient/(.*)', RecipesByIngredientHandler),
 
         # Update

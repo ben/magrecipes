@@ -76,3 +76,18 @@ class RecipesByIngredientHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'recipes_by_ingredient.html')
         self.response.out.write(template.render(path, templatevalues))
         
+
+################################################################################
+class RecipesByStickyHandler(webapp.RequestHandler):
+    def get(self):
+        have = []
+        havenot = []
+        for r in Recipe.all():
+            if r.stickies.count(1) > 0: have.append(r)
+            else: havenot.append(r)
+        templatevalues = RequestContext(self.request, {
+                'have' : have,
+                'havenot' : havenot,
+                })
+        path = os.path.join(os.path.dirname(__file__), 'recipes_by_sticky.html')
+        self.response.out.write(template.render(path, templatevalues))
