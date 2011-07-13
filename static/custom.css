@@ -441,3 +441,17 @@ footer nav a:hover {
     color: white;
 }
 
+
+#index a {
+    font-family: Goudy, georgia, serif;
+    font-size: 125%;
+}
+
+#toc h3 a {
+    text-decoration: none;
+    color: black;
+}
+
+#toc section {
+    font-size: 100%;
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Recipes by Title {% endblock %}
+
+{% block content %}
+
+<section>
+   <h1>Recipes by Title</h1>
+
+   <section id="index">
+      {% for letter in buckets %}
+      <a href="#{{letter}}">{{letter|upper}}</a>&nbsp;&nbsp;
+      {% endfor %}
+   </section>
+
+   {% for key,value in buckets.items %}
+   <section id="toc">
+      <h3><a name="{{key}}">{{key|upper}}</a></h3>
+      <section>
+         {% for r in value %}
+         <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
+         {% endfor %}
+      </section>
+   </section>
+   {% endfor %}
+</section>
+
+{% endblock %}

@@ -27,6 +27,7 @@ from DeleteHandler import DeleteRecipeHandler, DeleteStickyHandler
 from EditHandler import EditHandler
 from ImageHandler import NewImageHandler, ImageHandler, RecipeImageHandler
 from StickyHandler import StickyHandler
+from QueryViews import *
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -63,6 +64,7 @@ def main():
         ('/search', SearchHandler),
         ('/recipe/(.*)', ViewRecipeHandler),
         ('/image/(.*)/(.*)', ImageHandler),
+        ('/recipes', RecipesByTitleHandler),
 
         # Update
         ('/edit/(.*)', EditHandler),
