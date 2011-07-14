@@ -8,6 +8,8 @@ class Recipe(db.Model):
     yeeld = db.StringProperty()
     source = db.StringProperty()
 
+    ingredient_list = db.ListProperty(db.Key)
+
     january   = db.BooleanProperty()
     february  = db.BooleanProperty()
     march     = db.BooleanProperty()
@@ -38,7 +40,7 @@ class Recipe(db.Model):
             'december' : self.december,
             'title' : self.title,
             'instructions' : self.instructions,
-            'ingredients' : [i.to_dict() for i in self.ingredients],
+            'ingredients' : [qi.to_dict() for qi in db.get(self.ingredient_list)],
             'images' : [i.to_dict() for i in self.images],
             'stickies' : [s.to_dict() for s in self.stickies],
             'yeeld' : self.yeeld,
@@ -97,8 +99,8 @@ class Recipe(db.Model):
             img.put()
 
         # Replace ingredients with new ones
-        for qi in self.ingredients:
-            qi.delete()
+        db.delete(self.ingredient_list)
+        self.ingredient_list = []
         for ivm in d['ingredients']:
             ing = Ingredient.get_or_insert(ivm['name'],
                                            name=ivm['name'])
@@ -107,6 +109,13 @@ class Recipe(db.Model):
                                       note=ivm['note'],
                                       recipe=self)
             qi.put()
+            self.ingredient_list.append(qi.key())
+        self.put()
+
+    def delete(self):
+        db.delete(self.ingredient_list)
+        db.delete(self.key())
+            
 
 class Ingredient(db.Model):
     name = db.StringProperty()
@@ -115,7 +124,7 @@ class QuantifiedIngredient(db.Model):
     ingredient = db.ReferenceProperty(Ingredient)
     quantity = db.StringProperty()
     note = db.StringProperty()
-    recipe = db.ReferenceProperty(Recipe, collection_name='ingredients')
+    recipe = db.ReferenceProperty(Recipe)
 
     def to_dict(self):
         return {

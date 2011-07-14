@@ -18,11 +18,7 @@ class DeleteRecipeHandler(webapp.RequestHandler):
 
         key = self.request.get('key')
         logging.debug("Deleting recipe " + key)
-        recipe = Recipe.get(key)
-        for qi in recipe.ingredients:
-            logging.debug("Deleting QI " + str(qi.key()))
-            qi.delete()
-        recipe.delete()
+        Recipe.get(key).delete()
         self.redirect('/')
 
     
