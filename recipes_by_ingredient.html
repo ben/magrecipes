@@ -14,7 +14,7 @@
    </section>
 
    {% for k in keys %}
-   <section id="toc">
+   <section class="toc">
       <h3><a name="{{k}}">{{k|upper}}</a></h3>
       <section>
          {% for r in buckets|dict_get:k %}

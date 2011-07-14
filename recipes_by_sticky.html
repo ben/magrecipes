@@ -7,18 +7,27 @@
 <section>
    <h1>Recipes by Notes</h1>
 
-   <section>
-      <h3>Recipes with notes</h3>
-      {% for r in have %}
-      <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
-      {% endfor %}
+   <section id="index">
+      <a href="#with">With</a>&nbsp;&nbsp;&nbsp;
+      <a href="#without">Without</a>
    </section>
 
-   <section>
-      <h3>Recipes without notes</h3>
-      {% for r in havenot %}
-      <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
-      {% endfor %}
+   <section class="toc">
+      <h3><a name="with">Recipes with notes</a></h3>
+      <section>
+         {% for r in have %}
+         <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
+         {% endfor %}
+      </section>
+   </section>
+
+   <section class="toc">
+      <h3><a name="without">Recipes without notes</a></h3>
+      <section>
+         {% for r in havenot %}
+         <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
+         {% endfor %}
+      </section>
    </section>
 </section>
 

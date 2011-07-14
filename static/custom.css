@@ -447,11 +447,11 @@ footer nav a:hover {
     font-size: 125%;
 }
 
-#toc h3 a {
+.toc h3 a {
     text-decoration: none;
     color: black;
 }
 
-#toc section {
+.toc section {
     font-size: 100%;
 }
