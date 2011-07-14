@@ -112,6 +112,7 @@ function lastIngredientNameChanged(newValue) {
     viewModel.ingredients.push(new ingredientViewModel('','',''));
     lastIngredientSubscription = viewModel.ingredients()[viewModel.ingredients().length-1]
       .name.subscribe(lastIngredientNameChanged);
+    refreshIngredientAutocomplete();
   }
   currentfocus.focus();
 }

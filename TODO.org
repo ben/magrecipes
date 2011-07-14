@@ -1,4 +1,8 @@
 * Must-have:
+  - [ ] !!! Ingredient order
+        - Rework ingredients into an array property
+        - Migration script
+  - [ ] A way to consolidate similar ingredients
   - [ ] Mobile view
         - No fonts, shadows
         - No CUD
@@ -7,13 +11,12 @@
         - Missing notes
         - Missing months
   - [ ] Search by multiple criteria?
-  - [ ] Query views
-    - [ ] By title
-    - [ ] By tag
-    - [ ] By ingredient
-    - [ ] Notes/no notes
+  - [-] Query views
     - [ ] Random recipe with lucky button
-  - [ ] Ingredient autocomplete only works on first ingredient line
+    - [ ] By tag
+    - [X] By title
+    - [X] By ingredient
+    - [X] Notes/no notes
   - [ ] Text pre-processing
         - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
         - [ ] "425F" => "425° F"
@@ -29,7 +32,8 @@
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
-  - [ ] Ingredient pages
+  - [X] Ingredient pages
+  - [X] Ingredient autocomplete only works on first ingredient line
   - [X] Visual season display on view page
   - [X] Visual
     - [X] Markdown help 
