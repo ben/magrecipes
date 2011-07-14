@@ -33,7 +33,7 @@ class NewRecipeHandler(webapp.RequestHandler):
         therecipe = Recipe()
         therecipe.set_from_dict(json)
 
-        self.redirect('/')
+        self.redirect('/recipe/%s' % therecipe.key())
         
 
     def get(self):
