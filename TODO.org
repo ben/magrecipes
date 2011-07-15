@@ -1,22 +1,22 @@
 * Must-have:
-  - [ ] !!! Ingredient order
-        - Rework ingredients into an array property
-        - Migration script
-  - [ ] A way to consolidate similar ingredients
-  - [ ] Mobile view
-        - No fonts, shadows
-        - No CUD
-  - [ ] Admin views
-        - Missing tags (once tags are added)
-        - Missing notes
-        - Missing months
-  - [ ] Search by multiple criteria?
+  - [ ] Tags with autocomplete
+        - [ ] Create/update recipe
+        - [ ] Search
   - [-] Query views
     - [ ] Random recipe with lucky button
     - [ ] By tag
     - [X] By title
     - [X] By ingredient
     - [X] Notes/no notes
+  - [ ] Admin views
+        - Missing tags (once tags are added)
+        - Missing notes
+        - Missing months
+  - [ ] A way to consolidate similar ingredients
+  - [ ] Mobile view
+        - No fonts, shadows
+        - No CUD
+  - [ ] Search by multiple criteria?
   - [ ] Text pre-processing
         - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
         - [ ] "425F" => "425° F"
@@ -26,12 +26,12 @@
   - [ ] Recipes as ingredients
         - Flagged ingredient, link as note?
         - Shouldn't show up in the "Ingredients" index.
-  - [ ] Tags with autocomplete
-        - [ ] Create/update recipe
-        - [ ] Search
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
+  - [X] !!! Ingredient order
+        - Rework ingredients into an array property
+        - Migration script
   - [X] Ingredient pages
   - [X] Ingredient autocomplete only works on first ingredient line
   - [X] Visual season display on view page
