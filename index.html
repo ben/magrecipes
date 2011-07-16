@@ -50,7 +50,7 @@
 
    <h1>Feeling lucky?</h1>
    <section id="lucky">
-      <div><a {#href="/random"#}>Random Recipe</a></div>
+      <div><a href="/random">Random Recipe</a></div>
    </section>
       
 
@@ -69,10 +69,6 @@
    $('.category a').hover(
    function (e) {doHoverAction(e.target, 1, '#55e')},
    function (e) {doHoverAction(e.target, 0, '#eee');});
-
-   $('#lucky a').hover(
-     function(e) {$(e.target).parent().addClass('hovering');},
-     function(e) {$(e.target).parent().removeClass('hovering');});
 
    function seasonHoverIn(elem) {
      $(elem).parent('div').addClass('hovering');

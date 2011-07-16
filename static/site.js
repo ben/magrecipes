@@ -65,6 +65,10 @@ $(function() {
   });
 
   bindDeleteConfirmations();
+
+  $('#lucky a').hover(
+    function(e) {$(e.target).parent().addClass('hovering');},
+    function(e) {$(e.target).parent().removeClass('hovering');});
 });
 
 // Shamelessly stolen from http://skfox.com/jqExamples/insertAtCaret.html
