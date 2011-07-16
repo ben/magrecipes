@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %} {{recipe.title}} {% endblock %}
+{% block title %} Lucky you! {{recipe.title}} {% endblock %}
 
 {% block content %}
 
+
+<section id="lucky">
+   <div><a href="/random">Another Random Recipe</a></div>
+</section>
 
 <section>
    {% recipe_fullview recipe %}

@@ -1,5 +1,7 @@
 import os
+import random
 
+from google.appengine.ext.db import Query
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
@@ -7,12 +9,13 @@ from django.template.context import RequestContext
 from django.utils import simplejson
 
 from models import Recipe
-from helpers import to_dict
 
 
-class ViewRecipeHandler(webapp.RequestHandler):
-    def get(self, recipekey):
-        recipe = Recipe.get(recipekey)
+class RandomRecipeHandler(webapp.RequestHandler):
+    def get(self):
+        q = Query(Recipe, True)
+        i = random.randint(0,q.count()-1)
+        recipe = Recipe.get(q[i])
         if recipe == None:
             # TODO: error page?
             return
@@ -24,5 +27,5 @@ class ViewRecipeHandler(webapp.RequestHandler):
             'json' : simplejson.dumps(recipe_dict),
             })
 
-        path = os.path.join(os.path.dirname(__file__), 'viewrecipe.html')
+        path = os.path.join(os.path.dirname(__file__), 'randomrecipe.html')
         self.response.out.write(template.render(path, templatevalues))

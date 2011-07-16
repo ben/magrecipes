@@ -3,33 +3,36 @@
 <ul>
    {{each ingredients}}
    <li>
-      ${ name } &ndash; ${ quantity }
+      ${ name }
+      {{ if quantity != '' }} &ndash; ${ quantity } {{ /if }}
       {{ if note != '' }} (${ note }) {{ /if }}
    {{/each}}
 </ul>
 </script>
+{% endverbatim %}
 
 
 <script type="text/html" id="stickyTemplate">
    <div class="sticky drop-shadow raised">
-      {% endverbatim %} {% if is_admin %} {% verbatim %}
+      {% if_admin %} 
       <div class="modify">
          <a class="deleteinit" href="#">(X)</a><br/>
          <form class="deleteconfirm" action="/deletesticky" method="post">
             <em>Really?</em>
+            {% verbatim %}
             <input type="hidden" value="${key}" name="key" />
+            {% endverbatim %}
             <a href="#" class="deleteconfirmyes">YES</a>
          </form>
       </div>
-      {% endverbatim %} {% endif %} {% verbatim %}
+      {% endif %}
       <div data-bind="html: html"></div>
    </div>
 </script>
-{% endverbatim %}
 
 <div id="sticky-container">
    <div data-bind="template: {name: 'stickyTemplate', foreach: stickies}"></div>
-   {% if is_admin %}
+   {% if_admin %}
    <div><div id="new-sticky-form" class="sticky raised ">
       <form id="stickyform" method="post" action="/recipe/{{recipe.key}}/stickies">
          <h4>Add a note:</h4>
@@ -41,6 +44,7 @@
 </div>
 
 <div class="recipe">
+   {% if_admin %}
    <div class="modify">
       <a href="/edit/{{recipe.key}}">(Edit)</a><br/>
       <a class="deleteinit" href="#">(Delete)</a><br/>
@@ -50,6 +54,7 @@
          <a href="#" class="deleteconfirmyes">YES</a>
       </form>
    </div>
+   {% endif %}
    <h2><span data-bind="text: title" /></h2>
    <div class="yield" data-bind="html: source_html"></div>
    <div class="seasonnote" data-bind="text: joinedMonths"></div>
