@@ -20,10 +20,9 @@ def recipe_titlecard(recipe):
 
 
 @register.inclusion_tag(join(dirname(__file__), 'recipe_fullview.html'))
-def recipe_fullview(recipe, is_admin):
+def recipe_fullview(recipe):
     return { 'recipe' : recipe,
              'stickies' : [s for s in recipe.stickies],
-             'is_admin' : is_admin,
              }
 
 

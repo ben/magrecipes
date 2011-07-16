@@ -22,7 +22,6 @@ class ViewRecipeHandler(webapp.RequestHandler):
         templatevalues = RequestContext(self.request, {
             'recipe' : recipe,
             'json' : simplejson.dumps(recipe_dict),
-            'is_admin' : users.is_current_user_admin(),
             })
 
         path = os.path.join(os.path.dirname(__file__), 'viewrecipe.html')
