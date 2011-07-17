@@ -1,10 +1,11 @@
 * Must-have:
+  - [ ] About page
   - [ ] Tags with autocomplete
         - [ ] Create/update recipe
         - [ ] Search
   - [-] Query views
-    - [ ] Random recipe with lucky button
-    - [ ] By tag
+    - [X] Random recipe with lucky button
+    - [ ] By tag (see above)
     - [X] By title
     - [X] By ingredient
     - [X] Notes/no notes
@@ -26,9 +27,28 @@
   - [ ] Recipes as ingredients
         - Flagged ingredient, link as note?
         - Shouldn't show up in the "Ingredients" index.
+        - See "ingredient grouping headers", set name to a link
+        - Would need to filter out links from autocomplete/search as well
+  - [ ] Ingredient grouping headers
+        - Approach one:
+          - Markdown ingredient fields
+          - Change display to hide hyphens if quantity is empty
+          - Filter out ingredients with empty qty/notes for autocomplete/search
+        - Approach two:
+          - IngredientBase as PolyModel, with Ingredient and IngredientHeader inheriting
+          - Would need migration
+          - Autocomplete and searach look only at Ingredient's
   - [ ] Calculator
         - Multiply numbers in ingredients' "quantity" fields
         - Multiply numbers in yield
+  - [ ] Menus
+        - Collection of recipes
+        - Title, Blurb
+        - Index from landing page
+        - Show links in recipe view if a recipe is part of a menu
+
+
+* Done
   - [X] !!! Ingredient order
         - Rework ingredients into an array property
         - Migration script
@@ -68,20 +88,11 @@
 * Like-to-have:
   - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
   - [ ] Drag-and-drop uploading for images
+  - [ ] Drag-and-drop re-ordering for ingredients
   - [ ] Warning when navigating away from new or edit?
   - [ ] No save without a season?
-  - [ ] Indexes:
-        - recipe by month
-        - recipe by ingredient
-        - image by recipe
-  - [ ] Menus
-        - Collection of recipes
-        - Title, Blurb
-        - Index from landing page
-        - Show links in recipe view if a recipe is part of a menu
 
-
-* New landing page
+* DONE New landing page
 ** What's in season
    - Link for each month
    - Link for each season
@@ -98,4 +109,3 @@
    - View should have another "Lucky" button
 ** 'About' footer
    - 'WTF is this?' static page
-
