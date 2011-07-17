@@ -43,7 +43,7 @@ class RecipesByTitleHandler(webapp.RequestHandler):
 class IngredientsByNameHandler(webapp.RequestHandler):
     def get(self):
         q = Ingredient.all()
-        ingredients = [i for i in q]
+        ingredients = [i for i in q if i.quantifiedingredient_set.count() > 0]
         buckets,keys = bucketize(ingredients, lambda x: x.name)
         templatevalues = RequestContext(self.request, {
                 'ingredients' : ingredients,
