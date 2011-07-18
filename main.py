@@ -29,6 +29,7 @@ from ImageHandler import NewImageHandler, ImageHandler, RecipeImageHandler
 from StickyHandler import StickyHandler
 from QueryViews import *
 from RandomRecipeHandler import RandomRecipeHandler
+from AboutHandler import AboutHandler
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -71,6 +72,7 @@ def main():
         ('/random', RandomRecipeHandler),
         ('/stickies', RecipesByStickyHandler),
         ('/ingredient/(.*)', RecipesByIngredientHandler),
+        ('/about', AboutHandler),
 
         # Update
         ('/edit/(.*)', EditHandler),
