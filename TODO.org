@@ -84,15 +84,7 @@
   - [X] Edit a recipe
   - [X] Delete a recipe
 
-
-* Like-to-have:
-  - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
-  - [ ] Drag-and-drop uploading for images
-  - [ ] Drag-and-drop re-ordering for ingredients
-  - [ ] Warning when navigating away from new or edit?
-  - [ ] No save without a season?
-
-* DONE New landing page
+** DONE New landing page
 ** What's in season
    - Link for each month
    - Link for each season
@@ -109,3 +101,11 @@
    - View should have another "Lucky" button
 ** 'About' footer
    - 'WTF is this?' static page
+
+* Like-to-have:
+  - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
+  - [ ] Drag-and-drop uploading for images
+  - [ ] Drag-and-drop re-ordering for ingredients
+  - [ ] Warning when navigating away from new or edit?
+  - [ ] No save without a season?
+

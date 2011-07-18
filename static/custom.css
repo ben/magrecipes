@@ -25,8 +25,9 @@ header {
     padding: 2em 1em 0 1em;
 }
 
-header a, a:hover, a:visited {
-    color: #0af;
+header a, header a:hover, header a:visited {
+    color: black;
+    text-decoration: none;
 }
 
 #admincontrols {
@@ -453,4 +454,12 @@ footer nav a:hover {
 
 .toc section {
     font-size: 100%;
+}
+
+
+#about img {
+    float: right;
+    padding: 0.25em;
+    margin: 0.4em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 0 20px rgba(0, 0, 0, 0.1) inset;
 }
