@@ -26,8 +26,7 @@ header {
 }
 
 header a, a:hover, a:visited {
-    color: #000;
-    text-decoration: none;
+    color: #0af;
 }
 
 #admincontrols {
