@@ -1,8 +1,8 @@
 * Must-have:
-  - [ ] About page
   - [ ] Tags with autocomplete
         - [ ] Create/update recipe
         - [ ] Search
+        - [[http://webspirited.com/tagit/js/tagit.js][Use this plugin]] (already in static/js)
   - [-] Query views
     - [X] Random recipe with lucky button
     - [ ] By tag (see above)
@@ -49,6 +49,7 @@
 
 
 * Done
+  - [X] About page
   - [X] !!! Ingredient order
         - Rework ingredients into an array property
         - Migration script
@@ -104,6 +105,7 @@
 
 * Like-to-have:
   - [ ] [[http://code.google.com/p/wmd-new/][WMD editor]]
+  - [ ] Perhaps move ingredient autocomplete to server?
   - [ ] Drag-and-drop uploading for images
   - [ ] Drag-and-drop re-ordering for ingredients
   - [ ] Warning when navigating away from new or edit?
