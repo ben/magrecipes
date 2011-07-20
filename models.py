@@ -1,8 +1,9 @@
 from google.appengine.ext import db
 import logging
 from helpers import to_dict
+from taggable import Taggable, Tag
 
-class Recipe(db.Model):
+class Recipe(Taggable, db.Model):
     title = db.StringProperty()
     instructions = db.TextProperty()
     yeeld = db.StringProperty()
@@ -22,6 +23,10 @@ class Recipe(db.Model):
     october   = db.BooleanProperty()
     november  = db.BooleanProperty()
     december  = db.BooleanProperty()
+
+    def __init__(self, parent=None, key_name=None, app=None, **entity_values):
+        db.Model.__init__(self, parent, key_name, app, **entity_values)
+        Taggable.__init__(self)
 
     def to_dict(self):
         if self.is_saved(): return {
@@ -45,6 +50,7 @@ class Recipe(db.Model):
             'stickies' : [s.to_dict() for s in self.stickies],
             'yeeld' : self.yeeld,
             'source' : self.source,
+            'tags' : [t.tag for t in self.tags],
             }
 
         # Unsaved recipe; default values
@@ -70,6 +76,7 @@ class Recipe(db.Model):
             'stickies' : [],
             'yeeld' : '',
             'source' : '',
+            'tags' : [],
             }
 
     def set_from_dict(self, d):
@@ -110,6 +117,10 @@ class Recipe(db.Model):
                                       recipe=self)
             qi.put()
             self.ingredient_list.append(qi.key())
+
+        # Replace tags
+        self.tags = [Tag.get_or_create(t) for t in d['tags']]
+
         self.put()
 
     def delete(self):
