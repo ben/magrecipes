@@ -102,6 +102,7 @@ viewModel.November(model.november);
 viewModel.December(model.december);
 
 
+
 // When last ingredient's name changes,
 //   Add a new row to the list
 //   Update the global subscription to point to the new item
@@ -155,5 +156,9 @@ $(function() {
     success: function(data) {
       viewModel.images.push(JSON.parse(data));
     },
+  });
+
+  $("#mytags").tagit({
+	 tagSource: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby", "python", "c", "scala", "groovy", "haskell", "perl"]
   });
 });
