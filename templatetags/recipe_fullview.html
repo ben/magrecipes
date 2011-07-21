@@ -9,6 +9,10 @@
    {{/each}}
 </ul>
 </script>
+
+<script type="text/html" id="tagTemplate">
+<div><a href="/tag/${$data}">${$data}</a></div>
+</script>
 {% endverbatim %}
 
 
@@ -56,6 +60,10 @@
    </div>
    {% endif %}
    <h2><span data-bind="text: title" /></h2>
+   <div id="tagview">
+      <h4>Tagged as:</h4>
+      <div data-bind="template: {name: 'tagTemplate', foreach: tags}"></div>
+   </div>
    <div class="yield" data-bind="html: source_html"></div>
    <div class="seasonnote" data-bind="text: joinedMonths"></div>
    <div class="yield">Yield: <span data-bind="text: yeeld" /></div>

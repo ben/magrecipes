@@ -46,6 +46,8 @@ viewModel = {
   November: ko.observable(false),
   December: ko.observable(false),
 
+  tags: [],
+
   doSubmit: function() {
     model.title = viewModel.title();
     model.ingredients = []
@@ -71,6 +73,8 @@ viewModel = {
     model.october = viewModel.October();
     model.november = viewModel.November();
     model.december = viewModel.December();
+
+    model.tags = $('#mytags').tagit('tags')
 
     // Submit the form with proper data
     $('#json').attr('value', JSON.stringify(model))
@@ -100,8 +104,7 @@ viewModel.September(model.september);
 viewModel.October(model.october);
 viewModel.November(model.november);
 viewModel.December(model.december);
-
-
+viewModel.tags = model.tags
 
 // When last ingredient's name changes,
 //   Add a new row to the list
@@ -158,7 +161,9 @@ $(function() {
     },
   });
 
+  //*
   $("#mytags").tagit({
-	 tagSource: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby", "python", "c", "scala", "groovy", "haskell", "perl"]
+	 tagSource: ['main', 'side', 'veg', 'protein', 'starch', 'fruit'],
   });
+  // */
 });

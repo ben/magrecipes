@@ -69,6 +69,7 @@ def main():
         ('/recipes', RecipesByTitleHandler),
         ('/ingredients', IngredientsByNameHandler),
         #('/tags', TagsByNameHandler),
+        #('/tag/(.*)', TagHandler),
         ('/random', RandomRecipeHandler),
         ('/stickies', RecipesByStickyHandler),
         ('/ingredient/(.*)', RecipesByIngredientHandler),

@@ -106,9 +106,11 @@ ul.tagit li.tagit-choice a.tagit-close {
     text-decoration: none;
     position: absolute;
     display: block;
+    line-height: 21px;
     top: 0;
     right: 3px;
     text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
+    font-family: sans-serif;
 }
 
 ul.tagit li.tagit-choice a.tagit-close:hover {

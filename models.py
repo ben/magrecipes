@@ -119,7 +119,7 @@ class Recipe(Taggable, db.Model):
             self.ingredient_list.append(qi.key())
 
         # Replace tags
-        self.tags = [Tag.get_or_create(t) for t in d['tags']]
+        self.tags = d['tags']
 
         self.put()
 

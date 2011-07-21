@@ -7,6 +7,10 @@
    </tr>
 </script>
 
+<script type="text/html" id="tagTemplate">
+   <li>${$data}</li>
+</script>
+
 <script type="text/html" id="imageTemplate">
    <div class="imagethumb">
       <a href="#"
@@ -100,7 +104,8 @@
 <input size="40" data-bind="value: source" />
 
 <h3>Tags</h3>
-<ul id="mytags" />
+<ul id="mytags" data-bind="template: { name: 'tagTemplate', foreach: tags}">
+</ul>
 
 <h3>Ingredients:</h3>
 <div id="ingredienttable">
