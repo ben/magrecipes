@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} All Tags {% endblock %}
+
+{% block content %}
+
+<section>
+   <h1>All Tags</h1>
+
+   <section id="index">
+      {% for letter in keys %}
+      <a href="#{{letter}}">{{letter|upper}}</a>&nbsp;&nbsp;
+      {% endfor %}
+   </section>
+
+   {% for k in keys %}
+   <section class="toc">
+      <h3><a name="{{k}}">{{k|upper}}</a></h3>
+      <section>
+         {% for t in buckets|dict_get:k %}
+         <a href="/tag/{{t.tag}}">{{t.tag}}</a>
+         ({{t.tagged|length}} recipes) <br/>
+         {% endfor %}
+      </section>
+   </section>
+   {% endfor %}
+</section>
+
+{% endblock %}

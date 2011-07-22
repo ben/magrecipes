@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Recipes by Tag {% endblock %}
+
+{% block content %}
+
+<section>
+   <h1>Recipes tagged &ldquo;{{tag.tag}}&rdquo;</h1>
+
+   <section id="index">
+      {% for letter in keys %}
+      <a href="#{{letter}}">{{letter|upper}}</a>&nbsp;&nbsp;
+      {% endfor %}
+   </section>
+
+   {% for k in keys %}
+   <section class="toc">
+      <h3><a name="{{k}}">{{k|upper}}</a></h3>
+      <section>
+         {% for r in buckets|dict_get:k %}
+         <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
+         {% endfor %}
+      </section>
+   </section>
+   {% endfor %}
+</section>
+
+{% endblock %}
