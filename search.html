@@ -7,6 +7,13 @@
 <section>
    Your query: '{{query}}'
 
+   <h3>Tag matches:</h3>
+   <ul>
+      {% for t in tags %}
+      <li><a href="/tag/{{t.tag}}">{{t.tag}}</a></li>
+      {% endfor %}
+   </ul>
+
    <h3>Ingredient matches:</h3>
    <ul>
       {% for i in ingredients %}

@@ -1,14 +1,4 @@
 * Must-have:
-  - [ ] Tags with autocomplete
-        - [ ] Create/update recipe
-        - [ ] Search
-        - [[http://webspirited.com/tagit/js/tagit.js][Use this plugin]] (already in static/js)
-  - [-] Query views
-    - [X] Random recipe with lucky button
-    - [ ] By tag (see above)
-    - [X] By title
-    - [X] By ingredient
-    - [X] Notes/no notes
   - [ ] Admin views
         - Missing tags (once tags are added)
         - Missing notes
@@ -49,6 +39,17 @@
 
 
 * Done
+  - [X] Tags with autocomplete
+        - [X] Create/update recipe (field)
+        - [X] Autocomplete in CU pages populated with existing tags
+        - [X] Search
+        - [X] [[http://webspirited.com/tagit/js/tagit.js][Use this plugin]] (already in static/js)
+  - [X] Query views
+    - [X] Random recipe with lucky button
+    - [X] By tag (see above)
+    - [X] By title
+    - [X] By ingredient
+    - [X] Notes/no notes
   - [X] About page
   - [X] !!! Ingredient order
         - Rework ingredients into an array property
