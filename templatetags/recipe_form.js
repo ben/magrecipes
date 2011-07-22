@@ -161,9 +161,9 @@ $(function() {
     },
   });
 
-  //*
-  $("#mytags").tagit({
-	 tagSource: ['main', 'side', 'veg', 'protein', 'starch', 'fruit'],
-  });
-  // */
+  $("#mytags").tagit({tagSource: [
+    {% for t in alltags %}
+    "{{t.tag}}",
+    {% endfor %}
+  ]});
 });
