@@ -30,6 +30,7 @@ from StickyHandler import StickyHandler
 from QueryViews import *
 from RandomRecipeHandler import RandomRecipeHandler
 from AboutHandler import AboutHandler
+from AdminViews import *
 
 # Custom template filters
 template.register_template_library('templatetags.recipe_summary')
@@ -74,6 +75,9 @@ def main():
         ('/stickies', RecipesByStickyHandler),
         ('/ingredient/(.*)', RecipesByIngredientHandler),
         ('/about', AboutHandler),
+        # Admin-only views
+        ('/notags', NoTagsHandler),
+        ('/noseason', NoSeasonHandler),
 
         # Update
         ('/edit/(.*)', EditHandler),

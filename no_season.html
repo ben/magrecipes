@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Recipes without a season {% endblock %}
+
+{% block content %}
+
+<section>
+   <h1>Recipes without a season</h1>
+
+   <section>
+      <ul>
+         {% for r in recipes %}
+         {% recipe_titlecard r %}
+         {% endfor %}
+      </ul>
+   </section>
+
+{% endblock %}
