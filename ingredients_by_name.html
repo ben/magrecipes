@@ -18,8 +18,12 @@
       <h3><a name="{{k}}">{{k|upper}}</a></h3>
       <section>
          {% for i in buckets|dict_get:k %}
-         <a href="/ingredient/{{i.key}}">{{i.name}}</a>
-         ({{i.quantifiedingredient_set.count}} recipes) <br/>
+         <div class="recipe drop-shadow lifted">
+            <h2>
+               <a href="/ingredient/{{i.key}}">{{i.name}}</a>
+               ({{i.quantifiedingredient_set.count}} recipes)
+            </h2>
+         </div>
          {% endfor %}
       </section>
    </section>
