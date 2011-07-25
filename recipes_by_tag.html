@@ -18,7 +18,7 @@
       <h3><a name="{{k}}">{{k|upper}}</a></h3>
       <section>
          {% for r in buckets|dict_get:k %}
-         <a href="/recipe/{{r.key}}">{{r.title}}</a> <br/>
+         {% recipe_titlecard r %}
          {% endfor %}
       </section>
    </section>

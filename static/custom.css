@@ -36,6 +36,17 @@ header a, header a:hover, header a:visited {
     margin-bottom: 1em;
 }
 
+#admincontrols a {
+    display: inline-block;
+    width: 30%;
+    line-height: 30px;
+    margin: 3px 1.4%;
+    background: #eee;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
 section {
     margin-top: 1em;
     font-size: 120%;
@@ -117,11 +128,10 @@ label {
 }
 
 div.recipe {
-    font-size: large;
+    font-size: small;
     position: relative;
-    margin: 1em 0;
-    padding: 1em;
-    padding:1em; 
+    margin: 1em;
+    padding: 0.5em 1em; 
     background:#fff;
 }
 

@@ -1,8 +1,4 @@
 * Must-have:
-  - [ ] Admin views
-        - Missing tags (once tags are added)
-        - Missing notes
-        - Missing months
   - [ ] A way to consolidate similar ingredients
   - [ ] Mobile view
         - No fonts, shadows
@@ -39,6 +35,11 @@
 
 
 * Done
+  - [X] Make query views prettier
+        - Make titlecards smaller
+  - [X] Admin views
+        - Missing tags (once tags are added)
+        - Missing months
   - [X] Tags with autocomplete
         - [X] Create/update recipe (field)
         - [X] Autocomplete in CU pages populated with existing tags
@@ -111,4 +112,5 @@
   - [ ] Drag-and-drop re-ordering for ingredients
   - [ ] Warning when navigating away from new or edit?
   - [ ] No save without a season?
+  - [ ] [[http://harvesthq.github.com/chosen/][Update search box to use this]]
 
