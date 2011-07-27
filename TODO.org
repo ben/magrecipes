@@ -4,12 +4,6 @@
         - No fonts, shadows
         - No CUD
   - [ ] Search by multiple criteria?
-  - [ ] Text pre-processing
-        - [ ] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
-        - [ ] "425F" => "425° F"
-        - [ ] Common accented words, such as "sautee" => "sauté"
-        - Regex-based list?
-        - Which fields? Ingredients too? Anything markdownable? Everything?
   - [ ] Recipes as ingredients
         - Flagged ingredient, link as note?
         - Shouldn't show up in the "Ingredients" index.
@@ -35,6 +29,12 @@
 
 
 * Done
+  - [X] Text pre-processing
+        - [X] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
+        - [X] "425F" => "425° F"
+        - Common accented words, such as "sautee" => "sauté" (nah)
+        - Regex-based list?
+        - Which fields? Ingredients too? Anything markdownable? Everything?
   - [X] Make query views prettier
         - Make titlecards smaller
   - [X] Admin views
