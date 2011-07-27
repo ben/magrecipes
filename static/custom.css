@@ -127,8 +127,11 @@ label {
     font-weight: normal;
 }
 
-div.recipe {
+.titlecard {
     font-size: small;
+}
+
+div.recipe {
     position: relative;
     margin: 1em;
     padding: 0.5em 1em; 
