@@ -168,22 +168,21 @@ this.makeHtml = function(text) {
 
    // magrecipes: custom transformations
    text = text.replace(/(\d+)F/g, "$1°F");
-   text = text.replace(/1\/4/g, "¼");
-   text = text.replace(/1\/2/g, "½");
-   text = text.replace(/3\/4/g, "¾");
-   text = text.replace(/1\/3/g, "⅓");
-   text = text.replace(/2\/3/g, "⅔");
-   text = text.replace(/1\/5/g, "⅕");
-   text = text.replace(/2\/5/g, "⅖");
-   text = text.replace(/3\/5/g, "⅗");
-   text = text.replace(/4\/5/g, "⅘");
-   text = text.replace(/1\/6/g, "⅙");
-   text = text.replace(/5\/6/g, "⅚");
-   text = text.replace(/1\/8/g, "⅛");
-   text = text.replace(/3\/8/g, "⅜");
-   text = text.replace(/5\/8/g, "⅝");
-   text = text.replace(/7\/8/g, "⅞");
-
+  text = text.replace(/1\/4/g, "\u00bc");
+  text = text.replace(/1\/2/g, "\u00bd");
+  text = text.replace(/3\/4/g, "\u00be");
+  text = text.replace(/1\/3/g, "\u2153");
+  text = text.replace(/2\/3/g, "\u2154");
+  text = text.replace(/1\/5/g, "\u2155");
+  text = text.replace(/2\/5/g, "\u2156");
+  text = text.replace(/3\/5/g, "\u2157");
+  text = text.replace(/4\/5/g, "\u2158");
+  text = text.replace(/1\/6/g, "\u2159");
+  text = text.replace(/5\/6/g, "\u215a");
+  text = text.replace(/1\/8/g, "\u215b");
+  text = text.replace(/3\/8/g, "\u215c");
+  text = text.replace(/5\/8/g, "\u215d");
+  text = text.replace(/7\/8/g, "\u215e");
 	return text;
 }
 

@@ -8,6 +8,12 @@ function stickyViewModel(obj) {
 
 viewModel = {{ json|safe }};
 
+$(viewModel.ingredients).each(function(i) {
+  this.name = $(converter.makeHtml(this.name)).html();
+  this.quantity = $(converter.makeHtml(this.quantity)).html();
+  this.note = $(converter.makeHtml(this.note)).html();
+});
+
 viewModel.instructions_html = converter.makeHtml(viewModel.instructions)
 viewModel.source_html = converter.makeHtml("Source: " + viewModel.source)
 

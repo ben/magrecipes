@@ -3,9 +3,9 @@
 <ul>
    {{each ingredients}}
    <li>
-      ${ name }
-      {{ if quantity != '' }} &ndash; ${ quantity } {{ /if }}
-      {{ if note != '' }} (${ note }) {{ /if }}
+      {{ html name }}
+      {{ if quantity != '' }} &ndash; {{ html quantity }} {{ /if }}
+      {{ if note != '' }} ({{ html note }}) {{ /if }}
    {{/each}}
 </ul>
 </script>
