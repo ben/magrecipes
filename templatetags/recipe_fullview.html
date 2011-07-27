@@ -4,8 +4,8 @@
    {{each ingredients}}
    <li>
       {{ html name }}
-      {{ if quantity != '' }} &ndash; {{ html quantity }} {{ /if }}
-      {{ if note != '' }} ({{ html note }}) {{ /if }}
+      {{ if quantity != null }} &ndash; {{ html quantity }} {{ /if }}
+      {{ if note != null }} ({{ html note }}) {{ /if }}
    {{/each}}
 </ul>
 </script>
