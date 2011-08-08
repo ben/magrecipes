@@ -1,4 +1,5 @@
 * Must-have:
+  - [ ] BUG: sticky "save" button doesn't immediately insert into list.
   - [ ] A way to consolidate similar ingredients
   - [ ] Mobile view
         - No fonts, shadows
@@ -29,6 +30,8 @@
 
 
 * Done
+  - [X] FB thumbnails: need [[http://www.labnol.org/internet/design/set-thumbnail-images-for-web-pages/6482/][hard-coded HTML]]
+  - [X] Analytics
   - [X] Text pre-processing
         - [X] [[http://tlt.its.psu.edu/suggestions/international/bylanguage/mathchart.html#fractions][Vulgar fractions]]
         - [X] "425F" => "425° F"

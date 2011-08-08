@@ -18,9 +18,12 @@ class ViewRecipeHandler(webapp.RequestHandler):
             return
 
         recipe_dict = recipe.to_dict()
+        image = None
+        if recipe.images.count(1) > 0: image = recipe.images[0].key()
 
         templatevalues = RequestContext(self.request, {
             'recipe' : recipe,
+            'image' : image,
             'json' : simplejson.dumps(recipe_dict),
             })
 
