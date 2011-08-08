@@ -2,13 +2,16 @@
 
 {% block title %} {{recipe.title}} {% endblock %}
 
+{% block head %}
+{% if image %}
+<link rel="image_src" href="/image/{{image}}/575" />
+{% endif %}
+{% endblock %}
+
 {% block content %}
-
-
 <section>
    {% recipe_fullview recipe %}
 </section>
-
 {% endblock %}
 
 
