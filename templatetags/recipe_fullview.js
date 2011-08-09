@@ -61,9 +61,9 @@ function bindStickyDeletes()
 
 $(function() {
   $('#stickyform').ajaxForm({
-    dataType: 'text/javascript',
+    dataType: 'json',
     success: function(data) {
-      viewModel.stickies.push(new stickyViewModel(JSON.parse(data)));
+      viewModel.stickies.push(new stickyViewModel(data));
       $('#stickyform textarea').attr('value', '');
       bindDeleteConfirmations();
       bindStickyDeletes();
